@@ -5,7 +5,7 @@ asserts:
     expected: '"$foo"'
   - actual: dollar2
     expected: '"${foo}"'
-  - actual: hash
+  - actual: sl2_hash
     expected: '"#{foo}"'
   - actual: at_sign
     expected: '"@foo"'

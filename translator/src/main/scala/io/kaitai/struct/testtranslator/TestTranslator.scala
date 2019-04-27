@@ -108,5 +108,6 @@ class TestTranslator(options: CLIOptions) {
     case "python" => new PythonSG(testSpec, provider)
     case "ruby" => new RubySG(testSpec, provider)
     case "rust" => new RustSG(testSpec, provider)
+    case "objc" => new ObjcSG(testSpec, provider, CppRuntimeConfig().copyAsCpp98())
   }
 }

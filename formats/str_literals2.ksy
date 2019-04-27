@@ -11,7 +11,7 @@ instances:
   dollar2:
     value: '"${foo}"'
   # Ruby
-  hash:
+  sl2_hash:
     value: '"#{foo}"'
   # Perl
   at_sign:

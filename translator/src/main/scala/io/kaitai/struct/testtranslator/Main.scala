@@ -24,7 +24,8 @@ object Main extends App {
     "php",
     "python",
     "ruby",
-    "rust"
+    "rust",
+    "objc"
   )
 
   final val INIT_OBJ_TYPE = "unique_top_level_container"

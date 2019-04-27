@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require_relative 'builder/objc_builder'
+ObjcBuilder.new( Dir.pwd + "/compiled/objc", Dir.pwd + "/spec/objc", "test_out/objc").command_line(ARGV[0..-1])
