@@ -73,7 +73,6 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
   }
 
   def trueArrayAssert(check: TestAssert, elType: DataType, elts: Seq[Ast.expr]): Unit = {
-/*    importList.add("\"helpers.h\"") */
     val elTypeName = "temp"
     val eltsStr = elts.map((x) => translator.translate(x)).mkString(", ")
     val actStr = translateAct(check.actual)
