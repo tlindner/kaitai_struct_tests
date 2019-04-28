@@ -7,13 +7,11 @@ import _root_.io.kaitai.struct.exprlang.Ast
 import _root_.io.kaitai.struct.languages.ObjcCompiler
 import _root_.io.kaitai.struct.testtranslator.{Main, TestAssert, TestSpec}
 import _root_.io.kaitai.struct.translators.ObjcTranslator
-import _root_.io.kaitai.struct.{ClassTypeProvider, CppRuntimeConfig, RuntimeConfig}
+import _root_.io.kaitai.struct.{ClassTypeProvider, RuntimeConfig}
 
-class ObjcSG(spec: TestSpec, provider: ClassTypeProvider, cppConfig: CppRuntimeConfig) extends BaseGenerator(spec) {
-  val config = RuntimeConfig(cppConfig = cppConfig)
-  val compiler = new ObjcCompiler(provider, config)
+class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(spec) {
   val className = ObjcCompiler.types2class(List(spec.id))
-  val translator = new ObjcTranslator(provider, importList, config)
+  val translator = new ObjcTranslator(provider, importList)
 
   override def fileName(name: String): String = s"test_$name.m"
 
@@ -76,7 +74,7 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider, cppConfig: CppRuntimeC
 
   def trueArrayAssert(check: TestAssert, elType: DataType, elts: Seq[Ast.expr]): Unit = {
 /*    importList.add("\"helpers.h\"") */
-    val elTypeName = compiler.kaitaiType2NativeType(elType)
+    val elTypeName = "temp"
     val eltsStr = elts.map((x) => translator.translate(x)).mkString(", ")
     val actStr = translateAct(check.actual)
     out.puts(s"COMPARE_ARRAY($elTypeName, $actStr, $eltsStr);")
