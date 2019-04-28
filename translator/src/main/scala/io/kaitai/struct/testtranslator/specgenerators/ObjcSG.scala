@@ -88,5 +88,5 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
   }
 
   def translateAct(x: Ast.expr) =
-    translator.translate(x).replace(Main.INIT_OBJ_NAME, "_r").replace(".intValue", "").replace("self.","")
+    translator.translate(x).replace(Main.INIT_OBJ_NAME, "_r").replace("self.","")
 }
