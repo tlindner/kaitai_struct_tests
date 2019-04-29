@@ -38,9 +38,6 @@ class ObjcBuilder < PartialBuilder
     list.each { |x| secondaryList.push("#{@src_dir}/" + File.basename(x)[5..-1]) }
     list = list + secondaryList
 
-    # The format for process_coerce_switch.ksy isn't currently compiling. Will check back later
-    list.delete_if { |x| x.end_with? "test_process_coerce_switch.m" }
-
     list.map { |x|
       r = File.absolute_path(x)
     }

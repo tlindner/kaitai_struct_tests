@@ -1,14 +1,15 @@
 #import "custom_fx.h"
 
-@implementation custom_fx_h
+@implementation custom_fx_t
 
-- (instancetype) initWithKey:(int)p_key andFlag:(NSNumber *)p_flag withData:(NSData *)p_some_bytes
+- (instancetype) initWith:(int)p_key, ...
 {
     self = [super init];
     if (self) {
+        va_list args;
+        va_start(args, p_key);
         self.key = p_key;
-        self.flag = p_flag;
-        self.some_bytes = p_some_bytes;
+        va_end(args);
     }
     return self;
 }

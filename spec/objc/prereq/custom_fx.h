@@ -3,14 +3,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface custom_fx_h : NSObject
+@interface custom_fx_t : NSObject
 
-- (instancetype) initWithKey:(int)p_key andFlag:(NSNumber *)p_flag withData:(NSData *)p_some_bytes;
+- (instancetype) initWith:(int)p_key, ...;
 - (NSData *)decode:(NSData *)src;
 
 @property int key;
-@property (strong) NSNumber *flag;
-@property (strong) NSData *some_bytes;
 
 @end
 

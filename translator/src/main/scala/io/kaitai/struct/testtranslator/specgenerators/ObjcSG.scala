@@ -67,9 +67,9 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
   def nullAssert(actual: Ast.expr): Unit = {
     val nullCheckStr = actual match {
       case Ast.expr.Attribute(x, Ast.identifier(attrName)) =>
-        translateAct(x) + s"->_is_null_$attrName()"
+        translateAct(x) + s".$attrName"
     }
-    out.puts(s"BOOST_CHECK($nullCheckStr);")
+    out.puts(s"XCTAssertNil($nullCheckStr);")
   }
 
   def trueArrayAssert(check: TestAssert, elType: DataType, elts: Seq[Ast.expr]): Unit = {

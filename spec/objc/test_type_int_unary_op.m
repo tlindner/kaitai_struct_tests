@@ -23,8 +23,8 @@
 
 - (void)test_type_int_unary_op {
     XCTAssertEqual(_r.value_s2.shortValue, 16720);
-    XCTAssertEqual(_r.value_s8.longLongValue, 4706543082108963651);
+    XCTAssertEqual(_r.value_s8.longLongValue, 4706543082108963651LL);
     XCTAssertEqual(_r.unary_s2.unsignedLongLongValue, -16720);
-    XCTAssertEqual(_r.unary_s8.longLongValue, -4706543082108963651);
+    XCTAssertEqual(_r.unary_s8.longLongValue, -4706543082108963651LL);
 }
 @end
