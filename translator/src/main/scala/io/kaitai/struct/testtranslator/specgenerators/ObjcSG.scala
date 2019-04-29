@@ -55,7 +55,7 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
   def simpleAssert(check: TestAssert): Unit = {
     val actType = translator.detectType(check.actual)
     val actStr = translateAct(check.actual)
-    val expStr = translator.translate(check.expected)
+    val expStr = translateExp(check.expected)
     actType match {
       case _: NumericType | _: BooleanType =>
         out.puts(s"XCTAssertEqual($actStr, $expStr);")
@@ -89,4 +89,7 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
 
   def translateAct(x: Ast.expr) =
     translator.translate(x).replace(Main.INIT_OBJ_NAME, "_r").replace("self.","")
+
+  def translateExp(x: Ast.expr) =
+    translator.translate(x).replace("self._root", "_r._root")
 }

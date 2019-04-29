@@ -20,12 +20,12 @@ object Main extends App {
     //"go",
     "java",
     "javascript",
+    "objc",
     "perl",
     "php",
     "python",
     "ruby",
-    "rust",
-    "objc"
+    "rust"
   )
 
   final val INIT_OBJ_TYPE = "unique_top_level_container"
