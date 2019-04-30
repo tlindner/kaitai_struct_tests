@@ -22,8 +22,8 @@
 }
 
 - (void)test_expr_enum {
-    XCTAssertEqualObjects(_r.const_dog, [@"dog" KSENUMWithDictionary:_r._root._animal ]);
-    XCTAssertEqualObjects(_r.derived_boom, [@"boom" KSENUMWithDictionary:_r._root._animal ]);
-    XCTAssertEqualObjects(_r.derived_dog, [@"dog" KSENUMWithDictionary:_r._root._animal ]);
+    XCTAssertEqualObjects(_r.const_dog, [@"dog" KSENUMWithDictionary:expr_enum_t._animal]);
+    XCTAssertEqualObjects(_r.derived_boom, [@"boom" KSENUMWithDictionary:expr_enum_t._animal]);
+    XCTAssertEqualObjects(_r.derived_dog, [@"dog" KSENUMWithDictionary:expr_enum_t._animal]);
 }
 @end
