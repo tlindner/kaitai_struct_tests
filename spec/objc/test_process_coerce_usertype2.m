@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_coerce_bytes.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [process_coerce_usertype2_t structWith:ks];
+    self.r = [process_coerce_usertype2_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_process_coerce_usertype2 {
-    XCTAssertEqual(_r.records[0].flag.unsignedCharValue, 0);
-    XCTAssertEqual(_r.records[0].buf.value.unsignedIntValue, 1094795585);
-    XCTAssertEqual(_r.records[1].flag.unsignedCharValue, 1);
-    XCTAssertEqual(_r.records[1].buf.value.unsignedIntValue, 1111638594);
+    XCTAssertEqual(((record_process_coerce_usertype2_t *)((process_coerce_usertype2_t *)_r).records[0]).flag.unsignedCharValue, 0);
+    XCTAssertEqual(((foo_process_coerce_usertype2_t *)((record_process_coerce_usertype2_t *)((process_coerce_usertype2_t *)_r).records[0]).buf).value.unsignedIntValue, 1094795585);
+    XCTAssertEqual(((record_process_coerce_usertype2_t *)((process_coerce_usertype2_t *)_r).records[1]).flag.unsignedCharValue, 1);
+    XCTAssertEqual(((foo_process_coerce_usertype2_t *)((record_process_coerce_usertype2_t *)((process_coerce_usertype2_t *)_r).records[1]).buf).value.unsignedIntValue, 1111638594);
 }
 @end

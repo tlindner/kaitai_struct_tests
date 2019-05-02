@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [enum_deep_t structWith:ks];
+    self.r = [enum_deep_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_enum_deep {
-    XCTAssertEqualObjects(_r.pet_1, [@"cat" KSENUMWithDictionary:container1_enum_deep_t._animal]);
-    XCTAssertEqualObjects(_r.pet_2, [@"hare" KSENUMWithDictionary:container2_container1_enum_deep_t._animal]);
+    XCTAssertEqualObjects(((enum_deep_t *)_r).pet_1, [@"cat" KSENUMWithDictionary:container1_enum_deep_t._animal]);
+    XCTAssertEqualObjects(((enum_deep_t *)_r).pet_2, [@"hare" KSENUMWithDictionary:container2_container1_enum_deep_t._animal]);
 }
 @end

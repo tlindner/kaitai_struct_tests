@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/floating_points.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [float_to_i_t structWith:ks];
+    self.r = [float_to_i_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,13 +22,13 @@
 }
 
 - (void)test_float_to_i {
-    XCTAssertEqual(_r.single_value.floatValue, 0.5);
-    XCTAssertEqual(_r.double_value.doubleValue, 0.25);
-    XCTAssertEqual(_r.single_i.unsignedLongLongValue, 0);
-    XCTAssertEqual(_r.double_i.unsignedLongLongValue, 0);
-    XCTAssertEqual(_r.float1_i.unsignedLongLongValue, 1);
-    XCTAssertEqual(_r.float2_i.unsignedLongLongValue, 1);
-    XCTAssertEqual(_r.float3_i.unsignedLongLongValue, 1);
-    XCTAssertEqual(_r.float4_i.unsignedLongLongValue, -2);
+    XCTAssertEqual(((float_to_i_t *)_r).single_value.floatValue, 0.5);
+    XCTAssertEqual(((float_to_i_t *)_r).double_value.doubleValue, 0.25);
+    XCTAssertEqual(((float_to_i_t *)_r).single_i.unsignedLongLongValue, 0);
+    XCTAssertEqual(((float_to_i_t *)_r).double_i.unsignedLongLongValue, 0);
+    XCTAssertEqual(((float_to_i_t *)_r).float1_i.unsignedLongLongValue, 1);
+    XCTAssertEqual(((float_to_i_t *)_r).float2_i.unsignedLongLongValue, 1);
+    XCTAssertEqual(((float_to_i_t *)_r).float3_i.unsignedLongLongValue, 1);
+    XCTAssertEqual(((float_to_i_t *)_r).float4_i.unsignedLongLongValue, -2);
 }
 @end

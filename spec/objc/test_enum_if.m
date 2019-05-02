@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/if_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [enum_if_t structWith:ks];
+    self.r = [enum_if_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,12 +22,12 @@
 }
 
 - (void)test_enum_if {
-    XCTAssertEqualObjects(_r.op1.opcode, [@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]);
-    XCTAssertEqualObjects(_r.op1.arg_str.str, @"foo");
-    XCTAssertEqualObjects(_r.op2.opcode, [@"a_tuple" KSENUMWithDictionary:enum_if_t._opcodes]);
-    XCTAssertEqual(_r.op2.arg_tuple.num1.unsignedCharValue, 66);
-    XCTAssertEqual(_r.op2.arg_tuple.num2.unsignedCharValue, 67);
-    XCTAssertEqualObjects(_r.op3.opcode, [@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]);
-    XCTAssertEqualObjects(_r.op3.arg_str.str, @"bar");
+    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op1).opcode, [@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]);
+    XCTAssertEqualObjects(((arg_str_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op1).arg_str).str, @"foo");
+    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op2).opcode, [@"a_tuple" KSENUMWithDictionary:enum_if_t._opcodes]);
+    XCTAssertEqual(((arg_tuple_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op2).arg_tuple).num1.unsignedCharValue, 66);
+    XCTAssertEqual(((arg_tuple_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op2).arg_tuple).num2.unsignedCharValue, 67);
+    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op3).opcode, [@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]);
+    XCTAssertEqualObjects(((arg_str_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op3).arg_str).str, @"bar");
 }
 @end

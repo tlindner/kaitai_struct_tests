@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/if_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [if_struct_t structWith:ks];
+    self.r = [if_struct_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,12 +22,12 @@
 }
 
 - (void)test_if_struct {
-    XCTAssertEqual(_r.op1.opcode.unsignedCharValue, 83);
-    XCTAssertEqualObjects(_r.op1.arg_str.str, @"foo");
-    XCTAssertEqual(_r.op2.opcode.unsignedCharValue, 84);
-    XCTAssertEqual(_r.op2.arg_tuple.num1.unsignedCharValue, 66);
-    XCTAssertEqual(_r.op2.arg_tuple.num2.unsignedCharValue, 67);
-    XCTAssertEqual(_r.op3.opcode.unsignedCharValue, 83);
-    XCTAssertEqualObjects(_r.op3.arg_str.str, @"bar");
+    XCTAssertEqual(((operation_if_struct_t *)((if_struct_t *)_r).op1).opcode.unsignedCharValue, 83);
+    XCTAssertEqualObjects(((arg_str_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op1).arg_str).str, @"foo");
+    XCTAssertEqual(((operation_if_struct_t *)((if_struct_t *)_r).op2).opcode.unsignedCharValue, 84);
+    XCTAssertEqual(((arg_tuple_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op2).arg_tuple).num1.unsignedCharValue, 66);
+    XCTAssertEqual(((arg_tuple_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op2).arg_tuple).num2.unsignedCharValue, 67);
+    XCTAssertEqual(((operation_if_struct_t *)((if_struct_t *)_r).op3).opcode.unsignedCharValue, 83);
+    XCTAssertEqualObjects(((arg_str_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op3).arg_str).str, @"bar");
 }
 @end

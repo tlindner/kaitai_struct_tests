@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [if_values_t structWith:ks];
+    self.r = [if_values_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,11 +22,11 @@
 }
 
 - (void)test_if_values {
-    XCTAssertEqual(_r.codes[0].opcode.unsignedCharValue, 80);
-    XCTAssertEqual(_r.codes[0].half_opcode.unsignedLongLongValue, 40);
-    XCTAssertEqual(_r.codes[1].opcode.unsignedCharValue, 65);
-    XCTAssertNil(_r.codes[1].half_opcode);
-    XCTAssertEqual(_r.codes[2].opcode.unsignedCharValue, 67);
-    XCTAssertNil(_r.codes[2].half_opcode);
+    XCTAssertEqual(((code_if_values_t *)((if_values_t *)_r).codes[0]).opcode.unsignedCharValue, 80);
+    XCTAssertEqual(((code_if_values_t *)((if_values_t *)_r).codes[0]).half_opcode.unsignedLongLongValue, 40);
+    XCTAssertEqual(((code_if_values_t *)((if_values_t *)_r).codes[1]).opcode.unsignedCharValue, 65);
+    XCTAssertNil(((if_values_t *)_r).codes[1].half_opcode);
+    XCTAssertEqual(((code_if_values_t *)((if_values_t *)_r).codes[2]).opcode.unsignedCharValue, 67);
+    XCTAssertNil(((if_values_t *)_r).codes[2].half_opcode);
 }
 @end

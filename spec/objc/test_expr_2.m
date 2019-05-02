@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_encodings.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [expr_2_t structWith:ks];
+    self.r = [expr_2_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,22 +22,22 @@
 }
 
 - (void)test_expr_2 {
-    XCTAssertEqual(_r.str1.len_orig.unsignedShortValue, 10);
-    XCTAssertEqual(_r.str1.len_mod.unsignedLongLongValue, 7);
-    XCTAssertEqualObjects(_r.str1.str, @"Some AS");
-    XCTAssertEqual(_r.str1_len.unsignedLongLongValue, 7);
-    XCTAssertEqual(_r.str1_len_mod.unsignedLongLongValue, 7);
-    XCTAssertEqual(_r.str1_byte1.unsignedCharValue, 73);
-    XCTAssertEqual(_r.str1_avg.unsignedLongLongValue, 73);
-    XCTAssertEqualObjects(_r.str1_char5, @"e");
-    XCTAssertEqual(_r.str1_tuple5.byte0.unsignedCharValue, 101);
-    XCTAssertEqual(_r.str1_tuple5.byte0.unsignedCharValue, 101);
-    XCTAssertEqual(_r.str1_tuple5.byte1.unsignedCharValue, 32);
-    XCTAssertEqual(_r.str1_tuple5.byte2.unsignedCharValue, 65);
-    XCTAssertEqual(_r.str1_tuple5.avg.unsignedLongLongValue, 48);
-    XCTAssertEqual(_r.str2_tuple5.byte0.unsignedCharValue, 101);
-    XCTAssertEqual(_r.str2_tuple5.byte1.unsignedCharValue, 32);
-    XCTAssertEqual(_r.str2_tuple5.byte2.unsignedCharValue, 65);
-    XCTAssertEqual(_r.str2_tuple5.avg.unsignedLongLongValue, 48);
+    XCTAssertEqual(((mod_str_expr_2_t *)((expr_2_t *)_r).str1).len_orig.unsignedShortValue, 10);
+    XCTAssertEqual(((mod_str_expr_2_t *)((expr_2_t *)_r).str1).len_mod.unsignedLongLongValue, 7);
+    XCTAssertEqualObjects(((mod_str_expr_2_t *)((expr_2_t *)_r).str1).str, @"Some AS");
+    XCTAssertEqual(((expr_2_t *)_r).str1_len.unsignedLongLongValue, 7);
+    XCTAssertEqual(((expr_2_t *)_r).str1_len_mod.unsignedLongLongValue, 7);
+    XCTAssertEqual(((expr_2_t *)_r).str1_byte1.unsignedCharValue, 73);
+    XCTAssertEqual(((expr_2_t *)_r).str1_avg.unsignedLongLongValue, 73);
+    XCTAssertEqualObjects(((expr_2_t *)_r).str1_char5, @"e");
+    XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).byte0.unsignedCharValue, 101);
+    XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).byte0.unsignedCharValue, 101);
+    XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).byte1.unsignedCharValue, 32);
+    XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).byte2.unsignedCharValue, 65);
+    XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).avg.unsignedLongLongValue, 48);
+    XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str2_tuple5).byte0.unsignedCharValue, 101);
+    XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str2_tuple5).byte1.unsignedCharValue, 32);
+    XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str2_tuple5).byte2.unsignedCharValue, 65);
+    XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str2_tuple5).avg.unsignedLongLongValue, 48);
 }
 @end

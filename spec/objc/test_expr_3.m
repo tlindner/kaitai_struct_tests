@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [expr_3_t structWith:ks];
+    self.r = [expr_3_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,17 +22,17 @@
 }
 
 - (void)test_expr_3 {
-    XCTAssertEqual(_r.one.unsignedCharValue, 80);
-    XCTAssertEqualObjects(_r.two, @"ACK");
-    XCTAssertEqualObjects(_r.three, @"@ACK");
-    XCTAssertEqualObjects(_r.four, @"_ACK_");
-    XCTAssertEqual(_r.is_str_eq.boolValue, YES);
-    XCTAssertEqual(_r.is_str_ne.boolValue, NO);
-    XCTAssertEqual(_r.is_str_lt.boolValue, YES);
-    XCTAssertEqual(_r.is_str_gt.boolValue, NO);
-    XCTAssertEqual(_r.is_str_le.boolValue, YES);
-    XCTAssertEqual(_r.is_str_ge.boolValue, NO);
-    XCTAssertEqual(_r.is_str_lt2.boolValue, YES);
-    XCTAssertEqual(_r.test_not.boolValue, YES);
+    XCTAssertEqual(((expr_3_t *)_r).one.unsignedCharValue, 80);
+    XCTAssertEqualObjects(((expr_3_t *)_r).two, @"ACK");
+    XCTAssertEqualObjects(((expr_3_t *)_r).three, @"@ACK");
+    XCTAssertEqualObjects(((expr_3_t *)_r).four, @"_ACK_");
+    XCTAssertEqual(((expr_3_t *)_r).is_str_eq.boolValue, YES);
+    XCTAssertEqual(((expr_3_t *)_r).is_str_ne.boolValue, NO);
+    XCTAssertEqual(((expr_3_t *)_r).is_str_lt.boolValue, YES);
+    XCTAssertEqual(((expr_3_t *)_r).is_str_gt.boolValue, NO);
+    XCTAssertEqual(((expr_3_t *)_r).is_str_le.boolValue, YES);
+    XCTAssertEqual(((expr_3_t *)_r).is_str_ge.boolValue, NO);
+    XCTAssertEqual(((expr_3_t *)_r).is_str_lt2.boolValue, YES);
+    XCTAssertEqual(((expr_3_t *)_r).test_not.boolValue, YES);
 }
 @end

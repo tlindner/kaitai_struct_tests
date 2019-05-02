@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [expr_enum_t structWith:ks];
+    self.r = [expr_enum_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_expr_enum {
-    XCTAssertEqualObjects(_r.const_dog, [@"dog" KSENUMWithDictionary:expr_enum_t._animal]);
-    XCTAssertEqualObjects(_r.derived_boom, [@"boom" KSENUMWithDictionary:expr_enum_t._animal]);
-    XCTAssertEqualObjects(_r.derived_dog, [@"dog" KSENUMWithDictionary:expr_enum_t._animal]);
+    XCTAssertEqualObjects(((expr_enum_t *)_r).const_dog, [@"dog" KSENUMWithDictionary:expr_enum_t._animal]);
+    XCTAssertEqualObjects(((expr_enum_t *)_r).derived_boom, [@"boom" KSENUMWithDictionary:expr_enum_t._animal]);
+    XCTAssertEqualObjects(((expr_enum_t *)_r).derived_dog, [@"dog" KSENUMWithDictionary:expr_enum_t._animal]);
 }
 @end

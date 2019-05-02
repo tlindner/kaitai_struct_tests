@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_coerce_bytes.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [process_coerce_bytes_t structWith:ks];
+    self.r = [process_coerce_bytes_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_process_coerce_bytes {
-    XCTAssertEqual(_r.records[0].flag.unsignedCharValue, 0);
-    XCTAssertEqualObjects(_r.records[0].buf, [NSData dataWithBytes:"\x41\x41\x41\x41" length:4]);
-    XCTAssertEqual(_r.records[1].flag.unsignedCharValue, 1);
-    XCTAssertEqualObjects(_r.records[1].buf, [NSData dataWithBytes:"\x42\x42\x42\x42" length:4]);
+    XCTAssertEqual(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[0]).flag.unsignedCharValue, 0);
+    XCTAssertEqualObjects(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[0]).buf, [NSData dataWithBytes:"\x41\x41\x41\x41" length:4]);
+    XCTAssertEqual(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[1]).flag.unsignedCharValue, 1);
+    XCTAssertEqualObjects(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[1]).buf, [NSData dataWithBytes:"\x42\x42\x42\x42" length:4]);
 }
 @end

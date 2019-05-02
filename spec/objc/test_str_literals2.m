@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [str_literals2_t structWith:ks];
+    self.r = [str_literals2_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_str_literals2 {
-    XCTAssertEqualObjects(_r.dollar1, @"$foo");
-    XCTAssertEqualObjects(_r.dollar2, @"${foo}");
-    XCTAssertEqualObjects(_r.sl2_hash, @"#{foo}");
-    XCTAssertEqualObjects(_r.at_sign, @"@foo");
+    XCTAssertEqualObjects(((str_literals2_t *)_r).dollar1, @"$foo");
+    XCTAssertEqualObjects(((str_literals2_t *)_r).dollar2, @"${foo}");
+    XCTAssertEqualObjects(((str_literals2_t *)_r).sl2_hash, @"#{foo}");
+    XCTAssertEqualObjects(((str_literals2_t *)_r).at_sign, @"@foo");
 }
 @end

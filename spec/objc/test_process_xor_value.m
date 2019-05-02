@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_xor_1.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [process_xor_value_t structWith:ks];
+    self.r = [process_xor_value_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_process_xor_value {
-    XCTAssertEqual(_r.key.unsignedCharValue, 255);
-    XCTAssertEqualObjects(_r.buf, [NSData dataWithBytes:"\x66\x6F\x6F\x20\x62\x61\x72" length:7]);
+    XCTAssertEqual(((process_xor_value_t *)_r).key.unsignedCharValue, 255);
+    XCTAssertEqualObjects(((process_xor_value_t *)_r).buf, [NSData dataWithBytes:"\x66\x6F\x6F\x20\x62\x61\x72" length:7]);
 }
 @end

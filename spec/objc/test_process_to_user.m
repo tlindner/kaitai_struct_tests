@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_rotate.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [process_to_user_t structWith:ks];
+    self.r = [process_to_user_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_process_to_user {
-    XCTAssertEqualObjects(_r.buf1.str, @"Hello");
+    XCTAssertEqualObjects(((just_str_process_to_user_t *)((process_to_user_t *)_r).buf1).str, @"Hello");
 }
 @end

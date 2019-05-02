@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [enum_to_i_t structWith:ks];
+    self.r = [enum_to_i_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,10 +22,10 @@
 }
 
 - (void)test_enum_to_i {
-    XCTAssertEqualObjects(_r.pet_1, [@"cat" KSENUMWithDictionary:enum_to_i_t._animal]);
-    XCTAssertEqualObjects(_r.pet_2, [@"chicken" KSENUMWithDictionary:enum_to_i_t._animal]);
-    XCTAssertEqual(_r.pet_1_i.unsignedLongLongValue, 7);
-    XCTAssertEqual(_r.pet_1_mod.unsignedLongLongValue, 32775);
-    XCTAssertEqual(_r.one_lt_two.boolValue, YES);
+    XCTAssertEqualObjects(((enum_to_i_t *)_r).pet_1, [@"cat" KSENUMWithDictionary:enum_to_i_t._animal]);
+    XCTAssertEqualObjects(((enum_to_i_t *)_r).pet_2, [@"chicken" KSENUMWithDictionary:enum_to_i_t._animal]);
+    XCTAssertEqual(((enum_to_i_t *)_r).pet_1_i.unsignedLongLongValue, 7);
+    XCTAssertEqual(((enum_to_i_t *)_r).pet_1_mod.unsignedLongLongValue, 32775);
+    XCTAssertEqual(((enum_to_i_t *)_r).one_lt_two.boolValue, YES);
 }
 @end

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [js_signed_right_shift_t structWith:ks];
+    self.r = [js_signed_right_shift_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_js_signed_right_shift {
-    XCTAssertEqual(_r.should_be_40000000.unsignedLongLongValue, 1073741824);
-    XCTAssertEqual(_r.should_be_a00000.unsignedLongLongValue, 10485760);
+    XCTAssertEqual(((js_signed_right_shift_t *)_r).should_be_40000000.unsignedLongLongValue, 1073741824);
+    XCTAssertEqual(((js_signed_right_shift_t *)_r).should_be_a00000.unsignedLongLongValue, 10485760);
 }
 @end

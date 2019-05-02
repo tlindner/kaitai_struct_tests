@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [type_int_unary_op_t structWith:ks];
+    self.r = [type_int_unary_op_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_type_int_unary_op {
-    XCTAssertEqual(_r.value_s2.shortValue, 16720);
-    XCTAssertEqual(_r.value_s8.longLongValue, 4706543082108963651LL);
-    XCTAssertEqual(_r.unary_s2.unsignedLongLongValue, -16720);
-    XCTAssertEqual(_r.unary_s8.longLongValue, -4706543082108963651LL);
+    XCTAssertEqual(((type_int_unary_op_t *)_r).value_s2.shortValue, 16720);
+    XCTAssertEqual(((type_int_unary_op_t *)_r).value_s8.longLongValue, 4706543082108963651LL);
+    XCTAssertEqual(((type_int_unary_op_t *)_r).unary_s2.unsignedLongLongValue, -16720);
+    XCTAssertEqual(((type_int_unary_op_t *)_r).unary_s8.longLongValue, -4706543082108963651LL);
 }
 @end

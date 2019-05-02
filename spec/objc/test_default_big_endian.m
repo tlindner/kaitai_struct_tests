@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [default_big_endian_t structWith:ks];
+    self.r = [default_big_endian_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_default_big_endian {
-    XCTAssertEqual(_r.one.unsignedIntValue, 117440512);
+    XCTAssertEqual(((default_big_endian_t *)_r).one.unsignedIntValue, 117440512);
 }
 @end

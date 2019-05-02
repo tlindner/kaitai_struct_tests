@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_negative.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [enum_negative_t structWith:ks];
+    self.r = [enum_negative_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_enum_negative {
-    XCTAssertEqualObjects(_r.f1, [@"negative_one" KSENUMWithDictionary:enum_negative_t._constants]);
-    XCTAssertEqualObjects(_r.f2, [@"positive_one" KSENUMWithDictionary:enum_negative_t._constants]);
+    XCTAssertEqualObjects(((enum_negative_t *)_r).f1, [@"negative_one" KSENUMWithDictionary:enum_negative_t._constants]);
+    XCTAssertEqualObjects(((enum_negative_t *)_r).f2, [@"positive_one" KSENUMWithDictionary:enum_negative_t._constants]);
 }
 @end

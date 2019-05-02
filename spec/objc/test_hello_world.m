@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [hello_world_t structWith:ks];
+    self.r = [hello_world_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_hello_world {
-    XCTAssertEqual(_r.one.unsignedCharValue, 80);
+    XCTAssertEqual(((hello_world_t *)_r).one.unsignedCharValue, 80);
 }
 @end

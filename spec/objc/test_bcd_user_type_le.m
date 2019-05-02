@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/bcd_user_type_le.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [bcd_user_type_le_t structWith:ks];
+    self.r = [bcd_user_type_le_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,11 +22,11 @@
 }
 
 - (void)test_bcd_user_type_le {
-    XCTAssertEqual(_r.ltr.as_int.unsignedLongLongValue, 12345678);
-    XCTAssertEqualObjects(_r.ltr.as_str, @"12345678");
-    XCTAssertEqual(_r.rtl.as_int.unsignedLongLongValue, 87654321);
-    XCTAssertEqualObjects(_r.rtl.as_str, @"87654321");
-    XCTAssertEqual(_r.leading_zero_ltr.as_int.unsignedLongLongValue, 123456);
-    XCTAssertEqualObjects(_r.leading_zero_ltr.as_str, @"00123456");
+    XCTAssertEqual(((ltr_obj_bcd_user_type_le_t *)((bcd_user_type_le_t *)_r).ltr).as_int.unsignedLongLongValue, 12345678);
+    XCTAssertEqualObjects(((ltr_obj_bcd_user_type_le_t *)((bcd_user_type_le_t *)_r).ltr).as_str, @"12345678");
+    XCTAssertEqual(((rtl_obj_bcd_user_type_le_t *)((bcd_user_type_le_t *)_r).rtl).as_int.unsignedLongLongValue, 87654321);
+    XCTAssertEqualObjects(((rtl_obj_bcd_user_type_le_t *)((bcd_user_type_le_t *)_r).rtl).as_str, @"87654321");
+    XCTAssertEqual(((leading_zero_ltr_obj_bcd_user_type_le_t *)((bcd_user_type_le_t *)_r).leading_zero_ltr).as_int.unsignedLongLongValue, 123456);
+    XCTAssertEqualObjects(((leading_zero_ltr_obj_bcd_user_type_le_t *)((bcd_user_type_le_t *)_r).leading_zero_ltr).as_str, @"00123456");
 }
 @end

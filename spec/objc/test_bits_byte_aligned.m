@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [bits_byte_aligned_t structWith:ks];
+    self.r = [bits_byte_aligned_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,14 +22,14 @@
 }
 
 - (void)test_bits_byte_aligned {
-    XCTAssertEqual(_r.one.unsignedCharValue, 20);
-    XCTAssertEqual(_r.byte_1.unsignedCharValue, 65);
-    XCTAssertEqual(_r.two.unsignedCharValue, 2);
-    XCTAssertEqual(_r.three.boolValue, NO);
-    XCTAssertEqual(_r.byte_2.unsignedCharValue, 75);
-    XCTAssertEqual(_r.four.unsignedShortValue, 2892);
-    XCTAssertEqualObjects(_r.byte_3, [NSData dataWithBytes:"\xFF" length:1]);
-    XCTAssertEqual(_r.full_byte.unsignedCharValue, 255);
-    XCTAssertEqual(_r.byte_4.unsignedCharValue, 80);
+    XCTAssertEqual(((bits_byte_aligned_t *)_r).one.unsignedCharValue, 20);
+    XCTAssertEqual(((bits_byte_aligned_t *)_r).byte_1.unsignedCharValue, 65);
+    XCTAssertEqual(((bits_byte_aligned_t *)_r).two.unsignedCharValue, 2);
+    XCTAssertEqual(((bits_byte_aligned_t *)_r).three.boolValue, NO);
+    XCTAssertEqual(((bits_byte_aligned_t *)_r).byte_2.unsignedCharValue, 75);
+    XCTAssertEqual(((bits_byte_aligned_t *)_r).four.unsignedShortValue, 2892);
+    XCTAssertEqualObjects(((bits_byte_aligned_t *)_r).byte_3, [NSData dataWithBytes:"\xFF" length:1]);
+    XCTAssertEqual(((bits_byte_aligned_t *)_r).full_byte.unsignedCharValue, 255);
+    XCTAssertEqual(((bits_byte_aligned_t *)_r).byte_4.unsignedCharValue, 80);
 }
 @end

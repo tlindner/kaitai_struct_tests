@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/expr_array.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [expr_array_t structWith:ks];
+    self.r = [expr_array_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,20 +22,20 @@
 }
 
 - (void)test_expr_array {
-    XCTAssertEqual(_r.aint_size.unsignedLongLongValue, 4);
-    XCTAssertEqual(_r.aint_first.unsignedIntValue, 7657765);
-    XCTAssertEqual(_r.aint_last.unsignedIntValue, 16272640);
-    XCTAssertEqual(_r.aint_min.unsignedIntValue, 49185);
-    XCTAssertEqual(_r.aint_max.unsignedIntValue, 1123362332);
-    XCTAssertEqual(_r.afloat_size.unsignedLongLongValue, 3);
-    XCTAssertEqual(_r.afloat_first.doubleValue, -2.6839530254859364E-121);
-    XCTAssertEqual(_r.afloat_last.doubleValue, -1.1103359815095273E-175);
-    XCTAssertEqual(_r.afloat_min.doubleValue, -8.754689149998834E+288);
-    XCTAssertEqual(_r.afloat_max.doubleValue, -1.1103359815095273E-175);
-    XCTAssertEqual(_r.astr_size.unsignedLongLongValue, 3);
-    XCTAssertEqualObjects(_r.astr_first, @"foo");
-    XCTAssertEqualObjects(_r.astr_last, @"baz");
-    XCTAssertEqualObjects(_r.astr_min, @"bar");
-    XCTAssertEqualObjects(_r.astr_max, @"foo");
+    XCTAssertEqual(((expr_array_t *)_r).aint_size.unsignedLongLongValue, 4);
+    XCTAssertEqual(((expr_array_t *)_r).aint_first.unsignedIntValue, 7657765);
+    XCTAssertEqual(((expr_array_t *)_r).aint_last.unsignedIntValue, 16272640);
+    XCTAssertEqual(((expr_array_t *)_r).aint_min.unsignedIntValue, 49185);
+    XCTAssertEqual(((expr_array_t *)_r).aint_max.unsignedIntValue, 1123362332);
+    XCTAssertEqual(((expr_array_t *)_r).afloat_size.unsignedLongLongValue, 3);
+    XCTAssertEqual(((expr_array_t *)_r).afloat_first.doubleValue, -2.6839530254859364E-121);
+    XCTAssertEqual(((expr_array_t *)_r).afloat_last.doubleValue, -1.1103359815095273E-175);
+    XCTAssertEqual(((expr_array_t *)_r).afloat_min.doubleValue, -8.754689149998834E+288);
+    XCTAssertEqual(((expr_array_t *)_r).afloat_max.doubleValue, -1.1103359815095273E-175);
+    XCTAssertEqual(((expr_array_t *)_r).astr_size.unsignedLongLongValue, 3);
+    XCTAssertEqualObjects(((expr_array_t *)_r).astr_first, @"foo");
+    XCTAssertEqualObjects(((expr_array_t *)_r).astr_last, @"baz");
+    XCTAssertEqualObjects(((expr_array_t *)_r).astr_min, @"bar");
+    XCTAssertEqualObjects(((expr_array_t *)_r).astr_max, @"foo");
 }
 @end

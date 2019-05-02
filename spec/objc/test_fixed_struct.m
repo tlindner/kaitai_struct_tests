@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [fixed_struct_t structWith:ks];
+    self.r = [fixed_struct_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,25 +22,25 @@
 }
 
 - (void)test_fixed_struct {
-    XCTAssertEqual(_r.hdr.uint8.unsignedCharValue, 255);
-    XCTAssertEqual(_r.hdr.uint16.unsignedShortValue, 65535);
-    XCTAssertEqual(_r.hdr.uint32.unsignedIntValue, 4294967295UL);
-    XCTAssertEqual(_r.hdr.uint64.unsignedLongLongValue, 18446744073709551615ULL);
-    XCTAssertEqual(_r.hdr.sint8.charValue, -1);
-    XCTAssertEqual(_r.hdr.sint16.shortValue, -1);
-    XCTAssertEqual(_r.hdr.sint32.intValue, -1);
-    XCTAssertEqual(_r.hdr.sint64.longLongValue, -1);
-    XCTAssertEqual(_r.hdr.uint16le.unsignedShortValue, 66);
-    XCTAssertEqual(_r.hdr.uint32le.unsignedIntValue, 66);
-    XCTAssertEqual(_r.hdr.uint64le.unsignedLongLongValue, 66);
-    XCTAssertEqual(_r.hdr.sint16le.shortValue, -66);
-    XCTAssertEqual(_r.hdr.sint32le.intValue, -66);
-    XCTAssertEqual(_r.hdr.sint64le.longLongValue, -66);
-    XCTAssertEqual(_r.hdr.uint16be.unsignedShortValue, 66);
-    XCTAssertEqual(_r.hdr.uint32be.unsignedIntValue, 66);
-    XCTAssertEqual(_r.hdr.uint64be.unsignedLongLongValue, 66);
-    XCTAssertEqual(_r.hdr.sint16be.shortValue, -66);
-    XCTAssertEqual(_r.hdr.sint32be.intValue, -66);
-    XCTAssertEqual(_r.hdr.sint64be.longLongValue, -66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint8.unsignedCharValue, 255);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint16.unsignedShortValue, 65535);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint32.unsignedIntValue, 4294967295UL);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint64.unsignedLongLongValue, 18446744073709551615ULL);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint8.charValue, -1);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint16.shortValue, -1);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint32.intValue, -1);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint64.longLongValue, -1);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint16le.unsignedShortValue, 66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint32le.unsignedIntValue, 66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint64le.unsignedLongLongValue, 66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint16le.shortValue, -66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint32le.intValue, -66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint64le.longLongValue, -66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint16be.unsignedShortValue, 66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint32be.unsignedIntValue, 66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint64be.unsignedLongLongValue, 66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint16be.shortValue, -66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint32be.intValue, -66);
+    XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint64be.longLongValue, -66);
 }
 @end

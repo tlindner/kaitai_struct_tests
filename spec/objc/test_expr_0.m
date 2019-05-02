@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_encodings.bin"];
     kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [expr_0_t structWith:ks];
+    self.r = [expr_0_t initialize:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_expr_0 {
-    XCTAssertEqual(_r.must_be_f7.unsignedLongLongValue, 247);
-    XCTAssertEqualObjects(_r.must_be_abc123, @"abc123");
+    XCTAssertEqual(((expr_0_t *)_r).must_be_f7.unsignedLongLongValue, 247);
+    XCTAssertEqualObjects(((expr_0_t *)_r).must_be_abc123, @"abc123");
 }
 @end
