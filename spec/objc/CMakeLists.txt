@@ -6,7 +6,7 @@ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
 find_package(ZLIB REQUIRED)
 
-set(CMAKE_C_FLAGS "-F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -ferror-limit=1 -fobjc-arc -fmodules -mmacosx-version-min=10.13 --sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -arch x86_64")
+set(CMAKE_C_FLAGS "-F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -ferror-limit=1 -fobjc-arc -fmodules -mmacosx-version-min=10.13 --sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -arch x86_64")
 set(CMAKE_EXE_LINKER_FLAGS  "-rpath /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -framework Cocoa -framework XCTest")
 
 set(RUNTIME_SRC_PATH ../../../runtime/objc)
