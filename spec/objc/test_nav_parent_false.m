@@ -22,15 +22,10 @@
 }
 
 - (void)test_nav_parent_false {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(child_size)),IntNum(3))*/
     XCTAssertEqual(((nav_parent_false_t *)_r).child_size.unsignedCharValue, 3);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(element_a)),identifier(foo)),identifier(code)),IntNum(73))*/
     XCTAssertEqual(((child_nav_parent_false_t *)((parent_a_nav_parent_false_t *)((nav_parent_false_t *)_r).element_a).foo).code.unsignedCharValue, 73);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(element_a)),identifier(foo)),identifier(more)),List(ArrayBuffer(IntNum(49), IntNum(50), IntNum(51))))*/
     XCTAssertEqualObjects(((child_nav_parent_false_t *)((parent_a_nav_parent_false_t *)((nav_parent_false_t *)_r).element_a).foo).more, ([NSData dataWithBytes:"\x31\x32\x33" length:3]));
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(element_a)),identifier(bar)),identifier(foo)),identifier(code)),IntNum(66))*/
     XCTAssertEqual(((child_nav_parent_false_t *)((parent_b_nav_parent_false_t *)((parent_a_nav_parent_false_t *)((nav_parent_false_t *)_r).element_a).bar).foo).code.unsignedCharValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(element_b)),identifier(foo)),identifier(code)),IntNum(98))*/
     XCTAssertEqual(((child_nav_parent_false_t *)((parent_b_nav_parent_false_t *)((nav_parent_false_t *)_r).element_b).foo).code.unsignedCharValue, 98);
 }
 @end

@@ -22,11 +22,8 @@
 }
 
 - (void)test_cast_to_top {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(code)),IntNum(80))*/
     XCTAssertEqual(((cast_to_top_t *)_r).code.unsignedCharValue, 80);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(header)),identifier(code)),IntNum(65))*/
     XCTAssertEqual(((cast_to_top_t *)((cast_to_top_t *)_r).header).code.unsignedCharValue, 65);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(header_casted)),identifier(code)),IntNum(65))*/
     XCTAssertEqual(((cast_to_top_t *)((cast_to_top_t *)_r).header_casted).code.unsignedCharValue, 65);
 }
 @end

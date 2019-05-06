@@ -22,7 +22,6 @@
 }
 
 - (void)test_non_standard {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(foo)),IntNum(80))*/
     XCTAssertEqual(((non_standard_t *)_r).foo.unsignedCharValue, 80);
 }
 @end

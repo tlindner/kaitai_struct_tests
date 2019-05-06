@@ -22,39 +22,22 @@
 }
 
 - (void)test_expr_2 {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str1)),identifier(len_orig)),IntNum(10))*/
     XCTAssertEqual(((mod_str_expr_2_t *)((expr_2_t *)_r).str1).len_orig.unsignedShortValue, 10);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str1)),identifier(len_mod)),IntNum(7))*/
     XCTAssertEqual(((mod_str_expr_2_t *)((expr_2_t *)_r).str1).len_mod.unsignedLongLongValue, 7);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str1)),identifier(str)),Str(Some AS))*/
     XCTAssertEqualObjects(((mod_str_expr_2_t *)((expr_2_t *)_r).str1).str, (@"Some AS"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str1_len)),IntNum(7))*/
     XCTAssertEqual(((expr_2_t *)_r).str1_len.unsignedLongLongValue, 7);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str1_len_mod)),IntNum(7))*/
     XCTAssertEqual(((expr_2_t *)_r).str1_len_mod.unsignedLongLongValue, 7);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str1_byte1)),IntNum(73))*/
     XCTAssertEqual(((expr_2_t *)_r).str1_byte1.unsignedCharValue, 73);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str1_avg)),IntNum(73))*/
     XCTAssertEqual(((expr_2_t *)_r).str1_avg.unsignedLongLongValue, 73);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str1_char5)),Str(e))*/
     XCTAssertEqualObjects(((expr_2_t *)_r).str1_char5, (@"e"));
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str1_tuple5)),identifier(byte0)),IntNum(101))*/
     XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).byte0.unsignedCharValue, 101);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str1_tuple5)),identifier(byte0)),IntNum(101))*/
     XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).byte0.unsignedCharValue, 101);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str1_tuple5)),identifier(byte1)),IntNum(32))*/
     XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).byte1.unsignedCharValue, 32);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str1_tuple5)),identifier(byte2)),IntNum(65))*/
     XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).byte2.unsignedCharValue, 65);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str1_tuple5)),identifier(avg)),IntNum(48))*/
     XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str1_tuple5).avg.unsignedLongLongValue, 48);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str2_tuple5)),identifier(byte0)),IntNum(101))*/
     XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str2_tuple5).byte0.unsignedCharValue, 101);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str2_tuple5)),identifier(byte1)),IntNum(32))*/
     XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str2_tuple5).byte1.unsignedCharValue, 32);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str2_tuple5)),identifier(byte2)),IntNum(65))*/
     XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str2_tuple5).byte2.unsignedCharValue, 65);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(str2_tuple5)),identifier(avg)),IntNum(48))*/
     XCTAssertEqual(((tuple_expr_2_t *)((expr_2_t *)_r).str2_tuple5).avg.unsignedLongLongValue, 48);
 }
 @end

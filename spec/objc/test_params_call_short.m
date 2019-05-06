@@ -22,11 +22,8 @@
 }
 
 - (void)test_params_call_short {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(buf1)),identifier(body)),Str(foo|b))*/
     XCTAssertEqualObjects(((my_str1_params_call_short_t *)((params_call_short_t *)_r).buf1).body, (@"foo|b"));
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(buf2)),identifier(body)),Str(ar|ba))*/
     XCTAssertEqualObjects(((my_str2_params_call_short_t *)((params_call_short_t *)_r).buf2).body, (@"ar|ba"));
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(buf2)),identifier(trailer)),IntNum(122))*/
     XCTAssertEqual(((my_str2_params_call_short_t *)((params_call_short_t *)_r).buf2).trailer.unsignedCharValue, 122);
 }
 @end

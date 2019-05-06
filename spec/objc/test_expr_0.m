@@ -22,9 +22,7 @@
 }
 
 - (void)test_expr_0 {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(must_be_f7)),IntNum(247))*/
     XCTAssertEqual(((expr_0_t *)_r).must_be_f7.unsignedLongLongValue, 247);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(must_be_abc123)),Str(abc123))*/
     XCTAssertEqualObjects(((expr_0_t *)_r).must_be_abc123, (@"abc123"));
 }
 @end

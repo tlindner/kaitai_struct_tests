@@ -22,7 +22,6 @@
 }
 
 - (void)test_repeat_eos_u4 {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(numbers)),List(ArrayBuffer(IntNum(0), IntNum(66), IntNum(66), IntNum(2069))))*/
     XCTAssertEqualObjects(((repeat_eos_u4_t *)_r).numbers, (@[@(0), @(66), @(66), @(2069)]));
 }
 @end

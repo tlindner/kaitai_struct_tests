@@ -22,7 +22,6 @@
 }
 
 - (void)test_hello_world {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(one)),IntNum(80))*/
     XCTAssertEqual(((hello_world_t *)_r).one.unsignedCharValue, 80);
 }
 @end

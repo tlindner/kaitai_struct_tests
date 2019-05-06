@@ -22,7 +22,6 @@
 }
 
 - (void)test_str_eos {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str)),Str(foo|bar|baz@))*/
     XCTAssertEqualObjects(((str_eos_t *)_r).str, (@"foo|bar|baz@"));
 }
 @end

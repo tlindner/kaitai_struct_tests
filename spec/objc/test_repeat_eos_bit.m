@@ -22,7 +22,6 @@
 }
 
 - (void)test_repeat_eos_bit {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(nibbles)),identifier(size)),IntNum(16))*/
     XCTAssertEqual(((repeat_eos_bit_t *)_r).nibbles.count, 16);
 }
 @end

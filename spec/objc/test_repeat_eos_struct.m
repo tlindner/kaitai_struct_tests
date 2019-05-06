@@ -22,15 +22,10 @@
 }
 
 - (void)test_repeat_eos_struct {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),identifier(size)),IntNum(2))*/
     XCTAssertEqual(((repeat_eos_struct_t *)_r).chunks.count, 2);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(0)),identifier(offset)),IntNum(0))*/
     XCTAssertEqual(((chunk_repeat_eos_struct_t *)((repeat_eos_struct_t *)_r).chunks[0]).offset.unsignedIntValue, 0);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(0)),identifier(len)),IntNum(66))*/
     XCTAssertEqual(((chunk_repeat_eos_struct_t *)((repeat_eos_struct_t *)_r).chunks[0]).len.unsignedIntValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(1)),identifier(offset)),IntNum(66))*/
     XCTAssertEqual(((chunk_repeat_eos_struct_t *)((repeat_eos_struct_t *)_r).chunks[1]).offset.unsignedIntValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(1)),identifier(len)),IntNum(2069))*/
     XCTAssertEqual(((chunk_repeat_eos_struct_t *)((repeat_eos_struct_t *)_r).chunks[1]).len.unsignedIntValue, 2069);
 }
 @end

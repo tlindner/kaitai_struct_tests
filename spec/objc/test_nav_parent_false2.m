@@ -22,7 +22,6 @@
 }
 
 - (void)test_nav_parent_false2 {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(parentless)),identifier(foo)),IntNum(80))*/
     XCTAssertEqual(((child_nav_parent_false2_t *)((nav_parent_false2_t *)_r).parentless).foo.unsignedCharValue, 80);
 }
 @end

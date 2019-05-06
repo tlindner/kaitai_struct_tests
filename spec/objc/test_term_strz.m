@@ -22,11 +22,8 @@
 }
 
 - (void)test_term_strz {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(s1)),Str(foo))*/
     XCTAssertEqualObjects(((term_strz_t *)_r).s1, (@"foo"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(s2)),Str(bar))*/
     XCTAssertEqualObjects(((term_strz_t *)_r).s2, (@"bar"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(s3)),Str(|baz@))*/
     XCTAssertEqualObjects(((term_strz_t *)_r).s3, (@"|baz@"));
 }
 @end

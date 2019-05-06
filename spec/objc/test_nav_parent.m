@@ -22,15 +22,10 @@
 }
 
 - (void)test_nav_parent {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(header)),identifier(qty_entries)),IntNum(2))*/
     XCTAssertEqual(((header_obj_nav_parent_t *)((nav_parent_t *)_r).header).qty_entries.unsignedIntValue, 2);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(header)),identifier(filename_len)),IntNum(8))*/
     XCTAssertEqual(((header_obj_nav_parent_t *)((nav_parent_t *)_r).header).filename_len.unsignedIntValue, 8);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(index)),identifier(entries)),identifier(size)),IntNum(2))*/
     XCTAssertEqual(((index_obj_nav_parent_t *)((nav_parent_t *)_r).index).entries.count, 2);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(index)),identifier(entries)),IntNum(0)),identifier(filename)),Str(FIRST___))*/
     XCTAssertEqualObjects(((entry_nav_parent_t *)((index_obj_nav_parent_t *)((nav_parent_t *)_r).index).entries[0]).filename, (@"FIRST___"));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(index)),identifier(entries)),IntNum(1)),identifier(filename)),Str(SECOND__))*/
     XCTAssertEqualObjects(((entry_nav_parent_t *)((index_obj_nav_parent_t *)((nav_parent_t *)_r).index).entries[1]).filename, (@"SECOND__"));
 }
 @end

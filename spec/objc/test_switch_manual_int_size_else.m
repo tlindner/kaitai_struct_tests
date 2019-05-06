@@ -22,25 +22,15 @@
 }
 
 - (void)test_switch_manual_int_size_else {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),identifier(size)),IntNum(4))*/
     XCTAssertEqual(((switch_manual_int_size_else_t *)_r).chunks.count, 4);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(0)),identifier(code)),IntNum(17))*/
     XCTAssertEqual(((chunk_switch_manual_int_size_else_t *)((switch_manual_int_size_else_t *)_r).chunks[0]).code.unsignedCharValue, 17);
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(0)),identifier(body)),typeId(false,ArrayBuffer(switch_manual_int_size_else, chunk, chunk_meta),false)),identifier(title)),Str(Stuff))*/
     XCTAssertEqualObjects(((chunk_meta_chunk_switch_manual_int_size_else_t *)((chunk_switch_manual_int_size_else_t *)((switch_manual_int_size_else_t *)_r).chunks[0]).body).title, (@"Stuff"));
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(0)),identifier(body)),typeId(false,ArrayBuffer(switch_manual_int_size_else, chunk, chunk_meta),false)),identifier(author)),Str(Me))*/
     XCTAssertEqualObjects(((chunk_meta_chunk_switch_manual_int_size_else_t *)((chunk_switch_manual_int_size_else_t *)((switch_manual_int_size_else_t *)_r).chunks[0]).body).author, (@"Me"));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(1)),identifier(code)),IntNum(34))*/
     XCTAssertEqual(((chunk_switch_manual_int_size_else_t *)((switch_manual_int_size_else_t *)_r).chunks[1]).code.unsignedCharValue, 34);
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(1)),identifier(body)),typeId(false,ArrayBuffer(switch_manual_int_size_else, chunk, chunk_dir),false)),identifier(entries)),List(ArrayBuffer(Str(AAAA), Str(BBBB), Str(CCCC))))*/
     XCTAssertEqualObjects(((chunk_dir_chunk_switch_manual_int_size_else_t *)((chunk_switch_manual_int_size_else_t *)((switch_manual_int_size_else_t *)_r).chunks[1]).body).entries, (@[@"AAAA", @"BBBB", @"CCCC"]));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(2)),identifier(code)),IntNum(51))*/
     XCTAssertEqual(((chunk_switch_manual_int_size_else_t *)((switch_manual_int_size_else_t *)_r).chunks[2]).code.unsignedCharValue, 51);
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(2)),identifier(body)),typeId(false,ArrayBuffer(switch_manual_int_size_else, chunk, dummy),false)),identifier(rest)),List(ArrayBuffer(IntNum(16), IntNum(32), IntNum(48), IntNum(64), IntNum(80), IntNum(96), IntNum(112), IntNum(128))))*/
     XCTAssertEqualObjects(((dummy_chunk_switch_manual_int_size_else_t *)((chunk_switch_manual_int_size_else_t *)((switch_manual_int_size_else_t *)_r).chunks[2]).body).rest, ([NSData dataWithBytes:"\x10\x20\x30\x40\x50\x60\x70\x80" length:8]));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(3)),identifier(code)),IntNum(255))*/
     XCTAssertEqual(((chunk_switch_manual_int_size_else_t *)((switch_manual_int_size_else_t *)_r).chunks[3]).code.unsignedCharValue, 255);
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(chunks)),IntNum(3)),identifier(body)),typeId(false,ArrayBuffer(switch_manual_int_size_else, chunk, dummy),false)),identifier(rest)),CastToType(List(List()),typeId(false,ArrayBuffer(bytes),false)))*/
     XCTAssertEqualObjects(((dummy_chunk_switch_manual_int_size_else_t *)((chunk_switch_manual_int_size_else_t *)((switch_manual_int_size_else_t *)_r).chunks[3]).body).rest, ([NSData dataWithBytes:"" length:0]));
 }
 @end

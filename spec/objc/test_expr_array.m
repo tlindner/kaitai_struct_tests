@@ -22,35 +22,20 @@
 }
 
 - (void)test_expr_array {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(aint_size)),IntNum(4))*/
     XCTAssertEqual(((expr_array_t *)_r).aint_size.unsignedLongLongValue, 4);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(aint_first)),IntNum(7657765))*/
     XCTAssertEqual(((expr_array_t *)_r).aint_first.unsignedIntValue, 7657765);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(aint_last)),IntNum(16272640))*/
     XCTAssertEqual(((expr_array_t *)_r).aint_last.unsignedIntValue, 16272640);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(aint_min)),IntNum(49185))*/
     XCTAssertEqual(((expr_array_t *)_r).aint_min.unsignedIntValue, 49185);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(aint_max)),IntNum(1123362332))*/
     XCTAssertEqual(((expr_array_t *)_r).aint_max.unsignedIntValue, 1123362332);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(afloat_size)),IntNum(3))*/
     XCTAssertEqual(((expr_array_t *)_r).afloat_size.unsignedLongLongValue, 3);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(afloat_first)),UnaryOp(Minus,FloatNum(2.6839530254859364E-121)))*/
     XCTAssertEqual(((expr_array_t *)_r).afloat_first.doubleValue, -2.6839530254859364E-121);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(afloat_last)),UnaryOp(Minus,FloatNum(1.1103359815095273E-175)))*/
     XCTAssertEqual(((expr_array_t *)_r).afloat_last.doubleValue, -1.1103359815095273E-175);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(afloat_min)),UnaryOp(Minus,FloatNum(8.754689149998834E+288)))*/
     XCTAssertEqual(((expr_array_t *)_r).afloat_min.doubleValue, -8.754689149998834E+288);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(afloat_max)),UnaryOp(Minus,FloatNum(1.1103359815095273E-175)))*/
     XCTAssertEqual(((expr_array_t *)_r).afloat_max.doubleValue, -1.1103359815095273E-175);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(astr_size)),IntNum(3))*/
     XCTAssertEqual(((expr_array_t *)_r).astr_size.unsignedLongLongValue, 3);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(astr_first)),Str(foo))*/
     XCTAssertEqualObjects(((expr_array_t *)_r).astr_first, (@"foo"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(astr_last)),Str(baz))*/
     XCTAssertEqualObjects(((expr_array_t *)_r).astr_last, (@"baz"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(astr_min)),Str(bar))*/
     XCTAssertEqualObjects(((expr_array_t *)_r).astr_min, (@"bar"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(astr_max)),Str(foo))*/
     XCTAssertEqualObjects(((expr_array_t *)_r).astr_max, (@"foo"));
 }
 @end

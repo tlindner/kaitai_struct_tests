@@ -22,11 +22,8 @@
 }
 
 - (void)test_repeat_n_strz_double {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(qty)),IntNum(2))*/
     XCTAssertEqual(((repeat_n_strz_double_t *)_r).qty.unsignedIntValue, 2);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(lines1)),List(ArrayBuffer(Str(foo))))*/
     XCTAssertEqualObjects(((repeat_n_strz_double_t *)_r).lines1, (@[@"foo"]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(lines2)),List(ArrayBuffer(Str(bar))))*/
     XCTAssertEqualObjects(((repeat_n_strz_double_t *)_r).lines2, (@[@"bar"]));
 }
 @end

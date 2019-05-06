@@ -22,23 +22,14 @@
 }
 
 - (void)test_switch_manual_int {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),identifier(size)),IntNum(4))*/
     XCTAssertEqual(((switch_manual_int_t *)_r).opcodes.count, 4);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(0)),identifier(code)),IntNum(83))*/
     XCTAssertEqual(((opcode_switch_manual_int_t *)((switch_manual_int_t *)_r).opcodes[0]).code.unsignedCharValue, 83);
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(0)),identifier(body)),typeId(false,ArrayBuffer(switch_manual_int, opcode, strval),false)),identifier(value)),Str(foobar))*/
     XCTAssertEqualObjects(((strval_opcode_switch_manual_int_t *)((opcode_switch_manual_int_t *)((switch_manual_int_t *)_r).opcodes[0]).body).value, (@"foobar"));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(1)),identifier(code)),IntNum(73))*/
     XCTAssertEqual(((opcode_switch_manual_int_t *)((switch_manual_int_t *)_r).opcodes[1]).code.unsignedCharValue, 73);
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(1)),identifier(body)),typeId(false,ArrayBuffer(switch_manual_int, opcode, intval),false)),identifier(value)),IntNum(66))*/
     XCTAssertEqual(((intval_opcode_switch_manual_int_t *)((opcode_switch_manual_int_t *)((switch_manual_int_t *)_r).opcodes[1]).body).value.unsignedCharValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(2)),identifier(code)),IntNum(73))*/
     XCTAssertEqual(((opcode_switch_manual_int_t *)((switch_manual_int_t *)_r).opcodes[2]).code.unsignedCharValue, 73);
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(2)),identifier(body)),typeId(false,ArrayBuffer(switch_manual_int, opcode, intval),false)),identifier(value)),IntNum(55))*/
     XCTAssertEqual(((intval_opcode_switch_manual_int_t *)((opcode_switch_manual_int_t *)((switch_manual_int_t *)_r).opcodes[2]).body).value.unsignedCharValue, 55);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(3)),identifier(code)),IntNum(83))*/
     XCTAssertEqual(((opcode_switch_manual_int_t *)((switch_manual_int_t *)_r).opcodes[3]).code.unsignedCharValue, 83);
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(3)),identifier(body)),typeId(false,ArrayBuffer(switch_manual_int, opcode, strval),false)),identifier(value)),Str())*/
     XCTAssertEqualObjects(((strval_opcode_switch_manual_int_t *)((opcode_switch_manual_int_t *)((switch_manual_int_t *)_r).opcodes[3]).body).value, (@""));
 }
 @end

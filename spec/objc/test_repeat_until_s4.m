@@ -22,9 +22,7 @@
 }
 
 - (void)test_repeat_until_s4 {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(entries)),List(ArrayBuffer(IntNum(66), IntNum(4919), UnaryOp(Minus,IntNum(251658241)), UnaryOp(Minus,IntNum(1)))))*/
     XCTAssertEqualObjects(((repeat_until_s4_t *)_r).entries, (@[@(66), @(4919), @(-251658241), @(-1)]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(afterall)),Str(foobar))*/
     XCTAssertEqualObjects(((repeat_until_s4_t *)_r).afterall, (@"foobar"));
 }
 @end

@@ -22,15 +22,10 @@
 }
 
 - (void)test_nested_types3 {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(a_cc)),identifier(value_cc)),IntNum(80))*/
     XCTAssertEqual(((subtype_cc_subtype_a_nested_types3_t *)((nested_types3_t *)_r).a_cc).value_cc.charValue, 80);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(a_c_d)),identifier(value_d)),IntNum(65))*/
     XCTAssertEqual(((subtype_d_subtype_c_subtype_a_nested_types3_t *)((nested_types3_t *)_r).a_c_d).value_d.charValue, 65);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(b)),identifier(value_b)),IntNum(67))*/
     XCTAssertEqual(((subtype_b_nested_types3_t *)((nested_types3_t *)_r).b).value_b.charValue, 67);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(b)),identifier(a_cc)),identifier(value_cc)),IntNum(75))*/
     XCTAssertEqual(((subtype_cc_subtype_a_nested_types3_t *)((subtype_b_nested_types3_t *)((nested_types3_t *)_r).b).a_cc).value_cc.charValue, 75);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(b)),identifier(a_c_d)),identifier(value_d)),IntNum(45))*/
     XCTAssertEqual(((subtype_d_subtype_c_subtype_a_nested_types3_t *)((subtype_b_nested_types3_t *)((nested_types3_t *)_r).b).a_c_d).value_d.charValue, 45);
 }
 @end

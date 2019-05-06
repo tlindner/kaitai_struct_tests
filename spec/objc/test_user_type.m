@@ -22,9 +22,7 @@
 }
 
 - (void)test_user_type {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(width)),IntNum(66))*/
     XCTAssertEqual(((header_user_type_t *)((user_type_t *)_r).one).width.unsignedIntValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(height)),IntNum(4919))*/
     XCTAssertEqual(((header_user_type_t *)((user_type_t *)_r).one).height.unsignedIntValue, 4919);
 }
 @end

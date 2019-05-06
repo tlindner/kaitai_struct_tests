@@ -22,11 +22,8 @@
 }
 
 - (void)test_nav_parent_override {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(child_size)),IntNum(3))*/
     XCTAssertEqual(((nav_parent_override_t *)_r).child_size.unsignedCharValue, 3);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(child_1)),identifier(data)),List(ArrayBuffer(IntNum(73), IntNum(49), IntNum(50))))*/
     XCTAssertEqualObjects(((child_nav_parent_override_t *)((nav_parent_override_t *)_r).child_1).data, ([NSData dataWithBytes:"\x49\x31\x32" length:3]));
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(mediator_2)),identifier(child_2)),identifier(data)),List(ArrayBuffer(IntNum(51), IntNum(66), IntNum(98))))*/
     XCTAssertEqualObjects(((child_nav_parent_override_t *)((mediator_nav_parent_override_t *)((nav_parent_override_t *)_r).mediator_2).child_2).data, ([NSData dataWithBytes:"\x33\x42\x62" length:3]));
 }
 @end

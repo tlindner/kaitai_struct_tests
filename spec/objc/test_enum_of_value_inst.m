@@ -22,13 +22,9 @@
 }
 
 - (void)test_enum_of_value_inst {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_1)),EnumByLabel(identifier(animal),identifier(cat),typeId(false,ArrayBuffer(enum_of_value_inst),false)))*/
     XCTAssertEqualObjects(((enum_of_value_inst_t *)_r).pet_1, ([@"cat" KSENUMWithDictionary:enum_of_value_inst_t._animal]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_2)),EnumByLabel(identifier(animal),identifier(chicken),typeId(false,ArrayBuffer(enum_of_value_inst),false)))*/
     XCTAssertEqualObjects(((enum_of_value_inst_t *)_r).pet_2, ([@"chicken" KSENUMWithDictionary:enum_of_value_inst_t._animal]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_3)),EnumByLabel(identifier(animal),identifier(dog),typeId(false,ArrayBuffer(enum_of_value_inst),false)))*/
     XCTAssertEqualObjects(((enum_of_value_inst_t *)_r).pet_3, ([@"dog" KSENUMWithDictionary:enum_of_value_inst_t._animal]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_4)),EnumByLabel(identifier(animal),identifier(dog),typeId(false,ArrayBuffer(enum_of_value_inst),false)))*/
     XCTAssertEqualObjects(((enum_of_value_inst_t *)_r).pet_4, ([@"dog" KSENUMWithDictionary:enum_of_value_inst_t._animal]));
 }
 @end

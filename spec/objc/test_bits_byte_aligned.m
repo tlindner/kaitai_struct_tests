@@ -22,23 +22,14 @@
 }
 
 - (void)test_bits_byte_aligned {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(one)),IntNum(20))*/
     XCTAssertEqual(((bits_byte_aligned_t *)_r).one.unsignedCharValue, 20);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_1)),IntNum(65))*/
     XCTAssertEqual(((bits_byte_aligned_t *)_r).byte_1.unsignedCharValue, 65);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(two)),IntNum(2))*/
     XCTAssertEqual(((bits_byte_aligned_t *)_r).two.unsignedCharValue, 2);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(three)),Bool(false))*/
     XCTAssertEqual(((bits_byte_aligned_t *)_r).three.boolValue, NO);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_2)),IntNum(75))*/
     XCTAssertEqual(((bits_byte_aligned_t *)_r).byte_2.unsignedCharValue, 75);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(four)),IntNum(2892))*/
     XCTAssertEqual(((bits_byte_aligned_t *)_r).four.unsignedShortValue, 2892);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_3)),List(ArrayBuffer(IntNum(255))))*/
     XCTAssertEqualObjects(((bits_byte_aligned_t *)_r).byte_3, ([NSData dataWithBytes:"\xFF" length:1]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(full_byte)),IntNum(255))*/
     XCTAssertEqual(((bits_byte_aligned_t *)_r).full_byte.unsignedCharValue, 255);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_4)),IntNum(80))*/
     XCTAssertEqual(((bits_byte_aligned_t *)_r).byte_4.unsignedCharValue, 80);
 }
 @end

@@ -22,7 +22,6 @@
 }
 
 - (void)test_instance_std {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(header)),Str(Some ))*/
     XCTAssertEqualObjects(((instance_std_t *)_r).header, (@"Some "));
 }
 @end

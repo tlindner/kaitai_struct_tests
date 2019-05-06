@@ -22,9 +22,7 @@
 }
 
 - (void)test_position_to_end {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(index)),identifier(foo)),IntNum(66))*/
     XCTAssertEqual(((index_obj_position_to_end_t *)((position_to_end_t *)_r).index).foo.unsignedIntValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(index)),identifier(bar)),IntNum(4660))*/
     XCTAssertEqual(((index_obj_position_to_end_t *)((position_to_end_t *)_r).index).bar.unsignedIntValue, 4660);
 }
 @end

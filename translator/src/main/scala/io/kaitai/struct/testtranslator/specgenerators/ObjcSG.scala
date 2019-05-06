@@ -53,7 +53,6 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
   }
 
   def simpleAssert(check: TestAssert): Unit = {
-  	out.puts(s"/* simpleAssert: $check*/")
     val actType = translator.detectType(check.actual)
     val actStr = translateAct(check.actual)
     val expStr = translateExp(check.expected)

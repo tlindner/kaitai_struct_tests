@@ -22,7 +22,6 @@
 }
 
 - (void)test_zlib_with_header_78 {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(data)),List(ArrayBuffer(IntNum(97), IntNum(32), IntNum(113), IntNum(117), IntNum(105), IntNum(99), IntNum(107), IntNum(32), IntNum(98), IntNum(114), IntNum(111), IntNum(119), IntNum(110), IntNum(32), IntNum(102), IntNum(111), IntNum(120), IntNum(32), IntNum(106), IntNum(117), IntNum(109), IntNum(112), IntNum(115), IntNum(32), IntNum(111), IntNum(118), IntNum(101), IntNum(114))))*/
     XCTAssertEqualObjects(((zlib_with_header_78_t *)_r).data, ([NSData dataWithBytes:"\x61\x20\x71\x75\x69\x63\x6B\x20\x62\x72\x6F\x77\x6E\x20\x66\x6F\x78\x20\x6A\x75\x6D\x70\x73\x20\x6F\x76\x65\x72" length:28]));
 }
 @end

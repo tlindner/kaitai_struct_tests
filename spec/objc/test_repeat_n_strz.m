@@ -22,9 +22,7 @@
 }
 
 - (void)test_repeat_n_strz {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(qty)),IntNum(2))*/
     XCTAssertEqual(((repeat_n_strz_t *)_r).qty.unsignedIntValue, 2);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(lines)),List(ArrayBuffer(Str(foo), Str(bar))))*/
     XCTAssertEqualObjects(((repeat_n_strz_t *)_r).lines, (@[@"foo", @"bar"]));
 }
 @end

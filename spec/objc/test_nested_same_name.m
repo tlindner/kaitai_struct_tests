@@ -22,9 +22,7 @@
 }
 
 - (void)test_nested_same_name {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(main_data)),identifier(main_size)),IntNum(2))*/
     XCTAssertEqual(((main_nested_same_name_t *)((nested_same_name_t *)_r).main_data).main_size.intValue, 2);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(main_data)),identifier(foo)),identifier(data)),List(ArrayBuffer(IntNum(16), IntNum(0), IntNum(0), IntNum(0))))*/
     XCTAssertEqualObjects(((foo_obj_main_nested_same_name_t *)((main_nested_same_name_t *)((nested_same_name_t *)_r).main_data).foo).data, ([NSData dataWithBytes:"\x10\x00\x00\x00" length:4]));
 }
 @end

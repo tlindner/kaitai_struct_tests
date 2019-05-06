@@ -22,15 +22,10 @@
 }
 
 - (void)test_expr_sizeof_value_0 {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(self_sizeof)),BinOp(BinOp(BinOp(IntNum(1),Add,IntNum(4)),Add,IntNum(2)),Add,IntNum(2)))*/
     XCTAssertEqual(((expr_sizeof_value_0_t *)_r).self_sizeof.unsignedLongLongValue, (((1 + 4) + 2) + 2));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(sizeof_block)),BinOp(BinOp(IntNum(1),Add,IntNum(4)),Add,IntNum(2)))*/
     XCTAssertEqual(((expr_sizeof_value_0_t *)_r).sizeof_block.unsignedLongLongValue, ((1 + 4) + 2));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(sizeof_block_a)),IntNum(1))*/
     XCTAssertEqual(((expr_sizeof_value_0_t *)_r).sizeof_block_a.unsignedLongLongValue, 1);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(sizeof_block_b)),IntNum(4))*/
     XCTAssertEqual(((expr_sizeof_value_0_t *)_r).sizeof_block_b.unsignedLongLongValue, 4);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(sizeof_block_c)),IntNum(2))*/
     XCTAssertEqual(((expr_sizeof_value_0_t *)_r).sizeof_block_c.unsignedLongLongValue, 2);
 }
 @end

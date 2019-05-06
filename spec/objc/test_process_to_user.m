@@ -22,7 +22,6 @@
 }
 
 - (void)test_process_to_user {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(buf1)),identifier(str)),Str(Hello))*/
     XCTAssertEqualObjects(((just_str_process_to_user_t *)((process_to_user_t *)_r).buf1).str, (@"Hello"));
 }
 @end

@@ -22,19 +22,12 @@
 }
 
 - (void)test_repeat_until_sized {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(records)),identifier(size)),IntNum(3))*/
     XCTAssertEqual(((repeat_until_sized_t *)_r).records.count, 3);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(0)),identifier(marker)),IntNum(232))*/
     XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[0]).marker.unsignedCharValue, 232);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(0)),identifier(body)),IntNum(2863311546))*/
     XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[0]).body.unsignedIntValue, 2863311546UL);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(1)),identifier(marker)),IntNum(250))*/
     XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[1]).marker.unsignedCharValue, 250);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(1)),identifier(body)),IntNum(2863315102))*/
     XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[1]).body.unsignedIntValue, 2863315102UL);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(2)),identifier(marker)),IntNum(170))*/
     XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[2]).marker.unsignedCharValue, 170);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(2)),identifier(body)),IntNum(1431655765))*/
     XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[2]).body.unsignedIntValue, 1431655765);
 }
 @end

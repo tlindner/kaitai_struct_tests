@@ -22,9 +22,7 @@
 }
 
 - (void)test_params_enum {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(one)),EnumByLabel(identifier(animal),identifier(cat),typeId(false,ArrayBuffer(params_enum),false)))*/
     XCTAssertEqualObjects(((params_enum_t *)_r).one, ([@"cat" KSENUMWithDictionary:params_enum_t._animal]));
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(invoke_with_param)),identifier(is_cat)),Bool(true))*/
     XCTAssertEqual(((with_param_params_enum_t *)((params_enum_t *)_r).invoke_with_param).is_cat.boolValue, YES);
 }
 @end

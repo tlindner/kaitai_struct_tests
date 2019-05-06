@@ -22,9 +22,7 @@
 }
 
 - (void)test_position_abs {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(index_offset)),IntNum(32))*/
     XCTAssertEqual(((position_abs_t *)_r).index_offset.unsignedIntValue, 32);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(index)),identifier(entry)),Str(foo))*/
     XCTAssertEqualObjects(((index_obj_position_abs_t *)((position_abs_t *)_r).index).entry, (@"foo"));
 }
 @end

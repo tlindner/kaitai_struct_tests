@@ -22,11 +22,8 @@
 }
 
 - (void)test_term_bytes {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(s1)),List(ArrayBuffer(IntNum(102), IntNum(111), IntNum(111))))*/
     XCTAssertEqualObjects(((term_bytes_t *)_r).s1, ([NSData dataWithBytes:"\x66\x6F\x6F" length:3]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(s2)),List(ArrayBuffer(IntNum(98), IntNum(97), IntNum(114))))*/
     XCTAssertEqualObjects(((term_bytes_t *)_r).s2, ([NSData dataWithBytes:"\x62\x61\x72" length:3]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(s3)),List(ArrayBuffer(IntNum(124), IntNum(98), IntNum(97), IntNum(122), IntNum(64))))*/
     XCTAssertEqualObjects(((term_bytes_t *)_r).s3, ([NSData dataWithBytes:"\x7C\x62\x61\x7A\x40" length:5]));
 }
 @end

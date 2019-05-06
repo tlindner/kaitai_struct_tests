@@ -22,7 +22,6 @@
 }
 
 - (void)test_type_ternary {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(dif)),identifier(value)),IntNum(101))*/
     XCTAssertEqual(((dummy_type_ternary_t *)((type_ternary_t *)_r).dif).value.unsignedCharValue, 101);
 }
 @end

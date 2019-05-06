@@ -22,45 +22,25 @@
 }
 
 - (void)test_fixed_struct {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint8)),IntNum(255))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint8.unsignedCharValue, 255);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint16)),IntNum(65535))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint16.unsignedShortValue, 65535);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint32)),IntNum(4294967295))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint32.unsignedIntValue, 4294967295UL);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint64)),IntNum(18446744073709551615))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint64.unsignedLongLongValue, 18446744073709551615ULL);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint8)),UnaryOp(Minus,IntNum(1)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint8.charValue, -1);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint16)),UnaryOp(Minus,IntNum(1)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint16.shortValue, -1);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint32)),UnaryOp(Minus,IntNum(1)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint32.intValue, -1);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint64)),UnaryOp(Minus,IntNum(1)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint64.longLongValue, -1);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint16le)),IntNum(66))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint16le.unsignedShortValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint32le)),IntNum(66))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint32le.unsignedIntValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint64le)),IntNum(66))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint64le.unsignedLongLongValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint16le)),UnaryOp(Minus,IntNum(66)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint16le.shortValue, -66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint32le)),UnaryOp(Minus,IntNum(66)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint32le.intValue, -66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint64le)),UnaryOp(Minus,IntNum(66)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint64le.longLongValue, -66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint16be)),IntNum(66))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint16be.unsignedShortValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint32be)),IntNum(66))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint32be.unsignedIntValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(uint64be)),IntNum(66))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).uint64be.unsignedLongLongValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint16be)),UnaryOp(Minus,IntNum(66)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint16be.shortValue, -66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint32be)),UnaryOp(Minus,IntNum(66)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint32be.intValue, -66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(hdr)),identifier(sint64be)),UnaryOp(Minus,IntNum(66)))*/
     XCTAssertEqual(((header_fixed_struct_t *)((fixed_struct_t *)_r).hdr).sint64be.longLongValue, -66);
 }
 @end

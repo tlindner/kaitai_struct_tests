@@ -22,9 +22,7 @@
 }
 
 - (void)test_js_signed_right_shift {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(should_be_40000000)),IntNum(1073741824))*/
     XCTAssertEqual(((js_signed_right_shift_t *)_r).should_be_40000000.unsignedLongLongValue, 1073741824);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(should_be_a00000)),IntNum(10485760))*/
     XCTAssertEqual(((js_signed_right_shift_t *)_r).should_be_a00000.unsignedLongLongValue, 10485760);
 }
 @end

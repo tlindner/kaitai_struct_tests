@@ -22,19 +22,12 @@
 }
 
 - (void)test_buffered_struct {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(len1)),IntNum(16))*/
     XCTAssertEqual(((buffered_struct_t *)_r).len1.unsignedIntValue, 16);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(block1)),identifier(number1)),IntNum(66))*/
     XCTAssertEqual(((block_buffered_struct_t *)((buffered_struct_t *)_r).block1).number1.unsignedIntValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(block1)),identifier(number2)),IntNum(67))*/
     XCTAssertEqual(((block_buffered_struct_t *)((buffered_struct_t *)_r).block1).number2.unsignedIntValue, 67);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(len2)),IntNum(8))*/
     XCTAssertEqual(((buffered_struct_t *)_r).len2.unsignedIntValue, 8);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(block2)),identifier(number1)),IntNum(68))*/
     XCTAssertEqual(((block_buffered_struct_t *)((buffered_struct_t *)_r).block2).number1.unsignedIntValue, 68);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(block2)),identifier(number2)),IntNum(69))*/
     XCTAssertEqual(((block_buffered_struct_t *)((buffered_struct_t *)_r).block2).number2.unsignedIntValue, 69);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(finisher)),IntNum(238))*/
     XCTAssertEqual(((buffered_struct_t *)_r).finisher.unsignedIntValue, 238);
 }
 @end

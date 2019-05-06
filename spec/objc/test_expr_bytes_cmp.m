@@ -22,25 +22,15 @@
 }
 
 - (void)test_expr_bytes_cmp {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(one)),List(ArrayBuffer(IntNum(80))))*/
     XCTAssertEqualObjects(((expr_bytes_cmp_t *)_r).one, ([NSData dataWithBytes:"\x50" length:1]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(two)),List(ArrayBuffer(IntNum(65), IntNum(67), IntNum(75))))*/
     XCTAssertEqualObjects(((expr_bytes_cmp_t *)_r).two, ([NSData dataWithBytes:"\x41\x43\x4B" length:3]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_eq)),Bool(true))*/
     XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_eq.boolValue, YES);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_ne)),Bool(false))*/
     XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_ne.boolValue, NO);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_lt)),Bool(true))*/
     XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_lt.boolValue, YES);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_gt)),Bool(false))*/
     XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_gt.boolValue, NO);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_le)),Bool(true))*/
     XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_le.boolValue, YES);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_ge)),Bool(false))*/
     XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_ge.boolValue, NO);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_lt2)),Bool(false))*/
     XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_lt2.boolValue, NO);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_gt2)),Bool(true))*/
     XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_gt2.boolValue, YES);
 }
 @end

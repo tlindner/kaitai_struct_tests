@@ -22,15 +22,10 @@
 }
 
 - (void)test_enum_to_i {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_1)),EnumByLabel(identifier(animal),identifier(cat),typeId(false,ArrayBuffer(enum_to_i),false)))*/
     XCTAssertEqualObjects(((enum_to_i_t *)_r).pet_1, ([@"cat" KSENUMWithDictionary:enum_to_i_t._animal]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_2)),EnumByLabel(identifier(animal),identifier(chicken),typeId(false,ArrayBuffer(enum_to_i),false)))*/
     XCTAssertEqualObjects(((enum_to_i_t *)_r).pet_2, ([@"chicken" KSENUMWithDictionary:enum_to_i_t._animal]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_1_i)),IntNum(7))*/
     XCTAssertEqual(((enum_to_i_t *)_r).pet_1_i.unsignedLongLongValue, 7);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_1_mod)),IntNum(32775))*/
     XCTAssertEqual(((enum_to_i_t *)_r).pet_1_mod.unsignedLongLongValue, 32775);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(one_lt_two)),Bool(true))*/
     XCTAssertEqual(((enum_to_i_t *)_r).one_lt_two.boolValue, YES);
 }
 @end

@@ -22,19 +22,12 @@
 }
 
 - (void)test_nested_types2 {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(typed_at_root)),identifier(value_b)),IntNum(80))*/
     XCTAssertEqual(((subtype_b_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_at_root).value_b.charValue, 80);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(typed_here1)),identifier(value_c)),IntNum(65))*/
     XCTAssertEqual(((subtype_c_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here1).value_c.charValue, 65);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(typed_here1)),identifier(typed_here)),identifier(value_d)),IntNum(67))*/
     XCTAssertEqual(((subtype_d_subtype_c_subtype_a_nested_types2_t *)((subtype_c_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here1).typed_here).value_d.charValue, 67);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(typed_here1)),identifier(typed_parent)),identifier(value_cc)),IntNum(75))*/
     XCTAssertEqual(((subtype_cc_subtype_a_nested_types2_t *)((subtype_c_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here1).typed_parent).value_cc.charValue, 75);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(typed_here1)),identifier(typed_root)),identifier(value_b)),IntNum(45))*/
     XCTAssertEqual(((subtype_b_nested_types2_t *)((subtype_c_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here1).typed_root).value_b.charValue, 45);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(typed_here2)),identifier(value_cc)),IntNum(49))*/
     XCTAssertEqual(((subtype_cc_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here2).value_cc.charValue, 49);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(two)),identifier(value_b)),UnaryOp(Minus,IntNum(1)))*/
     XCTAssertEqual(((subtype_b_nested_types2_t *)((nested_types2_t *)_r).two).value_b.charValue, -1);
 }
 @end

@@ -22,7 +22,6 @@
 }
 
 - (void)test_position_in_seq {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(numbers)),List(ArrayBuffer(BinOp(IntNum(0),Add,IntNum(1)), IntNum(2), IntNum(3))))*/
     XCTAssertEqualObjects(((position_in_seq_t *)_r).numbers, (@[@((0 + 1)), @(2), @(3)]));
 }
 @end

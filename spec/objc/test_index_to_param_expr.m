@@ -22,19 +22,12 @@
 }
 
 - (void)test_index_to_param_expr {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(qty)),IntNum(3))*/
     XCTAssertEqual(((index_to_param_expr_t *)_r).qty.unsignedIntValue, 3);
-    /* simpleAssert: TestAssert(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(sizes)),IntNum(0)),IntNum(1))*/
     XCTAssertEqual(((index_to_param_expr_t *)_r).sizes[0].unsignedIntValue, 1);
-    /* simpleAssert: TestAssert(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(sizes)),IntNum(1)),IntNum(8))*/
     XCTAssertEqual(((index_to_param_expr_t *)_r).sizes[1].unsignedIntValue, 8);
-    /* simpleAssert: TestAssert(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(sizes)),IntNum(2)),IntNum(4))*/
     XCTAssertEqual(((index_to_param_expr_t *)_r).sizes[2].unsignedIntValue, 4);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(blocks)),IntNum(0)),identifier(buf)),Str(A))*/
     XCTAssertEqualObjects(((block_index_to_param_expr_t *)((index_to_param_expr_t *)_r).blocks[0]).buf, (@"A"));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(blocks)),IntNum(1)),identifier(buf)),Str(BBBBBBBB))*/
     XCTAssertEqualObjects(((block_index_to_param_expr_t *)((index_to_param_expr_t *)_r).blocks[1]).buf, (@"BBBBBBBB"));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(blocks)),IntNum(2)),identifier(buf)),Str(CCCC))*/
     XCTAssertEqualObjects(((block_index_to_param_expr_t *)((index_to_param_expr_t *)_r).blocks[2]).buf, (@"CCCC"));
 }
 @end

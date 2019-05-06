@@ -22,9 +22,7 @@
 }
 
 - (void)test_enum_negative {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(f1)),EnumByLabel(identifier(constants),identifier(negative_one),typeId(false,ArrayBuffer(enum_negative),false)))*/
     XCTAssertEqualObjects(((enum_negative_t *)_r).f1, ([@"negative_one" KSENUMWithDictionary:enum_negative_t._constants]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(f2)),EnumByLabel(identifier(constants),identifier(positive_one),typeId(false,ArrayBuffer(enum_negative),false)))*/
     XCTAssertEqualObjects(((enum_negative_t *)_r).f2, ([@"positive_one" KSENUMWithDictionary:enum_negative_t._constants]));
 }
 @end

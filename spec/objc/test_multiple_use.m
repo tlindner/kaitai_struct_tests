@@ -22,9 +22,7 @@
 }
 
 - (void)test_multiple_use {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(t1)),identifier(first_use)),identifier(value)),IntNum(32))*/
     XCTAssertEqual(((multi_multiple_use_t *)((type_1_multiple_use_t *)((multiple_use_t *)_r).t1).first_use).value.intValue, 32);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(t2)),identifier(second_use)),identifier(value)),IntNum(32))*/
     XCTAssertEqual(((multi_multiple_use_t *)((type_2_multiple_use_t *)((multiple_use_t *)_r).t2).second_use).value.intValue, 32);
 }
 @end

@@ -22,21 +22,13 @@
 }
 
 - (void)test_float_to_i {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(single_value)),FloatNum(0.5))*/
     XCTAssertEqual(((float_to_i_t *)_r).single_value.floatValue, 0.5);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(double_value)),FloatNum(0.25))*/
     XCTAssertEqual(((float_to_i_t *)_r).double_value.doubleValue, 0.25);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(single_i)),IntNum(0))*/
     XCTAssertEqual(((float_to_i_t *)_r).single_i.unsignedLongLongValue, 0);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(double_i)),IntNum(0))*/
     XCTAssertEqual(((float_to_i_t *)_r).double_i.unsignedLongLongValue, 0);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(float1_i)),IntNum(1))*/
     XCTAssertEqual(((float_to_i_t *)_r).float1_i.unsignedLongLongValue, 1);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(float2_i)),IntNum(1))*/
     XCTAssertEqual(((float_to_i_t *)_r).float2_i.unsignedLongLongValue, 1);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(float3_i)),IntNum(1))*/
     XCTAssertEqual(((float_to_i_t *)_r).float3_i.unsignedLongLongValue, 1);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(float4_i)),UnaryOp(Minus,IntNum(2)))*/
     XCTAssertEqual(((float_to_i_t *)_r).float4_i.unsignedLongLongValue, -2);
 }
 @end

@@ -22,7 +22,6 @@
 }
 
 - (void)test_nav_parent_vs_value_inst {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(s1)),Str(foo))*/
     XCTAssertEqualObjects(((nav_parent_vs_value_inst_t *)_r).s1, (@"foo"));
 }
 @end

@@ -22,13 +22,9 @@
 }
 
 - (void)test_str_pad_term {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str_pad)),Str(str1))*/
     XCTAssertEqualObjects(((str_pad_term_t *)_r).str_pad, (@"str1"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str_term)),Str(str2foo))*/
     XCTAssertEqualObjects(((str_pad_term_t *)_r).str_term, (@"str2foo"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str_term_and_pad)),Str(str+++3bar+++))*/
     XCTAssertEqualObjects(((str_pad_term_t *)_r).str_term_and_pad, (@"str+++3bar+++"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str_term_include)),Str(str4baz@))*/
     XCTAssertEqualObjects(((str_pad_term_t *)_r).str_term_include, (@"str4baz@"));
 }
 @end

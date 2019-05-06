@@ -22,29 +22,17 @@
 }
 
 - (void)test_expr_3 {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(one)),IntNum(80))*/
     XCTAssertEqual(((expr_3_t *)_r).one.unsignedCharValue, 80);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(two)),Str(ACK))*/
     XCTAssertEqualObjects(((expr_3_t *)_r).two, (@"ACK"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(three)),Str(@ACK))*/
     XCTAssertEqualObjects(((expr_3_t *)_r).three, (@"@ACK"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(four)),Str(_ACK_))*/
     XCTAssertEqualObjects(((expr_3_t *)_r).four, (@"_ACK_"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_str_eq)),Bool(true))*/
     XCTAssertEqual(((expr_3_t *)_r).is_str_eq.boolValue, YES);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_str_ne)),Bool(false))*/
     XCTAssertEqual(((expr_3_t *)_r).is_str_ne.boolValue, NO);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_str_lt)),Bool(true))*/
     XCTAssertEqual(((expr_3_t *)_r).is_str_lt.boolValue, YES);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_str_gt)),Bool(false))*/
     XCTAssertEqual(((expr_3_t *)_r).is_str_gt.boolValue, NO);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_str_le)),Bool(true))*/
     XCTAssertEqual(((expr_3_t *)_r).is_str_le.boolValue, YES);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_str_ge)),Bool(false))*/
     XCTAssertEqual(((expr_3_t *)_r).is_str_ge.boolValue, NO);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_str_lt2)),Bool(true))*/
     XCTAssertEqual(((expr_3_t *)_r).is_str_lt2.boolValue, YES);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(test_not)),Bool(true))*/
     XCTAssertEqual(((expr_3_t *)_r).test_not.boolValue, YES);
 }
 @end

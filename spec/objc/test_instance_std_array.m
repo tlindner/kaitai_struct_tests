@@ -22,19 +22,12 @@
 }
 
 - (void)test_instance_std_array {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(ofs)),IntNum(16))*/
     XCTAssertEqual(((instance_std_array_t *)_r).ofs.unsignedIntValue, 16);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(qty_entries)),IntNum(3))*/
     XCTAssertEqual(((instance_std_array_t *)_r).qty_entries.unsignedIntValue, 3);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(entry_size)),IntNum(4))*/
     XCTAssertEqual(((instance_std_array_t *)_r).entry_size.unsignedIntValue, 4);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(entries)),identifier(size)),IntNum(3))*/
     XCTAssertEqual(((instance_std_array_t *)_r).entries.count, 3);
-    /* simpleAssert: TestAssert(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(entries)),IntNum(0)),List(ArrayBuffer(IntNum(17), IntNum(17), IntNum(17), IntNum(17))))*/
     XCTAssertEqualObjects(((instance_std_array_t *)_r).entries[0], ([NSData dataWithBytes:"\x11\x11\x11\x11" length:4]));
-    /* simpleAssert: TestAssert(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(entries)),IntNum(1)),List(ArrayBuffer(IntNum(34), IntNum(34), IntNum(34), IntNum(34))))*/
     XCTAssertEqualObjects(((instance_std_array_t *)_r).entries[1], ([NSData dataWithBytes:"\x22\x22\x22\x22" length:4]));
-    /* simpleAssert: TestAssert(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(entries)),IntNum(2)),List(ArrayBuffer(IntNum(51), IntNum(51), IntNum(51), IntNum(51))))*/
     XCTAssertEqualObjects(((instance_std_array_t *)_r).entries[2], ([NSData dataWithBytes:"\x33\x33\x33\x33" length:4]));
 }
 @end

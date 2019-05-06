@@ -22,23 +22,14 @@
 }
 
 - (void)test_switch_bytearray {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),identifier(size)),IntNum(4))*/
     XCTAssertEqual(((switch_bytearray_t *)_r).opcodes.count, 4);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(0)),identifier(code)),List(ArrayBuffer(IntNum(83))))*/
     XCTAssertEqualObjects(((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[0]).code, ([NSData dataWithBytes:"\x53" length:1]));
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(0)),identifier(body)),typeId(false,ArrayBuffer(switch_bytearray, opcode, strval),false)),identifier(value)),Str(foobar))*/
     XCTAssertEqualObjects(((strval_opcode_switch_bytearray_t *)((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[0]).body).value, (@"foobar"));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(1)),identifier(code)),List(ArrayBuffer(IntNum(73))))*/
     XCTAssertEqualObjects(((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[1]).code, ([NSData dataWithBytes:"\x49" length:1]));
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(1)),identifier(body)),typeId(false,ArrayBuffer(switch_bytearray, opcode, intval),false)),identifier(value)),IntNum(66))*/
     XCTAssertEqual(((intval_opcode_switch_bytearray_t *)((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[1]).body).value.unsignedCharValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(2)),identifier(code)),List(ArrayBuffer(IntNum(73))))*/
     XCTAssertEqualObjects(((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[2]).code, ([NSData dataWithBytes:"\x49" length:1]));
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(2)),identifier(body)),typeId(false,ArrayBuffer(switch_bytearray, opcode, intval),false)),identifier(value)),IntNum(55))*/
     XCTAssertEqual(((intval_opcode_switch_bytearray_t *)((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[2]).body).value.unsignedCharValue, 55);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(3)),identifier(code)),List(ArrayBuffer(IntNum(83))))*/
     XCTAssertEqualObjects(((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[3]).code, ([NSData dataWithBytes:"\x53" length:1]));
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(opcodes)),IntNum(3)),identifier(body)),typeId(false,ArrayBuffer(switch_bytearray, opcode, strval),false)),identifier(value)),Str())*/
     XCTAssertEqualObjects(((strval_opcode_switch_bytearray_t *)((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[3]).body).value, (@""));
 }
 @end

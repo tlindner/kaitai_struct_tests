@@ -22,13 +22,9 @@
 }
 
 - (void)test_str_encodings {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str1)),Str(Some ASCII))*/
     XCTAssertEqualObjects(((str_encodings_t *)_r).str1, (@"Some ASCII"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str2)),Str(こんにちは))*/
     XCTAssertEqualObjects(((str_encodings_t *)_r).str2, (@"\u3053\u3093\u306b\u3061\u306f"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str3)),Str(こんにちは))*/
     XCTAssertEqualObjects(((str_encodings_t *)_r).str3, (@"\u3053\u3093\u306b\u3061\u306f"));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str4)),Str(░▒▓))*/
     XCTAssertEqualObjects(((str_encodings_t *)_r).str4, (@"\u2591\u2592\u2593"));
 }
 @end

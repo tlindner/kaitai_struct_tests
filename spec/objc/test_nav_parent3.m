@@ -22,25 +22,15 @@
 }
 
 - (void)test_nav_parent3 {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(ofs_tags)),IntNum(8))*/
     XCTAssertEqual(((nav_parent3_t *)_r).ofs_tags.unsignedIntValue, 8);
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(num_tags)),IntNum(2))*/
     XCTAssertEqual(((nav_parent3_t *)_r).num_tags.unsignedIntValue, 2);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(tags)),IntNum(0)),identifier(name)),Str(RAHC))*/
     XCTAssertEqualObjects(((tag_nav_parent3_t *)((nav_parent3_t *)_r).tags[0]).name, (@"RAHC"));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(tags)),IntNum(0)),identifier(ofs)),IntNum(32))*/
     XCTAssertEqual(((tag_nav_parent3_t *)((nav_parent3_t *)_r).tags[0]).ofs.unsignedIntValue, 32);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(tags)),IntNum(0)),identifier(num_items)),IntNum(3))*/
     XCTAssertEqual(((tag_nav_parent3_t *)((nav_parent3_t *)_r).tags[0]).num_items.unsignedIntValue, 3);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(tags)),IntNum(0)),identifier(tag_content)),identifier(content)),Str(foo))*/
     XCTAssertEqualObjects(((tag_char_tag_nav_parent3_t *)((tag_nav_parent3_t *)((nav_parent3_t *)_r).tags[0]).tag_content).content, (@"foo"));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(tags)),IntNum(1)),identifier(name)),Str(RAHC))*/
     XCTAssertEqualObjects(((tag_nav_parent3_t *)((nav_parent3_t *)_r).tags[1]).name, (@"RAHC"));
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(tags)),IntNum(1)),identifier(ofs)),IntNum(35))*/
     XCTAssertEqual(((tag_nav_parent3_t *)((nav_parent3_t *)_r).tags[1]).ofs.unsignedIntValue, 35);
-    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(tags)),IntNum(1)),identifier(num_items)),IntNum(6))*/
     XCTAssertEqual(((tag_nav_parent3_t *)((nav_parent3_t *)_r).tags[1]).num_items.unsignedIntValue, 6);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(tags)),IntNum(1)),identifier(tag_content)),identifier(content)),Str(barbaz))*/
     XCTAssertEqualObjects(((tag_char_tag_nav_parent3_t *)((tag_nav_parent3_t *)((nav_parent3_t *)_r).tags[1]).tag_content).content, (@"barbaz"));
 }
 @end

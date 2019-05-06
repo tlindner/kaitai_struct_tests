@@ -22,9 +22,7 @@
 }
 
 - (void)test_cast_to_imported {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(one)),IntNum(80))*/
     XCTAssertEqual(((hello_world_t *)((cast_to_imported_t *)_r).one).one.unsignedCharValue, 80);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one_casted)),identifier(one)),IntNum(80))*/
     XCTAssertEqual(((hello_world_t *)((cast_to_imported_t *)_r).one_casted).one.unsignedCharValue, 80);
 }
 @end

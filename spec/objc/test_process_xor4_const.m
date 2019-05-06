@@ -22,9 +22,7 @@
 }
 
 - (void)test_process_xor4_const {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(key)),List(ArrayBuffer(IntNum(236), IntNum(187), IntNum(163), IntNum(20))))*/
     XCTAssertEqualObjects(((process_xor4_const_t *)_r).key, ([NSData dataWithBytes:"\xEC\xBB\xA3\x14" length:4]));
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(buf)),List(ArrayBuffer(IntNum(102), IntNum(111), IntNum(111), IntNum(32), IntNum(98), IntNum(97), IntNum(114))))*/
     XCTAssertEqualObjects(((process_xor4_const_t *)_r).buf, ([NSData dataWithBytes:"\x66\x6F\x6F\x20\x62\x61\x72" length:7]));
 }
 @end

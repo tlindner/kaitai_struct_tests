@@ -22,9 +22,7 @@
 }
 
 - (void)test_params_pass_usertype {
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(first)),identifier(foo)),IntNum(1))*/
     XCTAssertEqual(((block_params_pass_usertype_t *)((params_pass_usertype_t *)_r).first).foo.unsignedCharValue, 1);
-    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(one)),identifier(buf)),List(ArrayBuffer(IntNum(2))))*/
     XCTAssertEqualObjects(((param_type_params_pass_usertype_t *)((params_pass_usertype_t *)_r).one).buf, ([NSData dataWithBytes:"\x02" length:1]));
 }
 @end

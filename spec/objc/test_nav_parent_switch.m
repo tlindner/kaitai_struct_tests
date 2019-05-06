@@ -22,11 +22,8 @@
 }
 
 - (void)test_nav_parent_switch {
-    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(category)),IntNum(1))*/
     XCTAssertEqual(((nav_parent_switch_t *)_r).category.unsignedCharValue, 1);
-    /* simpleAssert: TestAssert(Attribute(CastToType(Attribute(Name(identifier(q1w2e3)),identifier(content)),typeId(false,ArrayBuffer(nav_parent_switch, element_1),false)),identifier(foo)),IntNum(66))*/
     XCTAssertEqual(((element_1_nav_parent_switch_t *)((nav_parent_switch_t *)_r).content).foo.unsignedCharValue, 66);
-    /* simpleAssert: TestAssert(Attribute(Attribute(CastToType(Attribute(Name(identifier(q1w2e3)),identifier(content)),typeId(false,ArrayBuffer(nav_parent_switch, element_1),false)),identifier(subelement)),identifier(bar)),IntNum(255))*/
     XCTAssertEqual(((subelement_1_nav_parent_switch_t *)((element_1_nav_parent_switch_t *)((nav_parent_switch_t *)_r).content).subelement).bar.unsignedCharValue, 255);
 }
 @end
