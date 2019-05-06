@@ -22,8 +22,11 @@
 }
 
 - (void)test_expr_enum {
-    XCTAssertEqualObjects(((expr_enum_t *)_r).const_dog, [@"dog" KSENUMWithDictionary:expr_enum_t._animal]);
-    XCTAssertEqualObjects(((expr_enum_t *)_r).derived_boom, [@"boom" KSENUMWithDictionary:expr_enum_t._animal]);
-    XCTAssertEqualObjects(((expr_enum_t *)_r).derived_dog, [@"dog" KSENUMWithDictionary:expr_enum_t._animal]);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(const_dog)),EnumByLabel(identifier(animal),identifier(dog),typeId(false,ArrayBuffer(expr_enum),false)))*/
+    XCTAssertEqualObjects(((expr_enum_t *)_r).const_dog, ([@"dog" KSENUMWithDictionary:expr_enum_t._animal]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(derived_boom)),EnumByLabel(identifier(animal),identifier(boom),typeId(false,ArrayBuffer(expr_enum),false)))*/
+    XCTAssertEqualObjects(((expr_enum_t *)_r).derived_boom, ([@"boom" KSENUMWithDictionary:expr_enum_t._animal]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(derived_dog)),EnumByLabel(identifier(animal),identifier(dog),typeId(false,ArrayBuffer(expr_enum),false)))*/
+    XCTAssertEqualObjects(((expr_enum_t *)_r).derived_dog, ([@"dog" KSENUMWithDictionary:expr_enum_t._animal]));
 }
 @end

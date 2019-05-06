@@ -22,9 +22,13 @@
 }
 
 - (void)test_expr_1 {
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(len_of_1)),IntNum(10))*/
     XCTAssertEqual(((expr_1_t *)_r).len_of_1.unsignedShortValue, 10);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(len_of_1_mod)),IntNum(8))*/
     XCTAssertEqual(((expr_1_t *)_r).len_of_1_mod.unsignedLongLongValue, 8);
-    XCTAssertEqualObjects(((expr_1_t *)_r).str1, @"Some ASC");
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str1)),Str(Some ASC))*/
+    XCTAssertEqualObjects(((expr_1_t *)_r).str1, (@"Some ASC"));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str1_len)),IntNum(8))*/
     XCTAssertEqual(((expr_1_t *)_r).str1_len.unsignedLongLongValue, 8);
 }
 @end

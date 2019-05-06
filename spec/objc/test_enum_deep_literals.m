@@ -22,7 +22,9 @@
 }
 
 - (void)test_enum_deep_literals {
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_pet_1_ok)),Bool(true))*/
     XCTAssertEqual(((enum_deep_literals_t *)_r).is_pet_1_ok.boolValue, YES);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(is_pet_2_ok)),Bool(true))*/
     XCTAssertEqual(((enum_deep_literals_t *)_r).is_pet_2_ok.boolValue, YES);
 }
 @end

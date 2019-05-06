@@ -22,9 +22,13 @@
 }
 
 - (void)test_process_coerce_bytes {
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(0)),identifier(flag)),IntNum(0))*/
     XCTAssertEqual(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[0]).flag.unsignedCharValue, 0);
-    XCTAssertEqualObjects(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[0]).buf, [NSData dataWithBytes:"\x41\x41\x41\x41" length:4]);
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(0)),identifier(buf)),List(ArrayBuffer(IntNum(65), IntNum(65), IntNum(65), IntNum(65))))*/
+    XCTAssertEqualObjects(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[0]).buf, ([NSData dataWithBytes:"\x41\x41\x41\x41" length:4]));
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(1)),identifier(flag)),IntNum(1))*/
     XCTAssertEqual(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[1]).flag.unsignedCharValue, 1);
-    XCTAssertEqualObjects(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[1]).buf, [NSData dataWithBytes:"\x42\x42\x42\x42" length:4]);
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(1)),identifier(buf)),List(ArrayBuffer(IntNum(66), IntNum(66), IntNum(66), IntNum(66))))*/
+    XCTAssertEqualObjects(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[1]).buf, ([NSData dataWithBytes:"\x42\x42\x42\x42" length:4]));
 }
 @end

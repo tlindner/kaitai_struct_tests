@@ -22,9 +22,13 @@
 }
 
 - (void)test_instance_io_user {
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(qty_entries)),IntNum(3))*/
     XCTAssertEqual(((instance_io_user_t *)_r).qty_entries.unsignedIntValue, 3);
-    XCTAssertEqualObjects(((entry_instance_io_user_t *)((instance_io_user_t *)_r).entries[0]).name, @"the");
-    XCTAssertEqualObjects(((entry_instance_io_user_t *)((instance_io_user_t *)_r).entries[1]).name, @"rainy");
-    XCTAssertEqualObjects(((entry_instance_io_user_t *)((instance_io_user_t *)_r).entries[2]).name, @"day it is");
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(entries)),IntNum(0)),identifier(name)),Str(the))*/
+    XCTAssertEqualObjects(((entry_instance_io_user_t *)((instance_io_user_t *)_r).entries[0]).name, (@"the"));
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(entries)),IntNum(1)),identifier(name)),Str(rainy))*/
+    XCTAssertEqualObjects(((entry_instance_io_user_t *)((instance_io_user_t *)_r).entries[1]).name, (@"rainy"));
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(entries)),IntNum(2)),identifier(name)),Str(day it is))*/
+    XCTAssertEqualObjects(((entry_instance_io_user_t *)((instance_io_user_t *)_r).entries[2]).name, (@"day it is"));
 }
 @end

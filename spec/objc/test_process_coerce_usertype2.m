@@ -22,9 +22,13 @@
 }
 
 - (void)test_process_coerce_usertype2 {
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(0)),identifier(flag)),IntNum(0))*/
     XCTAssertEqual(((record_process_coerce_usertype2_t *)((process_coerce_usertype2_t *)_r).records[0]).flag.unsignedCharValue, 0);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(0)),identifier(buf)),identifier(value)),IntNum(1094795585))*/
     XCTAssertEqual(((foo_process_coerce_usertype2_t *)((record_process_coerce_usertype2_t *)((process_coerce_usertype2_t *)_r).records[0]).buf).value.unsignedIntValue, 1094795585);
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(1)),identifier(flag)),IntNum(1))*/
     XCTAssertEqual(((record_process_coerce_usertype2_t *)((process_coerce_usertype2_t *)_r).records[1]).flag.unsignedCharValue, 1);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(records)),IntNum(1)),identifier(buf)),identifier(value)),IntNum(1111638594))*/
     XCTAssertEqual(((foo_process_coerce_usertype2_t *)((record_process_coerce_usertype2_t *)((process_coerce_usertype2_t *)_r).records[1]).buf).value.unsignedIntValue, 1111638594);
 }
 @end

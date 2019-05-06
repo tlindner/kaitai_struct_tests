@@ -22,7 +22,9 @@
 }
 
 - (void)test_enum_1 {
-    XCTAssertEqualObjects(((submain_obj_main_obj_enum_1_t *)((main_obj_enum_1_t *)((enum_1_t *)_r).main).submain).pet_1, [@"cat" KSENUMWithDictionary:main_obj_enum_1_t._animal]);
-    XCTAssertEqualObjects(((submain_obj_main_obj_enum_1_t *)((main_obj_enum_1_t *)((enum_1_t *)_r).main).submain).pet_2, [@"chicken" KSENUMWithDictionary:main_obj_enum_1_t._animal]);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(main)),identifier(submain)),identifier(pet_1)),EnumByLabel(identifier(animal),identifier(cat),typeId(false,ArrayBuffer(enum_1, main_obj),false)))*/
+    XCTAssertEqualObjects(((submain_obj_main_obj_enum_1_t *)((main_obj_enum_1_t *)((enum_1_t *)_r).main).submain).pet_1, ([@"cat" KSENUMWithDictionary:main_obj_enum_1_t._animal]));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(main)),identifier(submain)),identifier(pet_2)),EnumByLabel(identifier(animal),identifier(chicken),typeId(false,ArrayBuffer(enum_1, main_obj),false)))*/
+    XCTAssertEqualObjects(((submain_obj_main_obj_enum_1_t *)((main_obj_enum_1_t *)((enum_1_t *)_r).main).submain).pet_2, ([@"chicken" KSENUMWithDictionary:main_obj_enum_1_t._animal]));
 }
 @end

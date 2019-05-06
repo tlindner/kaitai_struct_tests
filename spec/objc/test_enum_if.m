@@ -22,12 +22,19 @@
 }
 
 - (void)test_enum_if {
-    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op1).opcode, [@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]);
-    XCTAssertEqualObjects(((arg_str_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op1).arg_str).str, @"foo");
-    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op2).opcode, [@"a_tuple" KSENUMWithDictionary:enum_if_t._opcodes]);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op1)),identifier(opcode)),EnumByLabel(identifier(opcodes),identifier(a_string),typeId(false,ArrayBuffer(enum_if),false)))*/
+    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op1).opcode, ([@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op1)),identifier(arg_str)),identifier(str)),Str(foo))*/
+    XCTAssertEqualObjects(((arg_str_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op1).arg_str).str, (@"foo"));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op2)),identifier(opcode)),EnumByLabel(identifier(opcodes),identifier(a_tuple),typeId(false,ArrayBuffer(enum_if),false)))*/
+    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op2).opcode, ([@"a_tuple" KSENUMWithDictionary:enum_if_t._opcodes]));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op2)),identifier(arg_tuple)),identifier(num1)),IntNum(66))*/
     XCTAssertEqual(((arg_tuple_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op2).arg_tuple).num1.unsignedCharValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op2)),identifier(arg_tuple)),identifier(num2)),IntNum(67))*/
     XCTAssertEqual(((arg_tuple_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op2).arg_tuple).num2.unsignedCharValue, 67);
-    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op3).opcode, [@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]);
-    XCTAssertEqualObjects(((arg_str_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op3).arg_str).str, @"bar");
+    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op3)),identifier(opcode)),EnumByLabel(identifier(opcodes),identifier(a_string),typeId(false,ArrayBuffer(enum_if),false)))*/
+    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op3).opcode, ([@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op3)),identifier(arg_str)),identifier(str)),Str(bar))*/
+    XCTAssertEqualObjects(((arg_str_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op3).arg_str).str, (@"bar"));
 }
 @end

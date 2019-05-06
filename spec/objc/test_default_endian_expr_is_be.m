@@ -22,23 +22,41 @@
 }
 
 - (void)test_default_endian_expr_is_be {
-    XCTAssertEqualObjects(((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).indicator, [NSData dataWithBytes:"\x49\x49" length:2]);
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(0)),identifier(indicator)),List(ArrayBuffer(IntNum(73), IntNum(73))))*/
+    XCTAssertEqualObjects(((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).indicator, ([NSData dataWithBytes:"\x49\x49" length:2]));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(0)),identifier(main)),identifier(some_int)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).some_int.unsignedIntValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(0)),identifier(main)),identifier(some_int_be)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).some_int_be.unsignedShortValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(0)),identifier(main)),identifier(some_int_le)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).some_int_le.unsignedShortValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(0)),identifier(main)),identifier(inst_int)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).inst_int.unsignedIntValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(0)),identifier(main)),identifier(inst_sub)),identifier(foo)),IntNum(66))*/
     XCTAssertEqual(((sub_main_obj_main_obj_doc_default_endian_expr_is_be_t *)((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).inst_sub).foo.unsignedIntValue, 66);
-    XCTAssertEqualObjects(((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).indicator, [NSData dataWithBytes:"\x4D\x4D" length:2]);
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(1)),identifier(indicator)),List(ArrayBuffer(IntNum(77), IntNum(77))))*/
+    XCTAssertEqualObjects(((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).indicator, ([NSData dataWithBytes:"\x4D\x4D" length:2]));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(1)),identifier(main)),identifier(some_int)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).some_int.unsignedIntValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(1)),identifier(main)),identifier(some_int_be)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).some_int_be.unsignedShortValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(1)),identifier(main)),identifier(some_int_le)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).some_int_le.unsignedShortValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(1)),identifier(main)),identifier(inst_int)),IntNum(1107296256))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).inst_int.unsignedIntValue, 1107296256);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(1)),identifier(main)),identifier(inst_sub)),identifier(foo)),IntNum(1107296256))*/
     XCTAssertEqual(((sub_main_obj_main_obj_doc_default_endian_expr_is_be_t *)((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).inst_sub).foo.unsignedIntValue, 1107296256);
-    XCTAssertEqualObjects(((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).indicator, [NSData dataWithBytes:"\x58\x58" length:2]);
+    /* simpleAssert: TestAssert(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(2)),identifier(indicator)),List(ArrayBuffer(IntNum(88), IntNum(88))))*/
+    XCTAssertEqualObjects(((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).indicator, ([NSData dataWithBytes:"\x58\x58" length:2]));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(2)),identifier(main)),identifier(some_int)),IntNum(1107296256))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).some_int.unsignedIntValue, 1107296256);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(2)),identifier(main)),identifier(some_int_be)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).some_int_be.unsignedShortValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(2)),identifier(main)),identifier(some_int_le)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).some_int_le.unsignedShortValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(2)),identifier(main)),identifier(inst_int)),IntNum(66))*/
     XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).inst_int.unsignedIntValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Subscript(Attribute(Name(identifier(q1w2e3)),identifier(docs)),IntNum(2)),identifier(main)),identifier(inst_sub)),identifier(foo)),IntNum(66))*/
     XCTAssertEqual(((sub_main_obj_main_obj_doc_default_endian_expr_is_be_t *)((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).inst_sub).foo.unsignedIntValue, 66);
 }
 @end

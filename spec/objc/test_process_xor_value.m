@@ -22,7 +22,9 @@
 }
 
 - (void)test_process_xor_value {
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(key)),IntNum(255))*/
     XCTAssertEqual(((process_xor_value_t *)_r).key.unsignedCharValue, 255);
-    XCTAssertEqualObjects(((process_xor_value_t *)_r).buf, [NSData dataWithBytes:"\x66\x6F\x6F\x20\x62\x61\x72" length:7]);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(buf)),List(ArrayBuffer(IntNum(102), IntNum(111), IntNum(111), IntNum(32), IntNum(98), IntNum(97), IntNum(114))))*/
+    XCTAssertEqualObjects(((process_xor_value_t *)_r).buf, ([NSData dataWithBytes:"\x66\x6F\x6F\x20\x62\x61\x72" length:7]));
 }
 @end

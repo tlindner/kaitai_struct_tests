@@ -22,9 +22,13 @@
 }
 
 - (void)test_type_int_unary_op {
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(value_s2)),IntNum(16720))*/
     XCTAssertEqual(((type_int_unary_op_t *)_r).value_s2.shortValue, 16720);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(value_s8)),IntNum(4706543082108963651))*/
     XCTAssertEqual(((type_int_unary_op_t *)_r).value_s8.longLongValue, 4706543082108963651LL);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(unary_s2)),UnaryOp(Minus,IntNum(16720)))*/
     XCTAssertEqual(((type_int_unary_op_t *)_r).unary_s2.unsignedLongLongValue, -16720);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(unary_s8)),UnaryOp(Minus,IntNum(4706543082108963651)))*/
     XCTAssertEqual(((type_int_unary_op_t *)_r).unary_s8.longLongValue, -4706543082108963651LL);
 }
 @end

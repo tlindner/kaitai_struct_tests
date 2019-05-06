@@ -22,9 +22,13 @@
 }
 
 - (void)test_bytes_pad_term {
-    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_pad, [NSData dataWithBytes:"\x73\x74\x72\x31" length:4]);
-    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_term, [NSData dataWithBytes:"\x73\x74\x72\x32\x66\x6F\x6F" length:7]);
-    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_term_and_pad, [NSData dataWithBytes:"\x73\x74\x72\x2B\x2B\x2B\x33\x62\x61\x72\x2B\x2B\x2B" length:13]);
-    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_term_include, [NSData dataWithBytes:"\x73\x74\x72\x34\x62\x61\x7A\x40" length:8]);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str_pad)),List(ArrayBuffer(IntNum(115), IntNum(116), IntNum(114), IntNum(49))))*/
+    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_pad, ([NSData dataWithBytes:"\x73\x74\x72\x31" length:4]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str_term)),List(ArrayBuffer(IntNum(115), IntNum(116), IntNum(114), IntNum(50), IntNum(102), IntNum(111), IntNum(111))))*/
+    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_term, ([NSData dataWithBytes:"\x73\x74\x72\x32\x66\x6F\x6F" length:7]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str_term_and_pad)),List(ArrayBuffer(IntNum(115), IntNum(116), IntNum(114), IntNum(43), IntNum(43), IntNum(43), IntNum(51), IntNum(98), IntNum(97), IntNum(114), IntNum(43), IntNum(43), IntNum(43))))*/
+    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_term_and_pad, ([NSData dataWithBytes:"\x73\x74\x72\x2B\x2B\x2B\x33\x62\x61\x72\x2B\x2B\x2B" length:13]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(str_term_include)),List(ArrayBuffer(IntNum(115), IntNum(116), IntNum(114), IntNum(52), IntNum(98), IntNum(97), IntNum(122), IntNum(64))))*/
+    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_term_include, ([NSData dataWithBytes:"\x73\x74\x72\x34\x62\x61\x7A\x40" length:8]));
 }
 @end

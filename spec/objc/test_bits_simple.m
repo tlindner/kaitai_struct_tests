@@ -22,19 +22,33 @@
 }
 
 - (void)test_bits_simple {
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_1)),IntNum(80))*/
     XCTAssertEqual(((bits_simple_t *)_r).byte_1.unsignedCharValue, 80);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_2)),IntNum(65))*/
     XCTAssertEqual(((bits_simple_t *)_r).byte_2.unsignedCharValue, 65);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(bits_a)),Bool(false))*/
     XCTAssertEqual(((bits_simple_t *)_r).bits_a.boolValue, NO);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(bits_b)),IntNum(4))*/
     XCTAssertEqual(((bits_simple_t *)_r).bits_b.unsignedCharValue, 4);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(bits_c)),IntNum(3))*/
     XCTAssertEqual(((bits_simple_t *)_r).bits_c.unsignedCharValue, 3);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(large_bits_1)),IntNum(300))*/
     XCTAssertEqual(((bits_simple_t *)_r).large_bits_1.unsignedShortValue, 300);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(spacer)),IntNum(5))*/
     XCTAssertEqual(((bits_simple_t *)_r).spacer.unsignedCharValue, 5);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(large_bits_2)),IntNum(1329))*/
     XCTAssertEqual(((bits_simple_t *)_r).large_bits_2.unsignedShortValue, 1329);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(normal_s2)),UnaryOp(Minus,IntNum(1)))*/
     XCTAssertEqual(((bits_simple_t *)_r).normal_s2.shortValue, -1);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_8_9_10)),IntNum(5259587))*/
     XCTAssertEqual(((bits_simple_t *)_r).byte_8_9_10.unsignedIntValue, 5259587);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_11_to_14)),IntNum(1261262125))*/
     XCTAssertEqual(((bits_simple_t *)_r).byte_11_to_14.unsignedIntValue, 1261262125);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_15_to_19)),IntNum(293220057087))*/
     XCTAssertEqual(((bits_simple_t *)_r).byte_15_to_19.unsignedLongLongValue, 293220057087LL);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(byte_20_to_27)),IntNum(18446744073709551615))*/
     XCTAssertEqual(((bits_simple_t *)_r).byte_20_to_27.unsignedLongLongValue, 18446744073709551615ULL);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(test_if_b1)),IntNum(123))*/
     XCTAssertEqual(((bits_simple_t *)_r).test_if_b1.charValue, 123);
 }
 @end

@@ -22,6 +22,7 @@
 }
 
 - (void)test_default_big_endian {
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(one)),IntNum(117440512))*/
     XCTAssertEqual(((default_big_endian_t *)_r).one.unsignedIntValue, 117440512);
 }
 @end

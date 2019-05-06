@@ -22,9 +22,13 @@
 }
 
 - (void)test_str_literals2 {
-    XCTAssertEqualObjects(((str_literals2_t *)_r).dollar1, @"$foo");
-    XCTAssertEqualObjects(((str_literals2_t *)_r).dollar2, @"${foo}");
-    XCTAssertEqualObjects(((str_literals2_t *)_r).sl2_hash, @"#{foo}");
-    XCTAssertEqualObjects(((str_literals2_t *)_r).at_sign, @"@foo");
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(dollar1)),Str($foo))*/
+    XCTAssertEqualObjects(((str_literals2_t *)_r).dollar1, (@"$foo"));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(dollar2)),Str(${foo}))*/
+    XCTAssertEqualObjects(((str_literals2_t *)_r).dollar2, (@"${foo}"));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(sl2_hash)),Str(#{foo}))*/
+    XCTAssertEqualObjects(((str_literals2_t *)_r).sl2_hash, (@"#{foo}"));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(at_sign)),Str(@foo))*/
+    XCTAssertEqualObjects(((str_literals2_t *)_r).at_sign, (@"@foo"));
 }
 @end

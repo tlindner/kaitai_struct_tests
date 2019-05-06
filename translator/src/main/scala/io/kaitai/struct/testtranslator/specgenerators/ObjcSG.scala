@@ -53,6 +53,7 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
   }
 
   def simpleAssert(check: TestAssert): Unit = {
+  	out.puts(s"/* simpleAssert: $check*/")
     val actType = translator.detectType(check.actual)
     val actStr = translateAct(check.actual)
     val expStr = translateExp(check.expected)
@@ -60,7 +61,7 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
       case _: NumericType | _: BooleanType =>
         out.puts(s"XCTAssertEqual($actStr, $expStr);")
       case _ =>
-        out.puts(s"XCTAssertEqualObjects($actStr, $expStr);")
+        out.puts(s"XCTAssertEqualObjects($actStr, ($expStr));")
     }
   }
 
@@ -73,10 +74,7 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
   }
 
   def trueArrayAssert(check: TestAssert, elType: DataType, elts: Seq[Ast.expr]): Unit = {
-    val elTypeName = "temp"
-    val eltsStr = elts.map((x) => translator.translate(x)).mkString(", ")
-    val actStr = translateAct(check.actual)
-    out.puts(s"COMPARE_ARRAY($elTypeName, $actStr, $eltsStr);")
+  	simpleAssert(check)
   }
 
   override def indentStr: String = "    "

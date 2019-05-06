@@ -22,9 +22,13 @@
 }
 
 - (void)test_cast_nested {
-    XCTAssertEqualObjects(((strval_opcode_cast_nested_t *)((cast_nested_t *)_r).opcodes_0_str).value, @"foobar");
-    XCTAssertEqualObjects(((cast_nested_t *)_r).opcodes_0_str_value, @"foobar");
+    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(opcodes_0_str)),identifier(value)),Str(foobar))*/
+    XCTAssertEqualObjects(((strval_opcode_cast_nested_t *)((cast_nested_t *)_r).opcodes_0_str).value, (@"foobar"));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(opcodes_0_str_value)),Str(foobar))*/
+    XCTAssertEqualObjects(((cast_nested_t *)_r).opcodes_0_str_value, (@"foobar"));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(opcodes_1_int)),identifier(value)),IntNum(66))*/
     XCTAssertEqual(((intval_opcode_cast_nested_t *)((cast_nested_t *)_r).opcodes_1_int).value.unsignedCharValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(opcodes_1_int_value)),IntNum(66))*/
     XCTAssertEqual(((cast_nested_t *)_r).opcodes_1_int_value.unsignedCharValue, 66);
 }
 @end

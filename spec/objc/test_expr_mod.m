@@ -22,11 +22,17 @@
 }
 
 - (void)test_expr_mod {
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(int_u)),IntNum(1262698832))*/
     XCTAssertEqual(((expr_mod_t *)_r).int_u.unsignedIntValue, 1262698832);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(int_s)),UnaryOp(Minus,IntNum(52947)))*/
     XCTAssertEqual(((expr_mod_t *)_r).int_s.intValue, -52947);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(mod_pos_const)),IntNum(9))*/
     XCTAssertEqual(((expr_mod_t *)_r).mod_pos_const.unsignedLongLongValue, 9);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(mod_neg_const)),IntNum(4))*/
     XCTAssertEqual(((expr_mod_t *)_r).mod_neg_const.unsignedLongLongValue, 4);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(mod_pos_seq)),IntNum(5))*/
     XCTAssertEqual(((expr_mod_t *)_r).mod_pos_seq.unsignedLongLongValue, 5);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(mod_neg_seq)),IntNum(2))*/
     XCTAssertEqual(((expr_mod_t *)_r).mod_neg_seq.unsignedLongLongValue, 2);
 }
 @end

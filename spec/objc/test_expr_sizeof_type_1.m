@@ -22,7 +22,9 @@
 }
 
 - (void)test_expr_sizeof_type_1 {
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(sizeof_block)),BinOp(BinOp(BinOp(IntNum(1),Add,IntNum(4)),Add,IntNum(2)),Add,IntNum(4)))*/
     XCTAssertEqual(((expr_sizeof_type_1_t *)_r).sizeof_block.unsignedLongLongValue, (((1 + 4) + 2) + 4));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(sizeof_subblock)),IntNum(4))*/
     XCTAssertEqual(((expr_sizeof_type_1_t *)_r).sizeof_subblock.unsignedLongLongValue, 4);
 }
 @end

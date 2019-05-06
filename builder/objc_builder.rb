@@ -35,8 +35,11 @@ class ObjcBuilder < PartialBuilder
   end
 
   def list_disposable_files
-    # list = Dir.glob("#{@objc_spec_dir}/*.m") + Dir.glob("#{@src_dir}/*.m")
+    # pick up all files in spec directory
     list = Dir.glob("#{@objc_spec_dir}/*.m")
+    
+    # pickup only some files
+    #list = Dir.glob("#{@objc_spec_dir}/test_instance_io_user.m")
 
     # add the format for each test found
     secondaryList = []

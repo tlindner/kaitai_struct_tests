@@ -22,8 +22,11 @@
 }
 
 - (void)test_process_rotate {
-    XCTAssertEqualObjects(((process_rotate_t *)_r).buf1, [NSData dataWithBytes:"\x48\x65\x6C\x6C\x6F" length:5]);
-    XCTAssertEqualObjects(((process_rotate_t *)_r).buf2, [NSData dataWithBytes:"\x57\x6F\x72\x6C\x64" length:5]);
-    XCTAssertEqualObjects(((process_rotate_t *)_r).buf3, [NSData dataWithBytes:"\x54\x68\x65\x72\x65" length:5]);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(buf1)),List(ArrayBuffer(IntNum(72), IntNum(101), IntNum(108), IntNum(108), IntNum(111))))*/
+    XCTAssertEqualObjects(((process_rotate_t *)_r).buf1, ([NSData dataWithBytes:"\x48\x65\x6C\x6C\x6F" length:5]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(buf2)),List(ArrayBuffer(IntNum(87), IntNum(111), IntNum(114), IntNum(108), IntNum(100))))*/
+    XCTAssertEqualObjects(((process_rotate_t *)_r).buf2, ([NSData dataWithBytes:"\x57\x6F\x72\x6C\x64" length:5]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(buf3)),List(ArrayBuffer(IntNum(84), IntNum(104), IntNum(101), IntNum(114), IntNum(101))))*/
+    XCTAssertEqualObjects(((process_rotate_t *)_r).buf3, ([NSData dataWithBytes:"\x54\x68\x65\x72\x65" length:5]));
 }
 @end

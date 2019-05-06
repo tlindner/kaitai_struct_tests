@@ -22,7 +22,9 @@
 }
 
 - (void)test_enum_deep {
-    XCTAssertEqualObjects(((enum_deep_t *)_r).pet_1, [@"cat" KSENUMWithDictionary:container1_enum_deep_t._animal]);
-    XCTAssertEqualObjects(((enum_deep_t *)_r).pet_2, [@"hare" KSENUMWithDictionary:container2_container1_enum_deep_t._animal]);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_1)),EnumByLabel(identifier(animal),identifier(cat),typeId(false,ArrayBuffer(enum_deep, container1),false)))*/
+    XCTAssertEqualObjects(((enum_deep_t *)_r).pet_1, ([@"cat" KSENUMWithDictionary:container1_enum_deep_t._animal]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(pet_2)),EnumByLabel(identifier(animal),identifier(hare),typeId(false,ArrayBuffer(enum_deep, container1, container2),false)))*/
+    XCTAssertEqualObjects(((enum_deep_t *)_r).pet_2, ([@"hare" KSENUMWithDictionary:container2_container1_enum_deep_t._animal]));
 }
 @end

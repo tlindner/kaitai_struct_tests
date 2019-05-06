@@ -22,8 +22,11 @@
 }
 
 - (void)test_default_endian_mod {
+    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(main)),identifier(one)),IntNum(1262698832))*/
     XCTAssertEqual(((main_obj_default_endian_mod_t *)((default_endian_mod_t *)_r).main).one.intValue, 1262698832);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(main)),identifier(nest)),identifier(two)),UnaryOp(Minus,IntNum(52947)))*/
     XCTAssertEqual(((subnest_main_obj_default_endian_mod_t *)((main_obj_default_endian_mod_t *)((default_endian_mod_t *)_r).main).nest).two.intValue, -52947);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(main)),identifier(nest_be)),identifier(two)),IntNum(1346454347))*/
     XCTAssertEqual(((subnest_be_main_obj_default_endian_mod_t *)((main_obj_default_endian_mod_t *)((default_endian_mod_t *)_r).main).nest_be).two.intValue, 1346454347);
 }
 @end

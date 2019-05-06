@@ -22,8 +22,11 @@
 }
 
 - (void)test_process_custom {
-    XCTAssertEqualObjects(((process_custom_t *)_r).buf1, [NSData dataWithBytes:"\x10\xB3\x94\x94\xF4" length:5]);
-    XCTAssertEqualObjects(((process_custom_t *)_r).buf2, [NSData dataWithBytes:"\x5F\xBA\x7B\x93\x63\x23\x5F" length:7]);
-    XCTAssertEqualObjects(((process_custom_t *)_r).buf3, [NSData dataWithBytes:"\x29\x33\xB1\x38\xB1" length:5]);
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(buf1)),List(ArrayBuffer(IntNum(16), IntNum(179), IntNum(148), IntNum(148), IntNum(244))))*/
+    XCTAssertEqualObjects(((process_custom_t *)_r).buf1, ([NSData dataWithBytes:"\x10\xB3\x94\x94\xF4" length:5]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(buf2)),List(ArrayBuffer(IntNum(95), IntNum(186), IntNum(123), IntNum(147), IntNum(99), IntNum(35), IntNum(95))))*/
+    XCTAssertEqualObjects(((process_custom_t *)_r).buf2, ([NSData dataWithBytes:"\x5F\xBA\x7B\x93\x63\x23\x5F" length:7]));
+    /* simpleAssert: TestAssert(Attribute(Name(identifier(q1w2e3)),identifier(buf3)),List(ArrayBuffer(IntNum(41), IntNum(51), IntNum(177), IntNum(56), IntNum(177))))*/
+    XCTAssertEqualObjects(((process_custom_t *)_r).buf3, ([NSData dataWithBytes:"\x29\x33\xB1\x38\xB1" length:5]));
 }
 @end

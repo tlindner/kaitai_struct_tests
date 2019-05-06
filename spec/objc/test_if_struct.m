@@ -22,12 +22,19 @@
 }
 
 - (void)test_if_struct {
+    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op1)),identifier(opcode)),IntNum(83))*/
     XCTAssertEqual(((operation_if_struct_t *)((if_struct_t *)_r).op1).opcode.unsignedCharValue, 83);
-    XCTAssertEqualObjects(((arg_str_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op1).arg_str).str, @"foo");
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op1)),identifier(arg_str)),identifier(str)),Str(foo))*/
+    XCTAssertEqualObjects(((arg_str_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op1).arg_str).str, (@"foo"));
+    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op2)),identifier(opcode)),IntNum(84))*/
     XCTAssertEqual(((operation_if_struct_t *)((if_struct_t *)_r).op2).opcode.unsignedCharValue, 84);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op2)),identifier(arg_tuple)),identifier(num1)),IntNum(66))*/
     XCTAssertEqual(((arg_tuple_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op2).arg_tuple).num1.unsignedCharValue, 66);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op2)),identifier(arg_tuple)),identifier(num2)),IntNum(67))*/
     XCTAssertEqual(((arg_tuple_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op2).arg_tuple).num2.unsignedCharValue, 67);
+    /* simpleAssert: TestAssert(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op3)),identifier(opcode)),IntNum(83))*/
     XCTAssertEqual(((operation_if_struct_t *)((if_struct_t *)_r).op3).opcode.unsignedCharValue, 83);
-    XCTAssertEqualObjects(((arg_str_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op3).arg_str).str, @"bar");
+    /* simpleAssert: TestAssert(Attribute(Attribute(Attribute(Name(identifier(q1w2e3)),identifier(op3)),identifier(arg_str)),identifier(str)),Str(bar))*/
+    XCTAssertEqualObjects(((arg_str_if_struct_t *)((operation_if_struct_t *)((if_struct_t *)_r).op3).arg_str).str, (@"bar"));
 }
 @end
