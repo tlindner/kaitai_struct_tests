@@ -4,7 +4,7 @@
 #import "nav_parent2.h"
 
 @interface nav_parent2 : XCTestCase
-@property (strong) nav_parent2_t *r;
+@property (strong) KSNavParent2 *r;
 @end
 
 @implementation nav_parent2
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nav_parent2.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nav_parent2_t initWithStream:ks];
+    self.r = [KSNavParent2 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,15 +22,15 @@
 }
 
 - (void)test_nav_parent2 {
-    XCTAssertEqual(((nav_parent2_t *)_r).ofs_tags.unsignedIntValue, 8);
-    XCTAssertEqual(((nav_parent2_t *)_r).num_tags.unsignedIntValue, 2);
-    XCTAssertEqualObjects(((tag_nav_parent2_t *)((nav_parent2_t *)_r).tags[0]).name, (@"RAHC"));
-    XCTAssertEqual(((tag_nav_parent2_t *)((nav_parent2_t *)_r).tags[0]).ofs.unsignedIntValue, 32);
-    XCTAssertEqual(((tag_nav_parent2_t *)((nav_parent2_t *)_r).tags[0]).num_items.unsignedIntValue, 3);
-    XCTAssertEqualObjects(((tag_char_tag_nav_parent2_t *)((tag_nav_parent2_t *)((nav_parent2_t *)_r).tags[0]).tag_content).content, (@"foo"));
-    XCTAssertEqualObjects(((tag_nav_parent2_t *)((nav_parent2_t *)_r).tags[1]).name, (@"RAHC"));
-    XCTAssertEqual(((tag_nav_parent2_t *)((nav_parent2_t *)_r).tags[1]).ofs.unsignedIntValue, 35);
-    XCTAssertEqual(((tag_nav_parent2_t *)((nav_parent2_t *)_r).tags[1]).num_items.unsignedIntValue, 6);
-    XCTAssertEqualObjects(((tag_char_tag_nav_parent2_t *)((tag_nav_parent2_t *)((nav_parent2_t *)_r).tags[1]).tag_content).content, (@"barbaz"));
+    XCTAssertEqual(((KSNavParent2 *)_r).ofs_tags.unsignedIntValue, 8);
+    XCTAssertEqual(((KSNavParent2 *)_r).num_tags.unsignedIntValue, 2);
+    XCTAssertEqualObjects(((KSTag_NavParent2 *)((KSNavParent2 *)_r).tags[0]).name, (@"RAHC"));
+    XCTAssertEqual(((KSTag_NavParent2 *)((KSNavParent2 *)_r).tags[0]).ofs.unsignedIntValue, 32);
+    XCTAssertEqual(((KSTag_NavParent2 *)((KSNavParent2 *)_r).tags[0]).num_items.unsignedIntValue, 3);
+    XCTAssertEqualObjects(((KSTagChar_Tag_NavParent2 *)((KSTag_NavParent2 *)((KSNavParent2 *)_r).tags[0]).tag_content).content, (@"foo"));
+    XCTAssertEqualObjects(((KSTag_NavParent2 *)((KSNavParent2 *)_r).tags[1]).name, (@"RAHC"));
+    XCTAssertEqual(((KSTag_NavParent2 *)((KSNavParent2 *)_r).tags[1]).ofs.unsignedIntValue, 35);
+    XCTAssertEqual(((KSTag_NavParent2 *)((KSNavParent2 *)_r).tags[1]).num_items.unsignedIntValue, 6);
+    XCTAssertEqualObjects(((KSTagChar_Tag_NavParent2 *)((KSTag_NavParent2 *)((KSNavParent2 *)_r).tags[1]).tag_content).content, (@"barbaz"));
 }
 @end

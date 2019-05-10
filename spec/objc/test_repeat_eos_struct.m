@@ -4,7 +4,7 @@
 #import "repeat_eos_struct.h"
 
 @interface repeat_eos_struct : XCTestCase
-@property (strong) repeat_eos_struct_t *r;
+@property (strong) KSRepeatEosStruct *r;
 @end
 
 @implementation repeat_eos_struct
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_eos_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [repeat_eos_struct_t initWithStream:ks];
+    self.r = [KSRepeatEosStruct initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,10 +22,10 @@
 }
 
 - (void)test_repeat_eos_struct {
-    XCTAssertEqual(((repeat_eos_struct_t *)_r).chunks.count, 2);
-    XCTAssertEqual(((chunk_repeat_eos_struct_t *)((repeat_eos_struct_t *)_r).chunks[0]).offset.unsignedIntValue, 0);
-    XCTAssertEqual(((chunk_repeat_eos_struct_t *)((repeat_eos_struct_t *)_r).chunks[0]).len.unsignedIntValue, 66);
-    XCTAssertEqual(((chunk_repeat_eos_struct_t *)((repeat_eos_struct_t *)_r).chunks[1]).offset.unsignedIntValue, 66);
-    XCTAssertEqual(((chunk_repeat_eos_struct_t *)((repeat_eos_struct_t *)_r).chunks[1]).len.unsignedIntValue, 2069);
+    XCTAssertEqual(((KSRepeatEosStruct *)_r).chunks.count, 2);
+    XCTAssertEqual(((KSChunk_RepeatEosStruct *)((KSRepeatEosStruct *)_r).chunks[0]).offset.unsignedIntValue, 0);
+    XCTAssertEqual(((KSChunk_RepeatEosStruct *)((KSRepeatEosStruct *)_r).chunks[0]).len.unsignedIntValue, 66);
+    XCTAssertEqual(((KSChunk_RepeatEosStruct *)((KSRepeatEosStruct *)_r).chunks[1]).offset.unsignedIntValue, 66);
+    XCTAssertEqual(((KSChunk_RepeatEosStruct *)((KSRepeatEosStruct *)_r).chunks[1]).len.unsignedIntValue, 2069);
 }
 @end

@@ -4,7 +4,7 @@
 #import "cast_to_imported.h"
 
 @interface cast_to_imported : XCTestCase
-@property (strong) cast_to_imported_t *r;
+@property (strong) KSCastToImported *r;
 @end
 
 @implementation cast_to_imported
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [cast_to_imported_t initWithStream:ks];
+    self.r = [KSCastToImported initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_cast_to_imported {
-    XCTAssertEqual(((hello_world_t *)((cast_to_imported_t *)_r).one).one.unsignedCharValue, 80);
-    XCTAssertEqual(((hello_world_t *)((cast_to_imported_t *)_r).one_casted).one.unsignedCharValue, 80);
+    XCTAssertEqual(((KSHelloWorld *)((KSCastToImported *)_r).one).one.unsignedCharValue, 80);
+    XCTAssertEqual(((KSHelloWorld *)((KSCastToImported *)_r).one_casted).one.unsignedCharValue, 80);
 }
 @end

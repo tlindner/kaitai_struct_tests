@@ -4,7 +4,7 @@
 #import "enum_negative.h"
 
 @interface enum_negative : XCTestCase
-@property (strong) enum_negative_t *r;
+@property (strong) KSEnumNegative *r;
 @end
 
 @implementation enum_negative
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_negative.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [enum_negative_t initWithStream:ks];
+    self.r = [KSEnumNegative initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_enum_negative {
-    XCTAssertEqualObjects(((enum_negative_t *)_r).f1, ([@"negative_one" KSENUMWithDictionary:enum_negative_t._constants]));
-    XCTAssertEqualObjects(((enum_negative_t *)_r).f2, ([@"positive_one" KSENUMWithDictionary:enum_negative_t._constants]));
+    XCTAssertEqualObjects(((KSEnumNegative *)_r).f1, ([@"negative_one" KSENUMWithDictionary:KSEnumNegative._constants]));
+    XCTAssertEqualObjects(((KSEnumNegative *)_r).f2, ([@"positive_one" KSENUMWithDictionary:KSEnumNegative._constants]));
 }
 @end

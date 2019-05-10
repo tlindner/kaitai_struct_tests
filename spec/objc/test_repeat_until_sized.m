@@ -4,7 +4,7 @@
 #import "repeat_until_sized.h"
 
 @interface repeat_until_sized : XCTestCase
-@property (strong) repeat_until_sized_t *r;
+@property (strong) KSRepeatUntilSized *r;
 @end
 
 @implementation repeat_until_sized
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_until_process.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [repeat_until_sized_t initWithStream:ks];
+    self.r = [KSRepeatUntilSized initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,12 +22,12 @@
 }
 
 - (void)test_repeat_until_sized {
-    XCTAssertEqual(((repeat_until_sized_t *)_r).records.count, 3);
-    XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[0]).marker.unsignedCharValue, 232);
-    XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[0]).body.unsignedIntValue, 2863311546UL);
-    XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[1]).marker.unsignedCharValue, 250);
-    XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[1]).body.unsignedIntValue, 2863315102UL);
-    XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[2]).marker.unsignedCharValue, 170);
-    XCTAssertEqual(((record_repeat_until_sized_t *)((repeat_until_sized_t *)_r).records[2]).body.unsignedIntValue, 1431655765);
+    XCTAssertEqual(((KSRepeatUntilSized *)_r).records.count, 3);
+    XCTAssertEqual(((KSRecord_RepeatUntilSized *)((KSRepeatUntilSized *)_r).records[0]).marker.unsignedCharValue, 232);
+    XCTAssertEqual(((KSRecord_RepeatUntilSized *)((KSRepeatUntilSized *)_r).records[0]).body.unsignedIntValue, 2863311546UL);
+    XCTAssertEqual(((KSRecord_RepeatUntilSized *)((KSRepeatUntilSized *)_r).records[1]).marker.unsignedCharValue, 250);
+    XCTAssertEqual(((KSRecord_RepeatUntilSized *)((KSRepeatUntilSized *)_r).records[1]).body.unsignedIntValue, 2863315102UL);
+    XCTAssertEqual(((KSRecord_RepeatUntilSized *)((KSRepeatUntilSized *)_r).records[2]).marker.unsignedCharValue, 170);
+    XCTAssertEqual(((KSRecord_RepeatUntilSized *)((KSRepeatUntilSized *)_r).records[2]).body.unsignedIntValue, 1431655765);
 }
 @end

@@ -4,7 +4,7 @@
 #import "bytes_pad_term.h"
 
 @interface bytes_pad_term : XCTestCase
-@property (strong) bytes_pad_term_t *r;
+@property (strong) KSBytesPadTerm *r;
 @end
 
 @implementation bytes_pad_term
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_pad_term.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [bytes_pad_term_t initWithStream:ks];
+    self.r = [KSBytesPadTerm initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_bytes_pad_term {
-    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_pad, ([NSData dataWithBytes:"\x73\x74\x72\x31" length:4]));
-    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_term, ([NSData dataWithBytes:"\x73\x74\x72\x32\x66\x6F\x6F" length:7]));
-    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_term_and_pad, ([NSData dataWithBytes:"\x73\x74\x72\x2B\x2B\x2B\x33\x62\x61\x72\x2B\x2B\x2B" length:13]));
-    XCTAssertEqualObjects(((bytes_pad_term_t *)_r).str_term_include, ([NSData dataWithBytes:"\x73\x74\x72\x34\x62\x61\x7A\x40" length:8]));
+    XCTAssertEqualObjects(((KSBytesPadTerm *)_r).str_pad, ([NSData dataWithBytes:"\x73\x74\x72\x31" length:4]));
+    XCTAssertEqualObjects(((KSBytesPadTerm *)_r).str_term, ([NSData dataWithBytes:"\x73\x74\x72\x32\x66\x6F\x6F" length:7]));
+    XCTAssertEqualObjects(((KSBytesPadTerm *)_r).str_term_and_pad, ([NSData dataWithBytes:"\x73\x74\x72\x2B\x2B\x2B\x33\x62\x61\x72\x2B\x2B\x2B" length:13]));
+    XCTAssertEqualObjects(((KSBytesPadTerm *)_r).str_term_include, ([NSData dataWithBytes:"\x73\x74\x72\x34\x62\x61\x7A\x40" length:8]));
 }
 @end

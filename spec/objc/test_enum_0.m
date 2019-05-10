@@ -2,7 +2,7 @@
 #import "enum_0.h"
 
 @interface enum_0 : XCTestCase
-@property (strong) enum_0_t *r;
+@property (strong) KSEnum0 *r;
 @end
 
 @implementation enum_0
@@ -11,7 +11,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [enum_0_t initWithStream:ks];
+    self.r = [KSEnum0 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -20,7 +20,7 @@
 }
 
 - (void)test_enum_0 {
-    XCTAssertEqualObjects(self.r.pet_1, ([@"cat" KSENUMWithDictionary:enum_0_t._animal]));
-    XCTAssertEqualObjects(self.r.pet_2, ([@"chicken" KSENUMWithDictionary:enum_0_t._animal]));
+    XCTAssertEqualObjects(self.r.pet_1, ([@"cat" KSENUMWithDictionary:KSEnum0._animal]));
+    XCTAssertEqualObjects(self.r.pet_2, ([@"chicken" KSENUMWithDictionary:KSEnum0._animal]));
 }
 @end

@@ -4,7 +4,7 @@
 #import "fixed_contents.h"
 
 @interface fixed_contents : XCTestCase
-@property (strong) fixed_contents_t *r;
+@property (strong) KSFixedContents *r;
 @end
 
 @implementation fixed_contents
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [fixed_contents_t initWithStream:ks];
+    self.r = [KSFixedContents initWithStream:ks];
 }
 
 - (void)tearDown {

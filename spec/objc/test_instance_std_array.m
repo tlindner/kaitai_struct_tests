@@ -4,7 +4,7 @@
 #import "instance_std_array.h"
 
 @interface instance_std_array : XCTestCase
-@property (strong) instance_std_array_t *r;
+@property (strong) KSInstanceStdArray *r;
 @end
 
 @implementation instance_std_array
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/instance_std_array.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [instance_std_array_t initWithStream:ks];
+    self.r = [KSInstanceStdArray initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,12 +22,12 @@
 }
 
 - (void)test_instance_std_array {
-    XCTAssertEqual(((instance_std_array_t *)_r).ofs.unsignedIntValue, 16);
-    XCTAssertEqual(((instance_std_array_t *)_r).qty_entries.unsignedIntValue, 3);
-    XCTAssertEqual(((instance_std_array_t *)_r).entry_size.unsignedIntValue, 4);
-    XCTAssertEqual(((instance_std_array_t *)_r).entries.count, 3);
-    XCTAssertEqualObjects(((instance_std_array_t *)_r).entries[0], ([NSData dataWithBytes:"\x11\x11\x11\x11" length:4]));
-    XCTAssertEqualObjects(((instance_std_array_t *)_r).entries[1], ([NSData dataWithBytes:"\x22\x22\x22\x22" length:4]));
-    XCTAssertEqualObjects(((instance_std_array_t *)_r).entries[2], ([NSData dataWithBytes:"\x33\x33\x33\x33" length:4]));
+    XCTAssertEqual(((KSInstanceStdArray *)_r).ofs.unsignedIntValue, 16);
+    XCTAssertEqual(((KSInstanceStdArray *)_r).qty_entries.unsignedIntValue, 3);
+    XCTAssertEqual(((KSInstanceStdArray *)_r).entry_size.unsignedIntValue, 4);
+    XCTAssertEqual(((KSInstanceStdArray *)_r).entries.count, 3);
+    XCTAssertEqualObjects(((KSInstanceStdArray *)_r).entries[0], ([NSData dataWithBytes:"\x11\x11\x11\x11" length:4]));
+    XCTAssertEqualObjects(((KSInstanceStdArray *)_r).entries[1], ([NSData dataWithBytes:"\x22\x22\x22\x22" length:4]));
+    XCTAssertEqualObjects(((KSInstanceStdArray *)_r).entries[2], ([NSData dataWithBytes:"\x33\x33\x33\x33" length:4]));
 }
 @end

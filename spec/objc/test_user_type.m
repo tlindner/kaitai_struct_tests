@@ -4,7 +4,7 @@
 #import "user_type.h"
 
 @interface user_type : XCTestCase
-@property (strong) user_type_t *r;
+@property (strong) KSUserType *r;
 @end
 
 @implementation user_type
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_until_s4.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [user_type_t initWithStream:ks];
+    self.r = [KSUserType initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_user_type {
-    XCTAssertEqual(((header_user_type_t *)((user_type_t *)_r).one).width.unsignedIntValue, 66);
-    XCTAssertEqual(((header_user_type_t *)((user_type_t *)_r).one).height.unsignedIntValue, 4919);
+    XCTAssertEqual(((KSHeader_UserType *)((KSUserType *)_r).one).width.unsignedIntValue, 66);
+    XCTAssertEqual(((KSHeader_UserType *)((KSUserType *)_r).one).height.unsignedIntValue, 4919);
 }
 @end

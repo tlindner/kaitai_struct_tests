@@ -4,7 +4,7 @@
 #import "params_enum.h"
 
 @interface params_enum : XCTestCase
-@property (strong) params_enum_t *r;
+@property (strong) KSParamsEnum *r;
 @end
 
 @implementation params_enum
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [params_enum_t initWithStream:ks];
+    self.r = [KSParamsEnum initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_params_enum {
-    XCTAssertEqualObjects(((params_enum_t *)_r).one, ([@"cat" KSENUMWithDictionary:params_enum_t._animal]));
-    XCTAssertEqual(((with_param_params_enum_t *)((params_enum_t *)_r).invoke_with_param).is_cat.boolValue, YES);
+    XCTAssertEqualObjects(((KSParamsEnum *)_r).one, ([@"cat" KSENUMWithDictionary:KSParamsEnum._animal]));
+    XCTAssertEqual(((KSWithParam_ParamsEnum *)((KSParamsEnum *)_r).invoke_with_param).is_cat.boolValue, YES);
 }
 @end

@@ -4,7 +4,7 @@
 #import "meta_tags.h"
 
 @interface meta_tags : XCTestCase
-@property (strong) meta_tags_t *r;
+@property (strong) KSMetaTags *r;
 @end
 
 @implementation meta_tags
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [meta_tags_t initWithStream:ks];
+    self.r = [KSMetaTags initWithStream:ks];
 }
 
 - (void)tearDown {

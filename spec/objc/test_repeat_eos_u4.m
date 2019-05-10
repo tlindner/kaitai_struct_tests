@@ -4,7 +4,7 @@
 #import "repeat_eos_u4.h"
 
 @interface repeat_eos_u4 : XCTestCase
-@property (strong) repeat_eos_u4_t *r;
+@property (strong) KSRepeatEosU4 *r;
 @end
 
 @implementation repeat_eos_u4
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_eos_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [repeat_eos_u4_t initWithStream:ks];
+    self.r = [KSRepeatEosU4 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_repeat_eos_u4 {
-    XCTAssertEqualObjects(((repeat_eos_u4_t *)_r).numbers, (@[@(0), @(66), @(66), @(2069)]));
+    XCTAssertEqualObjects(((KSRepeatEosU4 *)_r).numbers, (@[@(0), @(66), @(66), @(2069)]));
 }
 @end

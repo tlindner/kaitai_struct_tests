@@ -4,7 +4,7 @@
 #import "params_pass_usertype.h"
 
 @interface params_pass_usertype : XCTestCase
-@property (strong) params_pass_usertype_t *r;
+@property (strong) KSParamsPassUsertype *r;
 @end
 
 @implementation params_pass_usertype
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/position_in_seq.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [params_pass_usertype_t initWithStream:ks];
+    self.r = [KSParamsPassUsertype initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_params_pass_usertype {
-    XCTAssertEqual(((block_params_pass_usertype_t *)((params_pass_usertype_t *)_r).first).foo.unsignedCharValue, 1);
-    XCTAssertEqualObjects(((param_type_params_pass_usertype_t *)((params_pass_usertype_t *)_r).one).buf, ([NSData dataWithBytes:"\x02" length:1]));
+    XCTAssertEqual(((KSBlock_ParamsPassUsertype *)((KSParamsPassUsertype *)_r).first).foo.unsignedCharValue, 1);
+    XCTAssertEqualObjects(((KSParamType_ParamsPassUsertype *)((KSParamsPassUsertype *)_r).one).buf, ([NSData dataWithBytes:"\x02" length:1]));
 }
 @end

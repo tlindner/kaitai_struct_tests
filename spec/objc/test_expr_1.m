@@ -4,7 +4,7 @@
 #import "expr_1.h"
 
 @interface expr_1 : XCTestCase
-@property (strong) expr_1_t *r;
+@property (strong) KSExpr1 *r;
 @end
 
 @implementation expr_1
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_encodings.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [expr_1_t initWithStream:ks];
+    self.r = [KSExpr1 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_expr_1 {
-    XCTAssertEqual(((expr_1_t *)_r).len_of_1.unsignedShortValue, 10);
-    XCTAssertEqual(((expr_1_t *)_r).len_of_1_mod.unsignedLongLongValue, 8);
-    XCTAssertEqualObjects(((expr_1_t *)_r).str1, (@"Some ASC"));
-    XCTAssertEqual(((expr_1_t *)_r).str1_len.unsignedLongLongValue, 8);
+    XCTAssertEqual(((KSExpr1 *)_r).len_of_1.unsignedShortValue, 10);
+    XCTAssertEqual(((KSExpr1 *)_r).len_of_1_mod.unsignedLongLongValue, 8);
+    XCTAssertEqualObjects(((KSExpr1 *)_r).str1, (@"Some ASC"));
+    XCTAssertEqual(((KSExpr1 *)_r).str1_len.unsignedLongLongValue, 8);
 }
 @end

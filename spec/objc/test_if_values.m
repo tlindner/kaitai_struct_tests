@@ -4,7 +4,7 @@
 #import "if_values.h"
 
 @interface if_values : XCTestCase
-@property (strong) if_values_t *r;
+@property (strong) KSIfValues *r;
 @end
 
 @implementation if_values
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [if_values_t initWithStream:ks];
+    self.r = [KSIfValues initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,11 +22,11 @@
 }
 
 - (void)test_if_values {
-    XCTAssertEqual(((code_if_values_t *)((if_values_t *)_r).codes[0]).opcode.unsignedCharValue, 80);
-    XCTAssertEqual(((code_if_values_t *)((if_values_t *)_r).codes[0]).half_opcode.unsignedLongLongValue, 40);
-    XCTAssertEqual(((code_if_values_t *)((if_values_t *)_r).codes[1]).opcode.unsignedCharValue, 65);
-    XCTAssertNil(((if_values_t *)_r).codes[1].half_opcode);
-    XCTAssertEqual(((code_if_values_t *)((if_values_t *)_r).codes[2]).opcode.unsignedCharValue, 67);
-    XCTAssertNil(((if_values_t *)_r).codes[2].half_opcode);
+    XCTAssertEqual(((KSCode_IfValues *)((KSIfValues *)_r).codes[0]).opcode.unsignedCharValue, 80);
+    XCTAssertEqual(((KSCode_IfValues *)((KSIfValues *)_r).codes[0]).half_opcode.unsignedLongLongValue, 40);
+    XCTAssertEqual(((KSCode_IfValues *)((KSIfValues *)_r).codes[1]).opcode.unsignedCharValue, 65);
+    XCTAssertNil(((KSIfValues *)_r).codes[1].half_opcode);
+    XCTAssertEqual(((KSCode_IfValues *)((KSIfValues *)_r).codes[2]).opcode.unsignedCharValue, 67);
+    XCTAssertNil(((KSIfValues *)_r).codes[2].half_opcode);
 }
 @end

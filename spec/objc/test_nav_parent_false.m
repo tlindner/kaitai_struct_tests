@@ -4,7 +4,7 @@
 #import "nav_parent_false.h"
 
 @interface nav_parent_false : XCTestCase
-@property (strong) nav_parent_false_t *r;
+@property (strong) KSNavParentFalse *r;
 @end
 
 @implementation nav_parent_false
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nav_parent_codes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nav_parent_false_t initWithStream:ks];
+    self.r = [KSNavParentFalse initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,10 +22,10 @@
 }
 
 - (void)test_nav_parent_false {
-    XCTAssertEqual(((nav_parent_false_t *)_r).child_size.unsignedCharValue, 3);
-    XCTAssertEqual(((child_nav_parent_false_t *)((parent_a_nav_parent_false_t *)((nav_parent_false_t *)_r).element_a).foo).code.unsignedCharValue, 73);
-    XCTAssertEqualObjects(((child_nav_parent_false_t *)((parent_a_nav_parent_false_t *)((nav_parent_false_t *)_r).element_a).foo).more, ([NSData dataWithBytes:"\x31\x32\x33" length:3]));
-    XCTAssertEqual(((child_nav_parent_false_t *)((parent_b_nav_parent_false_t *)((parent_a_nav_parent_false_t *)((nav_parent_false_t *)_r).element_a).bar).foo).code.unsignedCharValue, 66);
-    XCTAssertEqual(((child_nav_parent_false_t *)((parent_b_nav_parent_false_t *)((nav_parent_false_t *)_r).element_b).foo).code.unsignedCharValue, 98);
+    XCTAssertEqual(((KSNavParentFalse *)_r).child_size.unsignedCharValue, 3);
+    XCTAssertEqual(((KSChild_NavParentFalse *)((KSParentA_NavParentFalse *)((KSNavParentFalse *)_r).element_a).foo).code.unsignedCharValue, 73);
+    XCTAssertEqualObjects(((KSChild_NavParentFalse *)((KSParentA_NavParentFalse *)((KSNavParentFalse *)_r).element_a).foo).more, ([NSData dataWithBytes:"\x31\x32\x33" length:3]));
+    XCTAssertEqual(((KSChild_NavParentFalse *)((KSParentB_NavParentFalse *)((KSParentA_NavParentFalse *)((KSNavParentFalse *)_r).element_a).bar).foo).code.unsignedCharValue, 66);
+    XCTAssertEqual(((KSChild_NavParentFalse *)((KSParentB_NavParentFalse *)((KSNavParentFalse *)_r).element_b).foo).code.unsignedCharValue, 98);
 }
 @end

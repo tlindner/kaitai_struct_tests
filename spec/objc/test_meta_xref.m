@@ -4,7 +4,7 @@
 #import "meta_xref.h"
 
 @interface meta_xref : XCTestCase
-@property (strong) meta_xref_t *r;
+@property (strong) KSMetaXref *r;
 @end
 
 @implementation meta_xref
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [meta_xref_t initWithStream:ks];
+    self.r = [KSMetaXref initWithStream:ks];
 }
 
 - (void)tearDown {

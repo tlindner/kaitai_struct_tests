@@ -4,7 +4,7 @@
 #import "nav_parent_false2.h"
 
 @interface nav_parent_false2 : XCTestCase
-@property (strong) nav_parent_false2_t *r;
+@property (strong) KSNavParentFalse2 *r;
 @end
 
 @implementation nav_parent_false2
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nav_parent_false2_t initWithStream:ks];
+    self.r = [KSNavParentFalse2 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_nav_parent_false2 {
-    XCTAssertEqual(((child_nav_parent_false2_t *)((nav_parent_false2_t *)_r).parentless).foo.unsignedCharValue, 80);
+    XCTAssertEqual(((KSChild_NavParentFalse2 *)((KSNavParentFalse2 *)_r).parentless).foo.unsignedCharValue, 80);
 }
 @end

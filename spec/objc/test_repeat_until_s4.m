@@ -4,7 +4,7 @@
 #import "repeat_until_s4.h"
 
 @interface repeat_until_s4 : XCTestCase
-@property (strong) repeat_until_s4_t *r;
+@property (strong) KSRepeatUntilS4 *r;
 @end
 
 @implementation repeat_until_s4
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_until_s4.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [repeat_until_s4_t initWithStream:ks];
+    self.r = [KSRepeatUntilS4 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_repeat_until_s4 {
-    XCTAssertEqualObjects(((repeat_until_s4_t *)_r).entries, (@[@(66), @(4919), @(-251658241), @(-1)]));
-    XCTAssertEqualObjects(((repeat_until_s4_t *)_r).afterall, (@"foobar"));
+    XCTAssertEqualObjects(((KSRepeatUntilS4 *)_r).entries, (@[@(66), @(4919), @(-251658241), @(-1)]));
+    XCTAssertEqualObjects(((KSRepeatUntilS4 *)_r).afterall, (@"foobar"));
 }
 @end

@@ -4,7 +4,7 @@
 #import "repeat_n_strz.h"
 
 @interface repeat_n_strz : XCTestCase
-@property (strong) repeat_n_strz_t *r;
+@property (strong) KSRepeatNStrz *r;
 @end
 
 @implementation repeat_n_strz
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_n_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [repeat_n_strz_t initWithStream:ks];
+    self.r = [KSRepeatNStrz initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_repeat_n_strz {
-    XCTAssertEqual(((repeat_n_strz_t *)_r).qty.unsignedIntValue, 2);
-    XCTAssertEqualObjects(((repeat_n_strz_t *)_r).lines, (@[@"foo", @"bar"]));
+    XCTAssertEqual(((KSRepeatNStrz *)_r).qty.unsignedIntValue, 2);
+    XCTAssertEqualObjects(((KSRepeatNStrz *)_r).lines, (@[@"foo", @"bar"]));
 }
 @end

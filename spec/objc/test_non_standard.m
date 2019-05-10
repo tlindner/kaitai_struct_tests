@@ -4,7 +4,7 @@
 #import "non_standard.h"
 
 @interface non_standard : XCTestCase
-@property (strong) non_standard_t *r;
+@property (strong) KSNonStandard *r;
 @end
 
 @implementation non_standard
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [non_standard_t initWithStream:ks];
+    self.r = [KSNonStandard initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_non_standard {
-    XCTAssertEqual(((non_standard_t *)_r).foo.unsignedCharValue, 80);
+    XCTAssertEqual(((KSNonStandard *)_r).foo.unsignedCharValue, 80);
 }
 @end

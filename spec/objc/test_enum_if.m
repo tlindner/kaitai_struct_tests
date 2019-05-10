@@ -4,7 +4,7 @@
 #import "enum_if.h"
 
 @interface enum_if : XCTestCase
-@property (strong) enum_if_t *r;
+@property (strong) KSEnumIf *r;
 @end
 
 @implementation enum_if
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/if_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [enum_if_t initWithStream:ks];
+    self.r = [KSEnumIf initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,12 +22,12 @@
 }
 
 - (void)test_enum_if {
-    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op1).opcode, ([@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]));
-    XCTAssertEqualObjects(((arg_str_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op1).arg_str).str, (@"foo"));
-    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op2).opcode, ([@"a_tuple" KSENUMWithDictionary:enum_if_t._opcodes]));
-    XCTAssertEqual(((arg_tuple_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op2).arg_tuple).num1.unsignedCharValue, 66);
-    XCTAssertEqual(((arg_tuple_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op2).arg_tuple).num2.unsignedCharValue, 67);
-    XCTAssertEqualObjects(((operation_enum_if_t *)((enum_if_t *)_r).op3).opcode, ([@"a_string" KSENUMWithDictionary:enum_if_t._opcodes]));
-    XCTAssertEqualObjects(((arg_str_enum_if_t *)((operation_enum_if_t *)((enum_if_t *)_r).op3).arg_str).str, (@"bar"));
+    XCTAssertEqualObjects(((KSOperation_EnumIf *)((KSEnumIf *)_r).op1).opcode, ([@"a_string" KSENUMWithDictionary:KSEnumIf._opcodes]));
+    XCTAssertEqualObjects(((KSArgStr_EnumIf *)((KSOperation_EnumIf *)((KSEnumIf *)_r).op1).arg_str).str, (@"foo"));
+    XCTAssertEqualObjects(((KSOperation_EnumIf *)((KSEnumIf *)_r).op2).opcode, ([@"a_tuple" KSENUMWithDictionary:KSEnumIf._opcodes]));
+    XCTAssertEqual(((KSArgTuple_EnumIf *)((KSOperation_EnumIf *)((KSEnumIf *)_r).op2).arg_tuple).num1.unsignedCharValue, 66);
+    XCTAssertEqual(((KSArgTuple_EnumIf *)((KSOperation_EnumIf *)((KSEnumIf *)_r).op2).arg_tuple).num2.unsignedCharValue, 67);
+    XCTAssertEqualObjects(((KSOperation_EnumIf *)((KSEnumIf *)_r).op3).opcode, ([@"a_string" KSENUMWithDictionary:KSEnumIf._opcodes]));
+    XCTAssertEqualObjects(((KSArgStr_EnumIf *)((KSOperation_EnumIf *)((KSEnumIf *)_r).op3).arg_str).str, (@"bar"));
 }
 @end

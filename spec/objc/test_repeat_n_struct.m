@@ -4,7 +4,7 @@
 #import "repeat_n_struct.h"
 
 @interface repeat_n_struct : XCTestCase
-@property (strong) repeat_n_struct_t *r;
+@property (strong) KSRepeatNStruct *r;
 @end
 
 @implementation repeat_n_struct
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_n_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [repeat_n_struct_t initWithStream:ks];
+    self.r = [KSRepeatNStruct initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,10 +22,10 @@
 }
 
 - (void)test_repeat_n_struct {
-    XCTAssertEqual(((repeat_n_struct_t *)_r).chunks.count, 2);
-    XCTAssertEqual(((chunk_repeat_n_struct_t *)((repeat_n_struct_t *)_r).chunks[0]).offset.unsignedIntValue, 16);
-    XCTAssertEqual(((chunk_repeat_n_struct_t *)((repeat_n_struct_t *)_r).chunks[0]).len.unsignedIntValue, 8312);
-    XCTAssertEqual(((chunk_repeat_n_struct_t *)((repeat_n_struct_t *)_r).chunks[1]).offset.unsignedIntValue, 8328);
-    XCTAssertEqual(((chunk_repeat_n_struct_t *)((repeat_n_struct_t *)_r).chunks[1]).len.unsignedIntValue, 15);
+    XCTAssertEqual(((KSRepeatNStruct *)_r).chunks.count, 2);
+    XCTAssertEqual(((KSChunk_RepeatNStruct *)((KSRepeatNStruct *)_r).chunks[0]).offset.unsignedIntValue, 16);
+    XCTAssertEqual(((KSChunk_RepeatNStruct *)((KSRepeatNStruct *)_r).chunks[0]).len.unsignedIntValue, 8312);
+    XCTAssertEqual(((KSChunk_RepeatNStruct *)((KSRepeatNStruct *)_r).chunks[1]).offset.unsignedIntValue, 8328);
+    XCTAssertEqual(((KSChunk_RepeatNStruct *)((KSRepeatNStruct *)_r).chunks[1]).len.unsignedIntValue, 15);
 }
 @end

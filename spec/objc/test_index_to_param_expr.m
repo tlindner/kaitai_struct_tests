@@ -4,7 +4,7 @@
 #import "index_to_param_expr.h"
 
 @interface index_to_param_expr : XCTestCase
-@property (strong) index_to_param_expr_t *r;
+@property (strong) KSIndexToParamExpr *r;
 @end
 
 @implementation index_to_param_expr
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/index_sizes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [index_to_param_expr_t initWithStream:ks];
+    self.r = [KSIndexToParamExpr initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,12 +22,12 @@
 }
 
 - (void)test_index_to_param_expr {
-    XCTAssertEqual(((index_to_param_expr_t *)_r).qty.unsignedIntValue, 3);
-    XCTAssertEqual(((index_to_param_expr_t *)_r).sizes[0].unsignedIntValue, 1);
-    XCTAssertEqual(((index_to_param_expr_t *)_r).sizes[1].unsignedIntValue, 8);
-    XCTAssertEqual(((index_to_param_expr_t *)_r).sizes[2].unsignedIntValue, 4);
-    XCTAssertEqualObjects(((block_index_to_param_expr_t *)((index_to_param_expr_t *)_r).blocks[0]).buf, (@"A"));
-    XCTAssertEqualObjects(((block_index_to_param_expr_t *)((index_to_param_expr_t *)_r).blocks[1]).buf, (@"BBBBBBBB"));
-    XCTAssertEqualObjects(((block_index_to_param_expr_t *)((index_to_param_expr_t *)_r).blocks[2]).buf, (@"CCCC"));
+    XCTAssertEqual(((KSIndexToParamExpr *)_r).qty.unsignedIntValue, 3);
+    XCTAssertEqual(((KSIndexToParamExpr *)_r).sizes[0].unsignedIntValue, 1);
+    XCTAssertEqual(((KSIndexToParamExpr *)_r).sizes[1].unsignedIntValue, 8);
+    XCTAssertEqual(((KSIndexToParamExpr *)_r).sizes[2].unsignedIntValue, 4);
+    XCTAssertEqualObjects(((KSBlock_IndexToParamExpr *)((KSIndexToParamExpr *)_r).blocks[0]).buf, (@"A"));
+    XCTAssertEqualObjects(((KSBlock_IndexToParamExpr *)((KSIndexToParamExpr *)_r).blocks[1]).buf, (@"BBBBBBBB"));
+    XCTAssertEqualObjects(((KSBlock_IndexToParamExpr *)((KSIndexToParamExpr *)_r).blocks[2]).buf, (@"CCCC"));
 }
 @end

@@ -1,6 +1,6 @@
 #import "custom_fx.h"
 
-@implementation custom_fx_t
+@implementation custom_fx
 
 - (instancetype) initWith:(int)p_key, ...
 {

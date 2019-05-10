@@ -4,7 +4,7 @@
 #import "switch_bytearray.h"
 
 @interface switch_bytearray : XCTestCase
-@property (strong) switch_bytearray_t *r;
+@property (strong) KSSwitchBytearray *r;
 @end
 
 @implementation switch_bytearray
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_opcodes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [switch_bytearray_t initWithStream:ks];
+    self.r = [KSSwitchBytearray initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,14 +22,14 @@
 }
 
 - (void)test_switch_bytearray {
-    XCTAssertEqual(((switch_bytearray_t *)_r).opcodes.count, 4);
-    XCTAssertEqualObjects(((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[0]).code, ([NSData dataWithBytes:"\x53" length:1]));
-    XCTAssertEqualObjects(((strval_opcode_switch_bytearray_t *)((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[0]).body).value, (@"foobar"));
-    XCTAssertEqualObjects(((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[1]).code, ([NSData dataWithBytes:"\x49" length:1]));
-    XCTAssertEqual(((intval_opcode_switch_bytearray_t *)((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[1]).body).value.unsignedCharValue, 66);
-    XCTAssertEqualObjects(((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[2]).code, ([NSData dataWithBytes:"\x49" length:1]));
-    XCTAssertEqual(((intval_opcode_switch_bytearray_t *)((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[2]).body).value.unsignedCharValue, 55);
-    XCTAssertEqualObjects(((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[3]).code, ([NSData dataWithBytes:"\x53" length:1]));
-    XCTAssertEqualObjects(((strval_opcode_switch_bytearray_t *)((opcode_switch_bytearray_t *)((switch_bytearray_t *)_r).opcodes[3]).body).value, (@""));
+    XCTAssertEqual(((KSSwitchBytearray *)_r).opcodes.count, 4);
+    XCTAssertEqualObjects(((KSOpcode_SwitchBytearray *)((KSSwitchBytearray *)_r).opcodes[0]).code, ([NSData dataWithBytes:"\x53" length:1]));
+    XCTAssertEqualObjects(((KSStrval_Opcode_SwitchBytearray *)((KSOpcode_SwitchBytearray *)((KSSwitchBytearray *)_r).opcodes[0]).body).value, (@"foobar"));
+    XCTAssertEqualObjects(((KSOpcode_SwitchBytearray *)((KSSwitchBytearray *)_r).opcodes[1]).code, ([NSData dataWithBytes:"\x49" length:1]));
+    XCTAssertEqual(((KSIntval_Opcode_SwitchBytearray *)((KSOpcode_SwitchBytearray *)((KSSwitchBytearray *)_r).opcodes[1]).body).value.unsignedCharValue, 66);
+    XCTAssertEqualObjects(((KSOpcode_SwitchBytearray *)((KSSwitchBytearray *)_r).opcodes[2]).code, ([NSData dataWithBytes:"\x49" length:1]));
+    XCTAssertEqual(((KSIntval_Opcode_SwitchBytearray *)((KSOpcode_SwitchBytearray *)((KSSwitchBytearray *)_r).opcodes[2]).body).value.unsignedCharValue, 55);
+    XCTAssertEqualObjects(((KSOpcode_SwitchBytearray *)((KSSwitchBytearray *)_r).opcodes[3]).code, ([NSData dataWithBytes:"\x53" length:1]));
+    XCTAssertEqualObjects(((KSStrval_Opcode_SwitchBytearray *)((KSOpcode_SwitchBytearray *)((KSSwitchBytearray *)_r).opcodes[3]).body).value, (@""));
 }
 @end

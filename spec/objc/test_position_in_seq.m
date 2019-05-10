@@ -4,7 +4,7 @@
 #import "position_in_seq.h"
 
 @interface position_in_seq : XCTestCase
-@property (strong) position_in_seq_t *r;
+@property (strong) KSPositionInSeq *r;
 @end
 
 @implementation position_in_seq
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/position_in_seq.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [position_in_seq_t initWithStream:ks];
+    self.r = [KSPositionInSeq initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_position_in_seq {
-    XCTAssertEqualObjects(((position_in_seq_t *)_r).numbers, (@[@((0 + 1)), @(2), @(3)]));
+    XCTAssertEqualObjects(((KSPositionInSeq *)_r).numbers, (@[@((0 + 1)), @(2), @(3)]));
 }
 @end

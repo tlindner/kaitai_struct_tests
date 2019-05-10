@@ -4,7 +4,7 @@
 #import "enum_to_i.h"
 
 @interface enum_to_i : XCTestCase
-@property (strong) enum_to_i_t *r;
+@property (strong) KSEnumToI *r;
 @end
 
 @implementation enum_to_i
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [enum_to_i_t initWithStream:ks];
+    self.r = [KSEnumToI initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,10 +22,10 @@
 }
 
 - (void)test_enum_to_i {
-    XCTAssertEqualObjects(((enum_to_i_t *)_r).pet_1, ([@"cat" KSENUMWithDictionary:enum_to_i_t._animal]));
-    XCTAssertEqualObjects(((enum_to_i_t *)_r).pet_2, ([@"chicken" KSENUMWithDictionary:enum_to_i_t._animal]));
-    XCTAssertEqual(((enum_to_i_t *)_r).pet_1_i.unsignedLongLongValue, 7);
-    XCTAssertEqual(((enum_to_i_t *)_r).pet_1_mod.unsignedLongLongValue, 32775);
-    XCTAssertEqual(((enum_to_i_t *)_r).one_lt_two.boolValue, YES);
+    XCTAssertEqualObjects(((KSEnumToI *)_r).pet_1, ([@"cat" KSENUMWithDictionary:KSEnumToI._animal]));
+    XCTAssertEqualObjects(((KSEnumToI *)_r).pet_2, ([@"chicken" KSENUMWithDictionary:KSEnumToI._animal]));
+    XCTAssertEqual(((KSEnumToI *)_r).pet_1_i.unsignedLongLongValue, 7);
+    XCTAssertEqual(((KSEnumToI *)_r).pet_1_mod.unsignedLongLongValue, 32775);
+    XCTAssertEqual(((KSEnumToI *)_r).one_lt_two.boolValue, YES);
 }
 @end

@@ -4,7 +4,7 @@
 #import "js_signed_right_shift.h"
 
 @interface js_signed_right_shift : XCTestCase
-@property (strong) js_signed_right_shift_t *r;
+@property (strong) KSJsSignedRightShift *r;
 @end
 
 @implementation js_signed_right_shift
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [js_signed_right_shift_t initWithStream:ks];
+    self.r = [KSJsSignedRightShift initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_js_signed_right_shift {
-    XCTAssertEqual(((js_signed_right_shift_t *)_r).should_be_40000000.unsignedLongLongValue, 1073741824);
-    XCTAssertEqual(((js_signed_right_shift_t *)_r).should_be_a00000.unsignedLongLongValue, 10485760);
+    XCTAssertEqual(((KSJsSignedRightShift *)_r).should_be_40000000.unsignedLongLongValue, 1073741824);
+    XCTAssertEqual(((KSJsSignedRightShift *)_r).should_be_a00000.unsignedLongLongValue, 10485760);
 }
 @end

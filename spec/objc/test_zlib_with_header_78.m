@@ -4,7 +4,7 @@
 #import "zlib_with_header_78.h"
 
 @interface zlib_with_header_78 : XCTestCase
-@property (strong) zlib_with_header_78_t *r;
+@property (strong) KSZlibWithHeader78 *r;
 @end
 
 @implementation zlib_with_header_78
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/zlib_with_header_78.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [zlib_with_header_78_t initWithStream:ks];
+    self.r = [KSZlibWithHeader78 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_zlib_with_header_78 {
-    XCTAssertEqualObjects(((zlib_with_header_78_t *)_r).data, ([NSData dataWithBytes:"\x61\x20\x71\x75\x69\x63\x6B\x20\x62\x72\x6F\x77\x6E\x20\x66\x6F\x78\x20\x6A\x75\x6D\x70\x73\x20\x6F\x76\x65\x72" length:28]));
+    XCTAssertEqualObjects(((KSZlibWithHeader78 *)_r).data, ([NSData dataWithBytes:"\x61\x20\x71\x75\x69\x63\x6B\x20\x62\x72\x6F\x77\x6E\x20\x66\x6F\x78\x20\x6A\x75\x6D\x70\x73\x20\x6F\x76\x65\x72" length:28]));
 }
 @end

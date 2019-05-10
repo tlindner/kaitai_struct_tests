@@ -4,7 +4,7 @@
 #import "switch_manual_int_else.h"
 
 @interface switch_manual_int_else : XCTestCase
-@property (strong) switch_manual_int_else_t *r;
+@property (strong) KSSwitchManualIntElse *r;
 @end
 
 @implementation switch_manual_int_else
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_opcodes2.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [switch_manual_int_else_t initWithStream:ks];
+    self.r = [KSSwitchManualIntElse initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,14 +22,14 @@
 }
 
 - (void)test_switch_manual_int_else {
-    XCTAssertEqual(((switch_manual_int_else_t *)_r).opcodes.count, 4);
-    XCTAssertEqual(((opcode_switch_manual_int_else_t *)((switch_manual_int_else_t *)_r).opcodes[0]).code.unsignedCharValue, 83);
-    XCTAssertEqualObjects(((strval_opcode_switch_manual_int_else_t *)((opcode_switch_manual_int_else_t *)((switch_manual_int_else_t *)_r).opcodes[0]).body).value, (@"foo"));
-    XCTAssertEqual(((opcode_switch_manual_int_else_t *)((switch_manual_int_else_t *)_r).opcodes[1]).code.unsignedCharValue, 88);
-    XCTAssertEqual(((noneval_opcode_switch_manual_int_else_t *)((opcode_switch_manual_int_else_t *)((switch_manual_int_else_t *)_r).opcodes[1]).body).filler.unsignedIntValue, 66);
-    XCTAssertEqual(((opcode_switch_manual_int_else_t *)((switch_manual_int_else_t *)_r).opcodes[2]).code.unsignedCharValue, 89);
-    XCTAssertEqual(((noneval_opcode_switch_manual_int_else_t *)((opcode_switch_manual_int_else_t *)((switch_manual_int_else_t *)_r).opcodes[2]).body).filler.unsignedIntValue, 51966);
-    XCTAssertEqual(((opcode_switch_manual_int_else_t *)((switch_manual_int_else_t *)_r).opcodes[3]).code.unsignedCharValue, 73);
-    XCTAssertEqual(((intval_opcode_switch_manual_int_else_t *)((opcode_switch_manual_int_else_t *)((switch_manual_int_else_t *)_r).opcodes[3]).body).value.unsignedCharValue, 7);
+    XCTAssertEqual(((KSSwitchManualIntElse *)_r).opcodes.count, 4);
+    XCTAssertEqual(((KSOpcode_SwitchManualIntElse *)((KSSwitchManualIntElse *)_r).opcodes[0]).code.unsignedCharValue, 83);
+    XCTAssertEqualObjects(((KSStrval_Opcode_SwitchManualIntElse *)((KSOpcode_SwitchManualIntElse *)((KSSwitchManualIntElse *)_r).opcodes[0]).body).value, (@"foo"));
+    XCTAssertEqual(((KSOpcode_SwitchManualIntElse *)((KSSwitchManualIntElse *)_r).opcodes[1]).code.unsignedCharValue, 88);
+    XCTAssertEqual(((KSNoneval_Opcode_SwitchManualIntElse *)((KSOpcode_SwitchManualIntElse *)((KSSwitchManualIntElse *)_r).opcodes[1]).body).filler.unsignedIntValue, 66);
+    XCTAssertEqual(((KSOpcode_SwitchManualIntElse *)((KSSwitchManualIntElse *)_r).opcodes[2]).code.unsignedCharValue, 89);
+    XCTAssertEqual(((KSNoneval_Opcode_SwitchManualIntElse *)((KSOpcode_SwitchManualIntElse *)((KSSwitchManualIntElse *)_r).opcodes[2]).body).filler.unsignedIntValue, 51966);
+    XCTAssertEqual(((KSOpcode_SwitchManualIntElse *)((KSSwitchManualIntElse *)_r).opcodes[3]).code.unsignedCharValue, 73);
+    XCTAssertEqual(((KSIntval_Opcode_SwitchManualIntElse *)((KSOpcode_SwitchManualIntElse *)((KSSwitchManualIntElse *)_r).opcodes[3]).body).value.unsignedCharValue, 7);
 }
 @end

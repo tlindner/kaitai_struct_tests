@@ -4,7 +4,7 @@
 #import "process_coerce_bytes.h"
 
 @interface process_coerce_bytes : XCTestCase
-@property (strong) process_coerce_bytes_t *r;
+@property (strong) KSProcessCoerceBytes *r;
 @end
 
 @implementation process_coerce_bytes
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_coerce_bytes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [process_coerce_bytes_t initWithStream:ks];
+    self.r = [KSProcessCoerceBytes initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_process_coerce_bytes {
-    XCTAssertEqual(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[0]).flag.unsignedCharValue, 0);
-    XCTAssertEqualObjects(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[0]).buf, ([NSData dataWithBytes:"\x41\x41\x41\x41" length:4]));
-    XCTAssertEqual(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[1]).flag.unsignedCharValue, 1);
-    XCTAssertEqualObjects(((record_process_coerce_bytes_t *)((process_coerce_bytes_t *)_r).records[1]).buf, ([NSData dataWithBytes:"\x42\x42\x42\x42" length:4]));
+    XCTAssertEqual(((KSRecord_ProcessCoerceBytes *)((KSProcessCoerceBytes *)_r).records[0]).flag.unsignedCharValue, 0);
+    XCTAssertEqualObjects(((KSRecord_ProcessCoerceBytes *)((KSProcessCoerceBytes *)_r).records[0]).buf, ([NSData dataWithBytes:"\x41\x41\x41\x41" length:4]));
+    XCTAssertEqual(((KSRecord_ProcessCoerceBytes *)((KSProcessCoerceBytes *)_r).records[1]).flag.unsignedCharValue, 1);
+    XCTAssertEqualObjects(((KSRecord_ProcessCoerceBytes *)((KSProcessCoerceBytes *)_r).records[1]).buf, ([NSData dataWithBytes:"\x42\x42\x42\x42" length:4]));
 }
 @end

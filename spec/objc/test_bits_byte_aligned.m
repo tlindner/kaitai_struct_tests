@@ -4,7 +4,7 @@
 #import "bits_byte_aligned.h"
 
 @interface bits_byte_aligned : XCTestCase
-@property (strong) bits_byte_aligned_t *r;
+@property (strong) KSBitsByteAligned *r;
 @end
 
 @implementation bits_byte_aligned
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [bits_byte_aligned_t initWithStream:ks];
+    self.r = [KSBitsByteAligned initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,14 +22,14 @@
 }
 
 - (void)test_bits_byte_aligned {
-    XCTAssertEqual(((bits_byte_aligned_t *)_r).one.unsignedCharValue, 20);
-    XCTAssertEqual(((bits_byte_aligned_t *)_r).byte_1.unsignedCharValue, 65);
-    XCTAssertEqual(((bits_byte_aligned_t *)_r).two.unsignedCharValue, 2);
-    XCTAssertEqual(((bits_byte_aligned_t *)_r).three.boolValue, NO);
-    XCTAssertEqual(((bits_byte_aligned_t *)_r).byte_2.unsignedCharValue, 75);
-    XCTAssertEqual(((bits_byte_aligned_t *)_r).four.unsignedShortValue, 2892);
-    XCTAssertEqualObjects(((bits_byte_aligned_t *)_r).byte_3, ([NSData dataWithBytes:"\xFF" length:1]));
-    XCTAssertEqual(((bits_byte_aligned_t *)_r).full_byte.unsignedCharValue, 255);
-    XCTAssertEqual(((bits_byte_aligned_t *)_r).byte_4.unsignedCharValue, 80);
+    XCTAssertEqual(((KSBitsByteAligned *)_r).one.unsignedCharValue, 20);
+    XCTAssertEqual(((KSBitsByteAligned *)_r).byte_1.unsignedCharValue, 65);
+    XCTAssertEqual(((KSBitsByteAligned *)_r).two.unsignedCharValue, 2);
+    XCTAssertEqual(((KSBitsByteAligned *)_r).three.boolValue, NO);
+    XCTAssertEqual(((KSBitsByteAligned *)_r).byte_2.unsignedCharValue, 75);
+    XCTAssertEqual(((KSBitsByteAligned *)_r).four.unsignedShortValue, 2892);
+    XCTAssertEqualObjects(((KSBitsByteAligned *)_r).byte_3, ([NSData dataWithBytes:"\xFF" length:1]));
+    XCTAssertEqual(((KSBitsByteAligned *)_r).full_byte.unsignedCharValue, 255);
+    XCTAssertEqual(((KSBitsByteAligned *)_r).byte_4.unsignedCharValue, 80);
 }
 @end

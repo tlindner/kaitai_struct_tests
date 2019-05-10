@@ -4,7 +4,7 @@
 #import "nested_same_name.h"
 
 @interface nested_same_name : XCTestCase
-@property (strong) nested_same_name_t *r;
+@property (strong) KSNestedSameName *r;
 @end
 
 @implementation nested_same_name
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_n_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nested_same_name_t initWithStream:ks];
+    self.r = [KSNestedSameName initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_nested_same_name {
-    XCTAssertEqual(((main_nested_same_name_t *)((nested_same_name_t *)_r).main_data).main_size.intValue, 2);
-    XCTAssertEqualObjects(((foo_obj_main_nested_same_name_t *)((main_nested_same_name_t *)((nested_same_name_t *)_r).main_data).foo).data, ([NSData dataWithBytes:"\x10\x00\x00\x00" length:4]));
+    XCTAssertEqual(((KSMain_NestedSameName *)((KSNestedSameName *)_r).main_data).main_size.intValue, 2);
+    XCTAssertEqualObjects(((KSFooObj_Main_NestedSameName *)((KSMain_NestedSameName *)((KSNestedSameName *)_r).main_data).foo).data, ([NSData dataWithBytes:"\x10\x00\x00\x00" length:4]));
 }
 @end

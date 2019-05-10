@@ -4,7 +4,7 @@
 #import "nested_same_name2.h"
 
 @interface nested_same_name2 : XCTestCase
-@property (strong) nested_same_name2_t *r;
+@property (strong) KSNestedSameName2 *r;
 @end
 
 @implementation nested_same_name2
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nested_same_name2.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nested_same_name2_t initWithStream:ks];
+    self.r = [KSNestedSameName2 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,10 +22,10 @@
 }
 
 - (void)test_nested_same_name2 {
-    XCTAssertEqual(((nested_same_name2_t *)_r).version.unsignedIntValue, 66);
-    XCTAssertEqual(((main_nested_same_name2_t *)((nested_same_name2_t *)_r).main_data).main_size.intValue, 2);
-    XCTAssertEqualObjects(((foo_obj_main_nested_same_name2_t *)((main_nested_same_name2_t *)((nested_same_name2_t *)_r).main_data).foo).data1, ([NSData dataWithBytes:"\x11\x11\x11\x11" length:4]));
-    XCTAssertEqual(((dummy_obj_nested_same_name2_t *)((nested_same_name2_t *)_r).dummy).dummy_size.intValue, 3);
-    XCTAssertEqualObjects(((foo_obj_dummy_obj_nested_same_name2_t *)((dummy_obj_nested_same_name2_t *)((nested_same_name2_t *)_r).dummy).foo).data2, ([NSData dataWithBytes:"\x22\x22\x22\x22\x22\x22" length:6]));
+    XCTAssertEqual(((KSNestedSameName2 *)_r).version.unsignedIntValue, 66);
+    XCTAssertEqual(((KSMain_NestedSameName2 *)((KSNestedSameName2 *)_r).main_data).main_size.intValue, 2);
+    XCTAssertEqualObjects(((KSFooObj_Main_NestedSameName2 *)((KSMain_NestedSameName2 *)((KSNestedSameName2 *)_r).main_data).foo).data1, ([NSData dataWithBytes:"\x11\x11\x11\x11" length:4]));
+    XCTAssertEqual(((KSDummyObj_NestedSameName2 *)((KSNestedSameName2 *)_r).dummy).dummy_size.intValue, 3);
+    XCTAssertEqualObjects(((KSFooObj_DummyObj_NestedSameName2 *)((KSDummyObj_NestedSameName2 *)((KSNestedSameName2 *)_r).dummy).foo).data2, ([NSData dataWithBytes:"\x22\x22\x22\x22\x22\x22" length:6]));
 }
 @end

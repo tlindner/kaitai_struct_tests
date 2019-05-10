@@ -4,7 +4,7 @@
 #import "str_encodings.h"
 
 @interface str_encodings : XCTestCase
-@property (strong) str_encodings_t *r;
+@property (strong) KSStrEncodings *r;
 @end
 
 @implementation str_encodings
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_encodings.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [str_encodings_t initWithStream:ks];
+    self.r = [KSStrEncodings initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_str_encodings {
-    XCTAssertEqualObjects(((str_encodings_t *)_r).str1, (@"Some ASCII"));
-    XCTAssertEqualObjects(((str_encodings_t *)_r).str2, (@"\u3053\u3093\u306b\u3061\u306f"));
-    XCTAssertEqualObjects(((str_encodings_t *)_r).str3, (@"\u3053\u3093\u306b\u3061\u306f"));
-    XCTAssertEqualObjects(((str_encodings_t *)_r).str4, (@"\u2591\u2592\u2593"));
+    XCTAssertEqualObjects(((KSStrEncodings *)_r).str1, (@"Some ASCII"));
+    XCTAssertEqualObjects(((KSStrEncodings *)_r).str2, (@"\u3053\u3093\u306b\u3061\u306f"));
+    XCTAssertEqualObjects(((KSStrEncodings *)_r).str3, (@"\u3053\u3093\u306b\u3061\u306f"));
+    XCTAssertEqualObjects(((KSStrEncodings *)_r).str4, (@"\u2591\u2592\u2593"));
 }
 @end

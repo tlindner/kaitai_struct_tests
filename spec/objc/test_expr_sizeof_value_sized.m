@@ -4,7 +4,7 @@
 #import "expr_sizeof_value_sized.h"
 
 @interface expr_sizeof_value_sized : XCTestCase
-@property (strong) expr_sizeof_value_sized_t *r;
+@property (strong) KSExprSizeofValueSized *r;
 @end
 
 @implementation expr_sizeof_value_sized
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [expr_sizeof_value_sized_t initWithStream:ks];
+    self.r = [KSExprSizeofValueSized initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,10 +22,10 @@
 }
 
 - (void)test_expr_sizeof_value_sized {
-    XCTAssertEqual(((expr_sizeof_value_sized_t *)_r).self_sizeof.unsignedLongLongValue, (12 + 2));
-    XCTAssertEqual(((expr_sizeof_value_sized_t *)_r).sizeof_block.unsignedLongLongValue, 12);
-    XCTAssertEqual(((expr_sizeof_value_sized_t *)_r).sizeof_block_a.unsignedLongLongValue, 1);
-    XCTAssertEqual(((expr_sizeof_value_sized_t *)_r).sizeof_block_b.unsignedLongLongValue, 4);
-    XCTAssertEqual(((expr_sizeof_value_sized_t *)_r).sizeof_block_c.unsignedLongLongValue, 2);
+    XCTAssertEqual(((KSExprSizeofValueSized *)_r).self_sizeof.unsignedLongLongValue, (12 + 2));
+    XCTAssertEqual(((KSExprSizeofValueSized *)_r).sizeof_block.unsignedLongLongValue, 12);
+    XCTAssertEqual(((KSExprSizeofValueSized *)_r).sizeof_block_a.unsignedLongLongValue, 1);
+    XCTAssertEqual(((KSExprSizeofValueSized *)_r).sizeof_block_b.unsignedLongLongValue, 4);
+    XCTAssertEqual(((KSExprSizeofValueSized *)_r).sizeof_block_c.unsignedLongLongValue, 2);
 }
 @end

@@ -4,7 +4,7 @@
 #import "expr_3.h"
 
 @interface expr_3 : XCTestCase
-@property (strong) expr_3_t *r;
+@property (strong) KSExpr3 *r;
 @end
 
 @implementation expr_3
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [expr_3_t initWithStream:ks];
+    self.r = [KSExpr3 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,17 +22,17 @@
 }
 
 - (void)test_expr_3 {
-    XCTAssertEqual(((expr_3_t *)_r).one.unsignedCharValue, 80);
-    XCTAssertEqualObjects(((expr_3_t *)_r).two, (@"ACK"));
-    XCTAssertEqualObjects(((expr_3_t *)_r).three, (@"@ACK"));
-    XCTAssertEqualObjects(((expr_3_t *)_r).four, (@"_ACK_"));
-    XCTAssertEqual(((expr_3_t *)_r).is_str_eq.boolValue, YES);
-    XCTAssertEqual(((expr_3_t *)_r).is_str_ne.boolValue, NO);
-    XCTAssertEqual(((expr_3_t *)_r).is_str_lt.boolValue, YES);
-    XCTAssertEqual(((expr_3_t *)_r).is_str_gt.boolValue, NO);
-    XCTAssertEqual(((expr_3_t *)_r).is_str_le.boolValue, YES);
-    XCTAssertEqual(((expr_3_t *)_r).is_str_ge.boolValue, NO);
-    XCTAssertEqual(((expr_3_t *)_r).is_str_lt2.boolValue, YES);
-    XCTAssertEqual(((expr_3_t *)_r).test_not.boolValue, YES);
+    XCTAssertEqual(((KSExpr3 *)_r).one.unsignedCharValue, 80);
+    XCTAssertEqualObjects(((KSExpr3 *)_r).two, (@"ACK"));
+    XCTAssertEqualObjects(((KSExpr3 *)_r).three, (@"@ACK"));
+    XCTAssertEqualObjects(((KSExpr3 *)_r).four, (@"_ACK_"));
+    XCTAssertEqual(((KSExpr3 *)_r).is_str_eq.boolValue, YES);
+    XCTAssertEqual(((KSExpr3 *)_r).is_str_ne.boolValue, NO);
+    XCTAssertEqual(((KSExpr3 *)_r).is_str_lt.boolValue, YES);
+    XCTAssertEqual(((KSExpr3 *)_r).is_str_gt.boolValue, NO);
+    XCTAssertEqual(((KSExpr3 *)_r).is_str_le.boolValue, YES);
+    XCTAssertEqual(((KSExpr3 *)_r).is_str_ge.boolValue, NO);
+    XCTAssertEqual(((KSExpr3 *)_r).is_str_lt2.boolValue, YES);
+    XCTAssertEqual(((KSExpr3 *)_r).test_not.boolValue, YES);
 }
 @end

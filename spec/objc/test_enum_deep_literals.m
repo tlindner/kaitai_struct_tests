@@ -4,7 +4,7 @@
 #import "enum_deep_literals.h"
 
 @interface enum_deep_literals : XCTestCase
-@property (strong) enum_deep_literals_t *r;
+@property (strong) KSEnumDeepLiterals *r;
 @end
 
 @implementation enum_deep_literals
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [enum_deep_literals_t initWithStream:ks];
+    self.r = [KSEnumDeepLiterals initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_enum_deep_literals {
-    XCTAssertEqual(((enum_deep_literals_t *)_r).is_pet_1_ok.boolValue, YES);
-    XCTAssertEqual(((enum_deep_literals_t *)_r).is_pet_2_ok.boolValue, YES);
+    XCTAssertEqual(((KSEnumDeepLiterals *)_r).is_pet_1_ok.boolValue, YES);
+    XCTAssertEqual(((KSEnumDeepLiterals *)_r).is_pet_2_ok.boolValue, YES);
 }
 @end

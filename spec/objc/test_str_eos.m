@@ -4,7 +4,7 @@
 #import "str_eos.h"
 
 @interface str_eos : XCTestCase
-@property (strong) str_eos_t *r;
+@property (strong) KSStrEos *r;
 @end
 
 @implementation str_eos
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [str_eos_t initWithStream:ks];
+    self.r = [KSStrEos initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_str_eos {
-    XCTAssertEqualObjects(((str_eos_t *)_r).str, (@"foo|bar|baz@"));
+    XCTAssertEqualObjects(((KSStrEos *)_r).str, (@"foo|bar|baz@"));
 }
 @end

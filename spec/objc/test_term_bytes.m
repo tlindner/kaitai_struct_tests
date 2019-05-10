@@ -4,7 +4,7 @@
 #import "term_bytes.h"
 
 @interface term_bytes : XCTestCase
-@property (strong) term_bytes_t *r;
+@property (strong) KSTermBytes *r;
 @end
 
 @implementation term_bytes
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [term_bytes_t initWithStream:ks];
+    self.r = [KSTermBytes initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_term_bytes {
-    XCTAssertEqualObjects(((term_bytes_t *)_r).s1, ([NSData dataWithBytes:"\x66\x6F\x6F" length:3]));
-    XCTAssertEqualObjects(((term_bytes_t *)_r).s2, ([NSData dataWithBytes:"\x62\x61\x72" length:3]));
-    XCTAssertEqualObjects(((term_bytes_t *)_r).s3, ([NSData dataWithBytes:"\x7C\x62\x61\x7A\x40" length:5]));
+    XCTAssertEqualObjects(((KSTermBytes *)_r).s1, ([NSData dataWithBytes:"\x66\x6F\x6F" length:3]));
+    XCTAssertEqualObjects(((KSTermBytes *)_r).s2, ([NSData dataWithBytes:"\x62\x61\x72" length:3]));
+    XCTAssertEqualObjects(((KSTermBytes *)_r).s3, ([NSData dataWithBytes:"\x7C\x62\x61\x7A\x40" length:5]));
 }
 @end

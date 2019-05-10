@@ -3,7 +3,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface my_custom_fx_t : NSObject
+@interface my_custom_fx : NSObject
 
 - (instancetype) initWith:(int)p_key,...;
 - (NSData *)decode:(NSData *)src;

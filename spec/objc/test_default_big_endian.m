@@ -4,7 +4,7 @@
 #import "default_big_endian.h"
 
 @interface default_big_endian : XCTestCase
-@property (strong) default_big_endian_t *r;
+@property (strong) KSDefaultBigEndian *r;
 @end
 
 @implementation default_big_endian
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [default_big_endian_t initWithStream:ks];
+    self.r = [KSDefaultBigEndian initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_default_big_endian {
-    XCTAssertEqual(((default_big_endian_t *)_r).one.unsignedIntValue, 117440512);
+    XCTAssertEqual(((KSDefaultBigEndian *)_r).one.unsignedIntValue, 117440512);
 }
 @end

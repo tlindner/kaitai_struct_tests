@@ -2,7 +2,7 @@
 #import "switch_integers2.h"
 
 @interface switch_integers2 : XCTestCase
-@property (strong) switch_integers2_t *r;
+@property (strong) KSSwitchIntegers2 *r;
 @end
 
 @implementation switch_integers2
@@ -11,7 +11,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_integers.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [switch_integers2_t initWithStream:ks];
+    self.r = [KSSwitchIntegers2 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -20,11 +20,11 @@
 }
 
 - (void)test_switch_integers2 {
-    XCTAssertEqual(((switch_integers2_t *)_r).code.unsignedCharValue, 1);
+    XCTAssertEqual(((KSSwitchIntegers2 *)_r).code.unsignedCharValue, 1);
 	/* manually change to object comparison */
-    XCTAssertEqualObjects(((switch_integers2_t *)_r).len, @(7));
-    XCTAssertEqualObjects(((switch_integers2_t *)_r).ham, ([NSData dataWithBytes:"\x02\x40\x40\x04\x37\x13\x00" length:7]));
-    XCTAssertEqual(((switch_integers2_t *)_r).padding.unsignedCharValue, 0);
-    XCTAssertEqualObjects(((switch_integers2_t *)_r).len_mod_str, (@"13"));
+    XCTAssertEqualObjects(((KSSwitchIntegers2 *)_r).len, @(7));
+    XCTAssertEqualObjects(((KSSwitchIntegers2 *)_r).ham, ([NSData dataWithBytes:"\x02\x40\x40\x04\x37\x13\x00" length:7]));
+    XCTAssertEqual(((KSSwitchIntegers2 *)_r).padding.unsignedCharValue, 0);
+    XCTAssertEqualObjects(((KSSwitchIntegers2 *)_r).len_mod_str, (@"13"));
 }
 @end

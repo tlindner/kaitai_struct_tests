@@ -4,7 +4,7 @@
 #import "position_to_end.h"
 
 @interface position_to_end : XCTestCase
-@property (strong) position_to_end_t *r;
+@property (strong) KSPositionToEnd *r;
 @end
 
 @implementation position_to_end
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/position_to_end.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [position_to_end_t initWithStream:ks];
+    self.r = [KSPositionToEnd initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_position_to_end {
-    XCTAssertEqual(((index_obj_position_to_end_t *)((position_to_end_t *)_r).index).foo.unsignedIntValue, 66);
-    XCTAssertEqual(((index_obj_position_to_end_t *)((position_to_end_t *)_r).index).bar.unsignedIntValue, 4660);
+    XCTAssertEqual(((KSIndexObj_PositionToEnd *)((KSPositionToEnd *)_r).index).foo.unsignedIntValue, 66);
+    XCTAssertEqual(((KSIndexObj_PositionToEnd *)((KSPositionToEnd *)_r).index).bar.unsignedIntValue, 4660);
 }
 @end

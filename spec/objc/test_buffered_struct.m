@@ -4,7 +4,7 @@
 #import "buffered_struct.h"
 
 @interface buffered_struct : XCTestCase
-@property (strong) buffered_struct_t *r;
+@property (strong) KSBufferedStruct *r;
 @end
 
 @implementation buffered_struct
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/buffered_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [buffered_struct_t initWithStream:ks];
+    self.r = [KSBufferedStruct initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,12 +22,12 @@
 }
 
 - (void)test_buffered_struct {
-    XCTAssertEqual(((buffered_struct_t *)_r).len1.unsignedIntValue, 16);
-    XCTAssertEqual(((block_buffered_struct_t *)((buffered_struct_t *)_r).block1).number1.unsignedIntValue, 66);
-    XCTAssertEqual(((block_buffered_struct_t *)((buffered_struct_t *)_r).block1).number2.unsignedIntValue, 67);
-    XCTAssertEqual(((buffered_struct_t *)_r).len2.unsignedIntValue, 8);
-    XCTAssertEqual(((block_buffered_struct_t *)((buffered_struct_t *)_r).block2).number1.unsignedIntValue, 68);
-    XCTAssertEqual(((block_buffered_struct_t *)((buffered_struct_t *)_r).block2).number2.unsignedIntValue, 69);
-    XCTAssertEqual(((buffered_struct_t *)_r).finisher.unsignedIntValue, 238);
+    XCTAssertEqual(((KSBufferedStruct *)_r).len1.unsignedIntValue, 16);
+    XCTAssertEqual(((KSBlock_BufferedStruct *)((KSBufferedStruct *)_r).block1).number1.unsignedIntValue, 66);
+    XCTAssertEqual(((KSBlock_BufferedStruct *)((KSBufferedStruct *)_r).block1).number2.unsignedIntValue, 67);
+    XCTAssertEqual(((KSBufferedStruct *)_r).len2.unsignedIntValue, 8);
+    XCTAssertEqual(((KSBlock_BufferedStruct *)((KSBufferedStruct *)_r).block2).number1.unsignedIntValue, 68);
+    XCTAssertEqual(((KSBlock_BufferedStruct *)((KSBufferedStruct *)_r).block2).number2.unsignedIntValue, 69);
+    XCTAssertEqual(((KSBufferedStruct *)_r).finisher.unsignedIntValue, 238);
 }
 @end

@@ -4,7 +4,7 @@
 #import "repeat_eos_bit.h"
 
 @interface repeat_eos_bit : XCTestCase
-@property (strong) repeat_eos_bit_t *r;
+@property (strong) KSRepeatEosBit *r;
 @end
 
 @implementation repeat_eos_bit
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [repeat_eos_bit_t initWithStream:ks];
+    self.r = [KSRepeatEosBit initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_repeat_eos_bit {
-    XCTAssertEqual(((repeat_eos_bit_t *)_r).nibbles.count, 16);
+    XCTAssertEqual(((KSRepeatEosBit *)_r).nibbles.count, 16);
 }
 @end

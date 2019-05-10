@@ -4,7 +4,7 @@
 #import "process_xor4_const.h"
 
 @interface process_xor4_const : XCTestCase
-@property (strong) process_xor4_const_t *r;
+@property (strong) KSProcessXor4Const *r;
 @end
 
 @implementation process_xor4_const
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_xor_4.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [process_xor4_const_t initWithStream:ks];
+    self.r = [KSProcessXor4Const initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_process_xor4_const {
-    XCTAssertEqualObjects(((process_xor4_const_t *)_r).key, ([NSData dataWithBytes:"\xEC\xBB\xA3\x14" length:4]));
-    XCTAssertEqualObjects(((process_xor4_const_t *)_r).buf, ([NSData dataWithBytes:"\x66\x6F\x6F\x20\x62\x61\x72" length:7]));
+    XCTAssertEqualObjects(((KSProcessXor4Const *)_r).key, ([NSData dataWithBytes:"\xEC\xBB\xA3\x14" length:4]));
+    XCTAssertEqualObjects(((KSProcessXor4Const *)_r).buf, ([NSData dataWithBytes:"\x66\x6F\x6F\x20\x62\x61\x72" length:7]));
 }
 @end

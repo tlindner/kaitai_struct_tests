@@ -4,7 +4,7 @@
 #import "str_literals2.h"
 
 @interface str_literals2 : XCTestCase
-@property (strong) str_literals2_t *r;
+@property (strong) KSStrLiterals2 *r;
 @end
 
 @implementation str_literals2
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [str_literals2_t initWithStream:ks];
+    self.r = [KSStrLiterals2 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_str_literals2 {
-    XCTAssertEqualObjects(((str_literals2_t *)_r).dollar1, (@"$foo"));
-    XCTAssertEqualObjects(((str_literals2_t *)_r).dollar2, (@"${foo}"));
-    XCTAssertEqualObjects(((str_literals2_t *)_r).sl2_hash, (@"#{foo}"));
-    XCTAssertEqualObjects(((str_literals2_t *)_r).at_sign, (@"@foo"));
+    XCTAssertEqualObjects(((KSStrLiterals2 *)_r).dollar1, (@"$foo"));
+    XCTAssertEqualObjects(((KSStrLiterals2 *)_r).dollar2, (@"${foo}"));
+    XCTAssertEqualObjects(((KSStrLiterals2 *)_r).sl2_hash, (@"#{foo}"));
+    XCTAssertEqualObjects(((KSStrLiterals2 *)_r).at_sign, (@"@foo"));
 }
 @end

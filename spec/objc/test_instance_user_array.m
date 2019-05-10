@@ -4,7 +4,7 @@
 #import "instance_user_array.h"
 
 @interface instance_user_array : XCTestCase
-@property (strong) instance_user_array_t *r;
+@property (strong) KSInstanceUserArray *r;
 @end
 
 @implementation instance_user_array
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/instance_std_array.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [instance_user_array_t initWithStream:ks];
+    self.r = [KSInstanceUserArray initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,15 +22,15 @@
 }
 
 - (void)test_instance_user_array {
-    XCTAssertEqual(((instance_user_array_t *)_r).ofs.unsignedIntValue, 16);
-    XCTAssertEqual(((instance_user_array_t *)_r).qty_entries.unsignedIntValue, 3);
-    XCTAssertEqual(((instance_user_array_t *)_r).entry_size.unsignedIntValue, 4);
-    XCTAssertEqual(((instance_user_array_t *)_r).user_entries.count, 3);
-    XCTAssertEqual(((entry_instance_user_array_t *)((instance_user_array_t *)_r).user_entries[0]).word1.unsignedShortValue, 4369);
-    XCTAssertEqual(((entry_instance_user_array_t *)((instance_user_array_t *)_r).user_entries[0]).word2.unsignedShortValue, 4369);
-    XCTAssertEqual(((entry_instance_user_array_t *)((instance_user_array_t *)_r).user_entries[1]).word1.unsignedShortValue, 8738);
-    XCTAssertEqual(((entry_instance_user_array_t *)((instance_user_array_t *)_r).user_entries[1]).word2.unsignedShortValue, 8738);
-    XCTAssertEqual(((entry_instance_user_array_t *)((instance_user_array_t *)_r).user_entries[2]).word1.unsignedShortValue, 13107);
-    XCTAssertEqual(((entry_instance_user_array_t *)((instance_user_array_t *)_r).user_entries[2]).word2.unsignedShortValue, 13107);
+    XCTAssertEqual(((KSInstanceUserArray *)_r).ofs.unsignedIntValue, 16);
+    XCTAssertEqual(((KSInstanceUserArray *)_r).qty_entries.unsignedIntValue, 3);
+    XCTAssertEqual(((KSInstanceUserArray *)_r).entry_size.unsignedIntValue, 4);
+    XCTAssertEqual(((KSInstanceUserArray *)_r).user_entries.count, 3);
+    XCTAssertEqual(((KSEntry_InstanceUserArray *)((KSInstanceUserArray *)_r).user_entries[0]).word1.unsignedShortValue, 4369);
+    XCTAssertEqual(((KSEntry_InstanceUserArray *)((KSInstanceUserArray *)_r).user_entries[0]).word2.unsignedShortValue, 4369);
+    XCTAssertEqual(((KSEntry_InstanceUserArray *)((KSInstanceUserArray *)_r).user_entries[1]).word1.unsignedShortValue, 8738);
+    XCTAssertEqual(((KSEntry_InstanceUserArray *)((KSInstanceUserArray *)_r).user_entries[1]).word2.unsignedShortValue, 8738);
+    XCTAssertEqual(((KSEntry_InstanceUserArray *)((KSInstanceUserArray *)_r).user_entries[2]).word1.unsignedShortValue, 13107);
+    XCTAssertEqual(((KSEntry_InstanceUserArray *)((KSInstanceUserArray *)_r).user_entries[2]).word2.unsignedShortValue, 13107);
 }
 @end

@@ -4,7 +4,7 @@
 #import "multiple_use.h"
 
 @interface multiple_use : XCTestCase
-@property (strong) multiple_use_t *r;
+@property (strong) KSMultipleUse *r;
 @end
 
 @implementation multiple_use
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/position_abs.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [multiple_use_t initWithStream:ks];
+    self.r = [KSMultipleUse initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_multiple_use {
-    XCTAssertEqual(((multi_multiple_use_t *)((type_1_multiple_use_t *)((multiple_use_t *)_r).t1).first_use).value.intValue, 32);
-    XCTAssertEqual(((multi_multiple_use_t *)((type_2_multiple_use_t *)((multiple_use_t *)_r).t2).second_use).value.intValue, 32);
+    XCTAssertEqual(((KSMulti_MultipleUse *)((KSType1_MultipleUse *)((KSMultipleUse *)_r).t1).first_use).value.intValue, 32);
+    XCTAssertEqual(((KSMulti_MultipleUse *)((KSType2_MultipleUse *)((KSMultipleUse *)_r).t2).second_use).value.intValue, 32);
 }
 @end

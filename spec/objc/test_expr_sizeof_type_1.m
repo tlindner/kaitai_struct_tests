@@ -4,7 +4,7 @@
 #import "expr_sizeof_type_1.h"
 
 @interface expr_sizeof_type_1 : XCTestCase
-@property (strong) expr_sizeof_type_1_t *r;
+@property (strong) KSExprSizeofType1 *r;
 @end
 
 @implementation expr_sizeof_type_1
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [expr_sizeof_type_1_t initWithStream:ks];
+    self.r = [KSExprSizeofType1 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_expr_sizeof_type_1 {
-    XCTAssertEqual(((expr_sizeof_type_1_t *)_r).sizeof_block.unsignedLongLongValue, (((1 + 4) + 2) + 4));
-    XCTAssertEqual(((expr_sizeof_type_1_t *)_r).sizeof_subblock.unsignedLongLongValue, 4);
+    XCTAssertEqual(((KSExprSizeofType1 *)_r).sizeof_block.unsignedLongLongValue, (((1 + 4) + 2) + 4));
+    XCTAssertEqual(((KSExprSizeofType1 *)_r).sizeof_subblock.unsignedLongLongValue, 4);
 }
 @end

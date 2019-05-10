@@ -4,7 +4,7 @@
 #import "docstrings_docref_multi.h"
 
 @interface docstrings_docref_multi : XCTestCase
-@property (strong) docstrings_docref_multi_t *r;
+@property (strong) KSDocstringsDocrefMulti *r;
 @end
 
 @implementation docstrings_docref_multi
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [docstrings_docref_multi_t initWithStream:ks];
+    self.r = [KSDocstringsDocrefMulti initWithStream:ks];
 }
 
 - (void)tearDown {

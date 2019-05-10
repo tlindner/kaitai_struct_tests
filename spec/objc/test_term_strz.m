@@ -4,7 +4,7 @@
 #import "term_strz.h"
 
 @interface term_strz : XCTestCase
-@property (strong) term_strz_t *r;
+@property (strong) KSTermStrz *r;
 @end
 
 @implementation term_strz
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [term_strz_t initWithStream:ks];
+    self.r = [KSTermStrz initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_term_strz {
-    XCTAssertEqualObjects(((term_strz_t *)_r).s1, (@"foo"));
-    XCTAssertEqualObjects(((term_strz_t *)_r).s2, (@"bar"));
-    XCTAssertEqualObjects(((term_strz_t *)_r).s3, (@"|baz@"));
+    XCTAssertEqualObjects(((KSTermStrz *)_r).s1, (@"foo"));
+    XCTAssertEqualObjects(((KSTermStrz *)_r).s2, (@"bar"));
+    XCTAssertEqualObjects(((KSTermStrz *)_r).s3, (@"|baz@"));
 }
 @end

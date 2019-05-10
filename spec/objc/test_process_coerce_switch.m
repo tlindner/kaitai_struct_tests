@@ -2,7 +2,7 @@
 #import "process_coerce_switch.h"
 
 @interface process_coerce_switch : XCTestCase
-@property (strong) process_coerce_switch_t *r;
+@property (strong) KSProcessCoerceSwitch *r;
 @end
 
 @implementation process_coerce_switch
@@ -11,7 +11,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_coerce_switch.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [process_coerce_switch_t initWithStream:ks];
+    self.r = [KSProcessCoerceSwitch initWithStream:ks];
 }
 
 - (void)tearDown {

@@ -4,7 +4,7 @@
 #import "process_to_user.h"
 
 @interface process_to_user : XCTestCase
-@property (strong) process_to_user_t *r;
+@property (strong) KSProcessToUser *r;
 @end
 
 @implementation process_to_user
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_rotate.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [process_to_user_t initWithStream:ks];
+    self.r = [KSProcessToUser initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_process_to_user {
-    XCTAssertEqualObjects(((just_str_process_to_user_t *)((process_to_user_t *)_r).buf1).str, (@"Hello"));
+    XCTAssertEqualObjects(((KSJustStr_ProcessToUser *)((KSProcessToUser *)_r).buf1).str, (@"Hello"));
 }
 @end

@@ -4,7 +4,7 @@
 #import "cast_nested.h"
 
 @interface cast_nested : XCTestCase
-@property (strong) cast_nested_t *r;
+@property (strong) KSCastNested *r;
 @end
 
 @implementation cast_nested
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_opcodes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [cast_nested_t initWithStream:ks];
+    self.r = [KSCastNested initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_cast_nested {
-    XCTAssertEqualObjects(((strval_opcode_cast_nested_t *)((cast_nested_t *)_r).opcodes_0_str).value, (@"foobar"));
-    XCTAssertEqualObjects(((cast_nested_t *)_r).opcodes_0_str_value, (@"foobar"));
-    XCTAssertEqual(((intval_opcode_cast_nested_t *)((cast_nested_t *)_r).opcodes_1_int).value.unsignedCharValue, 66);
-    XCTAssertEqual(((cast_nested_t *)_r).opcodes_1_int_value.unsignedCharValue, 66);
+    XCTAssertEqualObjects(((KSStrval_Opcode_CastNested *)((KSCastNested *)_r).opcodes_0_str).value, (@"foobar"));
+    XCTAssertEqualObjects(((KSCastNested *)_r).opcodes_0_str_value, (@"foobar"));
+    XCTAssertEqual(((KSIntval_Opcode_CastNested *)((KSCastNested *)_r).opcodes_1_int).value.unsignedCharValue, 66);
+    XCTAssertEqual(((KSCastNested *)_r).opcodes_1_int_value.unsignedCharValue, 66);
 }
 @end

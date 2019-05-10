@@ -4,7 +4,7 @@
 #import "process_rotate.h"
 
 @interface process_rotate : XCTestCase
-@property (strong) process_rotate_t *r;
+@property (strong) KSProcessRotate *r;
 @end
 
 @implementation process_rotate
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_rotate.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [process_rotate_t initWithStream:ks];
+    self.r = [KSProcessRotate initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_process_rotate {
-    XCTAssertEqualObjects(((process_rotate_t *)_r).buf1, ([NSData dataWithBytes:"\x48\x65\x6C\x6C\x6F" length:5]));
-    XCTAssertEqualObjects(((process_rotate_t *)_r).buf2, ([NSData dataWithBytes:"\x57\x6F\x72\x6C\x64" length:5]));
-    XCTAssertEqualObjects(((process_rotate_t *)_r).buf3, ([NSData dataWithBytes:"\x54\x68\x65\x72\x65" length:5]));
+    XCTAssertEqualObjects(((KSProcessRotate *)_r).buf1, ([NSData dataWithBytes:"\x48\x65\x6C\x6C\x6F" length:5]));
+    XCTAssertEqualObjects(((KSProcessRotate *)_r).buf2, ([NSData dataWithBytes:"\x57\x6F\x72\x6C\x64" length:5]));
+    XCTAssertEqualObjects(((KSProcessRotate *)_r).buf3, ([NSData dataWithBytes:"\x54\x68\x65\x72\x65" length:5]));
 }
 @end

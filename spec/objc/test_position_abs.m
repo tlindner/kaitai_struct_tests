@@ -4,7 +4,7 @@
 #import "position_abs.h"
 
 @interface position_abs : XCTestCase
-@property (strong) position_abs_t *r;
+@property (strong) KSPositionAbs *r;
 @end
 
 @implementation position_abs
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/position_abs.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [position_abs_t initWithStream:ks];
+    self.r = [KSPositionAbs initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_position_abs {
-    XCTAssertEqual(((position_abs_t *)_r).index_offset.unsignedIntValue, 32);
-    XCTAssertEqualObjects(((index_obj_position_abs_t *)((position_abs_t *)_r).index).entry, (@"foo"));
+    XCTAssertEqual(((KSPositionAbs *)_r).index_offset.unsignedIntValue, 32);
+    XCTAssertEqualObjects(((KSIndexObj_PositionAbs *)((KSPositionAbs *)_r).index).entry, (@"foo"));
 }
 @end

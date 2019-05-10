@@ -4,7 +4,7 @@
 #import "enum_deep.h"
 
 @interface enum_deep : XCTestCase
-@property (strong) enum_deep_t *r;
+@property (strong) KSEnumDeep *r;
 @end
 
 @implementation enum_deep
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [enum_deep_t initWithStream:ks];
+    self.r = [KSEnumDeep initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,7 +22,7 @@
 }
 
 - (void)test_enum_deep {
-    XCTAssertEqualObjects(((enum_deep_t *)_r).pet_1, ([@"cat" KSENUMWithDictionary:container1_enum_deep_t._animal]));
-    XCTAssertEqualObjects(((enum_deep_t *)_r).pet_2, ([@"hare" KSENUMWithDictionary:container2_container1_enum_deep_t._animal]));
+    XCTAssertEqualObjects(((KSEnumDeep *)_r).pet_1, ([@"cat" KSENUMWithDictionary:KSContainer1_EnumDeep._animal]));
+    XCTAssertEqualObjects(((KSEnumDeep *)_r).pet_2, ([@"hare" KSENUMWithDictionary:KSContainer2_Container1_EnumDeep._animal]));
 }
 @end

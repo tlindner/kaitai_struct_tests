@@ -4,7 +4,7 @@
 #import "expr_enum.h"
 
 @interface expr_enum : XCTestCase
-@property (strong) expr_enum_t *r;
+@property (strong) KSExprEnum *r;
 @end
 
 @implementation expr_enum
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [expr_enum_t initWithStream:ks];
+    self.r = [KSExprEnum initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_expr_enum {
-    XCTAssertEqualObjects(((expr_enum_t *)_r).const_dog, ([@"dog" KSENUMWithDictionary:expr_enum_t._animal]));
-    XCTAssertEqualObjects(((expr_enum_t *)_r).derived_boom, ([@"boom" KSENUMWithDictionary:expr_enum_t._animal]));
-    XCTAssertEqualObjects(((expr_enum_t *)_r).derived_dog, ([@"dog" KSENUMWithDictionary:expr_enum_t._animal]));
+    XCTAssertEqualObjects(((KSExprEnum *)_r).const_dog, ([@"dog" KSENUMWithDictionary:KSExprEnum._animal]));
+    XCTAssertEqualObjects(((KSExprEnum *)_r).derived_boom, ([@"boom" KSENUMWithDictionary:KSExprEnum._animal]));
+    XCTAssertEqualObjects(((KSExprEnum *)_r).derived_dog, ([@"dog" KSENUMWithDictionary:KSExprEnum._animal]));
 }
 @end

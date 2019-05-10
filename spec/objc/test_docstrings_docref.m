@@ -4,7 +4,7 @@
 #import "docstrings_docref.h"
 
 @interface docstrings_docref : XCTestCase
-@property (strong) docstrings_docref_t *r;
+@property (strong) KSDocstringsDocref *r;
 @end
 
 @implementation docstrings_docref
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [docstrings_docref_t initWithStream:ks];
+    self.r = [KSDocstringsDocref initWithStream:ks];
 }
 
 - (void)tearDown {

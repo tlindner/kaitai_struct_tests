@@ -4,7 +4,7 @@
 #import "switch_manual_str.h"
 
 @interface switch_manual_str : XCTestCase
-@property (strong) switch_manual_str_t *r;
+@property (strong) KSSwitchManualStr *r;
 @end
 
 @implementation switch_manual_str
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_opcodes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [switch_manual_str_t initWithStream:ks];
+    self.r = [KSSwitchManualStr initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,14 +22,14 @@
 }
 
 - (void)test_switch_manual_str {
-    XCTAssertEqual(((switch_manual_str_t *)_r).opcodes.count, 4);
-    XCTAssertEqualObjects(((opcode_switch_manual_str_t *)((switch_manual_str_t *)_r).opcodes[0]).code, (@"S"));
-    XCTAssertEqualObjects(((strval_opcode_switch_manual_str_t *)((opcode_switch_manual_str_t *)((switch_manual_str_t *)_r).opcodes[0]).body).value, (@"foobar"));
-    XCTAssertEqualObjects(((opcode_switch_manual_str_t *)((switch_manual_str_t *)_r).opcodes[1]).code, (@"I"));
-    XCTAssertEqual(((intval_opcode_switch_manual_str_t *)((opcode_switch_manual_str_t *)((switch_manual_str_t *)_r).opcodes[1]).body).value.unsignedCharValue, 66);
-    XCTAssertEqualObjects(((opcode_switch_manual_str_t *)((switch_manual_str_t *)_r).opcodes[2]).code, (@"I"));
-    XCTAssertEqual(((intval_opcode_switch_manual_str_t *)((opcode_switch_manual_str_t *)((switch_manual_str_t *)_r).opcodes[2]).body).value.unsignedCharValue, 55);
-    XCTAssertEqualObjects(((opcode_switch_manual_str_t *)((switch_manual_str_t *)_r).opcodes[3]).code, (@"S"));
-    XCTAssertEqualObjects(((strval_opcode_switch_manual_str_t *)((opcode_switch_manual_str_t *)((switch_manual_str_t *)_r).opcodes[3]).body).value, (@""));
+    XCTAssertEqual(((KSSwitchManualStr *)_r).opcodes.count, 4);
+    XCTAssertEqualObjects(((KSOpcode_SwitchManualStr *)((KSSwitchManualStr *)_r).opcodes[0]).code, (@"S"));
+    XCTAssertEqualObjects(((KSStrval_Opcode_SwitchManualStr *)((KSOpcode_SwitchManualStr *)((KSSwitchManualStr *)_r).opcodes[0]).body).value, (@"foobar"));
+    XCTAssertEqualObjects(((KSOpcode_SwitchManualStr *)((KSSwitchManualStr *)_r).opcodes[1]).code, (@"I"));
+    XCTAssertEqual(((KSIntval_Opcode_SwitchManualStr *)((KSOpcode_SwitchManualStr *)((KSSwitchManualStr *)_r).opcodes[1]).body).value.unsignedCharValue, 66);
+    XCTAssertEqualObjects(((KSOpcode_SwitchManualStr *)((KSSwitchManualStr *)_r).opcodes[2]).code, (@"I"));
+    XCTAssertEqual(((KSIntval_Opcode_SwitchManualStr *)((KSOpcode_SwitchManualStr *)((KSSwitchManualStr *)_r).opcodes[2]).body).value.unsignedCharValue, 55);
+    XCTAssertEqualObjects(((KSOpcode_SwitchManualStr *)((KSSwitchManualStr *)_r).opcodes[3]).code, (@"S"));
+    XCTAssertEqualObjects(((KSStrval_Opcode_SwitchManualStr *)((KSOpcode_SwitchManualStr *)((KSSwitchManualStr *)_r).opcodes[3]).body).value, (@""));
 }
 @end

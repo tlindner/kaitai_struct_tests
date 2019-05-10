@@ -4,7 +4,7 @@
 #import "expr_io_pos.h"
 
 @interface expr_io_pos : XCTestCase
-@property (strong) expr_io_pos_t *r;
+@property (strong) KSExprIoPos *r;
 @end
 
 @implementation expr_io_pos
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/expr_io_pos.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [expr_io_pos_t initWithStream:ks];
+    self.r = [KSExprIoPos initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,11 +22,11 @@
 }
 
 - (void)test_expr_io_pos {
-    XCTAssertEqualObjects(((all_plus_number_expr_io_pos_t *)((expr_io_pos_t *)_r).substream1).my_str, (@"CURIOSITY"));
-    XCTAssertEqualObjects(((all_plus_number_expr_io_pos_t *)((expr_io_pos_t *)_r).substream1).body, ([NSData dataWithBytes:"\x11\x22\x33\x44" length:4]));
-    XCTAssertEqual(((all_plus_number_expr_io_pos_t *)((expr_io_pos_t *)_r).substream1).number.unsignedShortValue, 66);
-    XCTAssertEqualObjects(((all_plus_number_expr_io_pos_t *)((expr_io_pos_t *)_r).substream2).my_str, (@"KILLED"));
-    XCTAssertEqualObjects(((all_plus_number_expr_io_pos_t *)((expr_io_pos_t *)_r).substream2).body, ([NSData dataWithBytes:"\x61\x20\x63\x61\x74" length:5]));
-    XCTAssertEqual(((all_plus_number_expr_io_pos_t *)((expr_io_pos_t *)_r).substream2).number.unsignedShortValue, 103);
+    XCTAssertEqualObjects(((KSAllPlusNumber_ExprIoPos *)((KSExprIoPos *)_r).substream1).my_str, (@"CURIOSITY"));
+    XCTAssertEqualObjects(((KSAllPlusNumber_ExprIoPos *)((KSExprIoPos *)_r).substream1).body, ([NSData dataWithBytes:"\x11\x22\x33\x44" length:4]));
+    XCTAssertEqual(((KSAllPlusNumber_ExprIoPos *)((KSExprIoPos *)_r).substream1).number.unsignedShortValue, 66);
+    XCTAssertEqualObjects(((KSAllPlusNumber_ExprIoPos *)((KSExprIoPos *)_r).substream2).my_str, (@"KILLED"));
+    XCTAssertEqualObjects(((KSAllPlusNumber_ExprIoPos *)((KSExprIoPos *)_r).substream2).body, ([NSData dataWithBytes:"\x61\x20\x63\x61\x74" length:5]));
+    XCTAssertEqual(((KSAllPlusNumber_ExprIoPos *)((KSExprIoPos *)_r).substream2).number.unsignedShortValue, 103);
 }
 @end

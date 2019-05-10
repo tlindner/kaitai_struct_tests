@@ -4,7 +4,7 @@
 #import "nav_parent_override.h"
 
 @interface nav_parent_override : XCTestCase
-@property (strong) nav_parent_override_t *r;
+@property (strong) KSNavParentOverride *r;
 @end
 
 @implementation nav_parent_override
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nav_parent_codes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nav_parent_override_t initWithStream:ks];
+    self.r = [KSNavParentOverride initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_nav_parent_override {
-    XCTAssertEqual(((nav_parent_override_t *)_r).child_size.unsignedCharValue, 3);
-    XCTAssertEqualObjects(((child_nav_parent_override_t *)((nav_parent_override_t *)_r).child_1).data, ([NSData dataWithBytes:"\x49\x31\x32" length:3]));
-    XCTAssertEqualObjects(((child_nav_parent_override_t *)((mediator_nav_parent_override_t *)((nav_parent_override_t *)_r).mediator_2).child_2).data, ([NSData dataWithBytes:"\x33\x42\x62" length:3]));
+    XCTAssertEqual(((KSNavParentOverride *)_r).child_size.unsignedCharValue, 3);
+    XCTAssertEqualObjects(((KSChild_NavParentOverride *)((KSNavParentOverride *)_r).child_1).data, ([NSData dataWithBytes:"\x49\x31\x32" length:3]));
+    XCTAssertEqualObjects(((KSChild_NavParentOverride *)((KSMediator_NavParentOverride *)((KSNavParentOverride *)_r).mediator_2).child_2).data, ([NSData dataWithBytes:"\x33\x42\x62" length:3]));
 }
 @end

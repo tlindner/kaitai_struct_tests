@@ -4,7 +4,7 @@
 #import "hello_world.h"
 
 @interface hello_world : XCTestCase
-@property (strong) hello_world_t *r;
+@property (strong) KSHelloWorld *r;
 @end
 
 @implementation hello_world
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [hello_world_t initWithStream:ks];
+    self.r = [KSHelloWorld initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_hello_world {
-    XCTAssertEqual(((hello_world_t *)_r).one.unsignedCharValue, 80);
+    XCTAssertEqual(((KSHelloWorld *)_r).one.unsignedCharValue, 80);
 }
 @end

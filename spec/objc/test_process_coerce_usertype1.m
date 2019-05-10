@@ -4,7 +4,7 @@
 #import "process_coerce_usertype1.h"
 
 @interface process_coerce_usertype1 : XCTestCase
-@property (strong) process_coerce_usertype1_t *r;
+@property (strong) KSProcessCoerceUsertype1 *r;
 @end
 
 @implementation process_coerce_usertype1
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_coerce_bytes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [process_coerce_usertype1_t initWithStream:ks];
+    self.r = [KSProcessCoerceUsertype1 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_process_coerce_usertype1 {
-    XCTAssertEqual(((record_process_coerce_usertype1_t *)((process_coerce_usertype1_t *)_r).records[0]).flag.unsignedCharValue, 0);
-    XCTAssertEqual(((foo_process_coerce_usertype1_t *)((record_process_coerce_usertype1_t *)((process_coerce_usertype1_t *)_r).records[0]).buf).value.unsignedIntValue, 1094795585);
-    XCTAssertEqual(((record_process_coerce_usertype1_t *)((process_coerce_usertype1_t *)_r).records[1]).flag.unsignedCharValue, 1);
-    XCTAssertEqual(((foo_process_coerce_usertype1_t *)((record_process_coerce_usertype1_t *)((process_coerce_usertype1_t *)_r).records[1]).buf).value.unsignedIntValue, 1111638594);
+    XCTAssertEqual(((KSRecord_ProcessCoerceUsertype1 *)((KSProcessCoerceUsertype1 *)_r).records[0]).flag.unsignedCharValue, 0);
+    XCTAssertEqual(((KSFoo_ProcessCoerceUsertype1 *)((KSRecord_ProcessCoerceUsertype1 *)((KSProcessCoerceUsertype1 *)_r).records[0]).buf).value.unsignedIntValue, 1094795585);
+    XCTAssertEqual(((KSRecord_ProcessCoerceUsertype1 *)((KSProcessCoerceUsertype1 *)_r).records[1]).flag.unsignedCharValue, 1);
+    XCTAssertEqual(((KSFoo_ProcessCoerceUsertype1 *)((KSRecord_ProcessCoerceUsertype1 *)((KSProcessCoerceUsertype1 *)_r).records[1]).buf).value.unsignedIntValue, 1111638594);
 }
 @end

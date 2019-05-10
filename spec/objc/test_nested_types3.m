@@ -4,7 +4,7 @@
 #import "nested_types3.h"
 
 @interface nested_types3 : XCTestCase
-@property (strong) nested_types3_t *r;
+@property (strong) KSNestedTypes3 *r;
 @end
 
 @implementation nested_types3
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nested_types3_t initWithStream:ks];
+    self.r = [KSNestedTypes3 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,10 +22,10 @@
 }
 
 - (void)test_nested_types3 {
-    XCTAssertEqual(((subtype_cc_subtype_a_nested_types3_t *)((nested_types3_t *)_r).a_cc).value_cc.charValue, 80);
-    XCTAssertEqual(((subtype_d_subtype_c_subtype_a_nested_types3_t *)((nested_types3_t *)_r).a_c_d).value_d.charValue, 65);
-    XCTAssertEqual(((subtype_b_nested_types3_t *)((nested_types3_t *)_r).b).value_b.charValue, 67);
-    XCTAssertEqual(((subtype_cc_subtype_a_nested_types3_t *)((subtype_b_nested_types3_t *)((nested_types3_t *)_r).b).a_cc).value_cc.charValue, 75);
-    XCTAssertEqual(((subtype_d_subtype_c_subtype_a_nested_types3_t *)((subtype_b_nested_types3_t *)((nested_types3_t *)_r).b).a_c_d).value_d.charValue, 45);
+    XCTAssertEqual(((KSSubtypeCc_SubtypeA_NestedTypes3 *)((KSNestedTypes3 *)_r).a_cc).value_cc.charValue, 80);
+    XCTAssertEqual(((KSSubtypeD_SubtypeC_SubtypeA_NestedTypes3 *)((KSNestedTypes3 *)_r).a_c_d).value_d.charValue, 65);
+    XCTAssertEqual(((KSSubtypeB_NestedTypes3 *)((KSNestedTypes3 *)_r).b).value_b.charValue, 67);
+    XCTAssertEqual(((KSSubtypeCc_SubtypeA_NestedTypes3 *)((KSSubtypeB_NestedTypes3 *)((KSNestedTypes3 *)_r).b).a_cc).value_cc.charValue, 75);
+    XCTAssertEqual(((KSSubtypeD_SubtypeC_SubtypeA_NestedTypes3 *)((KSSubtypeB_NestedTypes3 *)((KSNestedTypes3 *)_r).b).a_c_d).value_d.charValue, 45);
 }
 @end

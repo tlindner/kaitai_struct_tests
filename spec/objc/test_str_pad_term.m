@@ -4,7 +4,7 @@
 #import "str_pad_term.h"
 
 @interface str_pad_term : XCTestCase
-@property (strong) str_pad_term_t *r;
+@property (strong) KSStrPadTerm *r;
 @end
 
 @implementation str_pad_term
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_pad_term.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [str_pad_term_t initWithStream:ks];
+    self.r = [KSStrPadTerm initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_str_pad_term {
-    XCTAssertEqualObjects(((str_pad_term_t *)_r).str_pad, (@"str1"));
-    XCTAssertEqualObjects(((str_pad_term_t *)_r).str_term, (@"str2foo"));
-    XCTAssertEqualObjects(((str_pad_term_t *)_r).str_term_and_pad, (@"str+++3bar+++"));
-    XCTAssertEqualObjects(((str_pad_term_t *)_r).str_term_include, (@"str4baz@"));
+    XCTAssertEqualObjects(((KSStrPadTerm *)_r).str_pad, (@"str1"));
+    XCTAssertEqualObjects(((KSStrPadTerm *)_r).str_term, (@"str2foo"));
+    XCTAssertEqualObjects(((KSStrPadTerm *)_r).str_term_and_pad, (@"str+++3bar+++"));
+    XCTAssertEqualObjects(((KSStrPadTerm *)_r).str_term_include, (@"str4baz@"));
 }
 @end

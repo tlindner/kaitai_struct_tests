@@ -4,7 +4,7 @@
 #import "enum_of_value_inst.h"
 
 @interface enum_of_value_inst : XCTestCase
-@property (strong) enum_of_value_inst_t *r;
+@property (strong) KSEnumOfValueInst *r;
 @end
 
 @implementation enum_of_value_inst
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [enum_of_value_inst_t initWithStream:ks];
+    self.r = [KSEnumOfValueInst initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_enum_of_value_inst {
-    XCTAssertEqualObjects(((enum_of_value_inst_t *)_r).pet_1, ([@"cat" KSENUMWithDictionary:enum_of_value_inst_t._animal]));
-    XCTAssertEqualObjects(((enum_of_value_inst_t *)_r).pet_2, ([@"chicken" KSENUMWithDictionary:enum_of_value_inst_t._animal]));
-    XCTAssertEqualObjects(((enum_of_value_inst_t *)_r).pet_3, ([@"dog" KSENUMWithDictionary:enum_of_value_inst_t._animal]));
-    XCTAssertEqualObjects(((enum_of_value_inst_t *)_r).pet_4, ([@"dog" KSENUMWithDictionary:enum_of_value_inst_t._animal]));
+    XCTAssertEqualObjects(((KSEnumOfValueInst *)_r).pet_1, ([@"cat" KSENUMWithDictionary:KSEnumOfValueInst._animal]));
+    XCTAssertEqualObjects(((KSEnumOfValueInst *)_r).pet_2, ([@"chicken" KSENUMWithDictionary:KSEnumOfValueInst._animal]));
+    XCTAssertEqualObjects(((KSEnumOfValueInst *)_r).pet_3, ([@"dog" KSENUMWithDictionary:KSEnumOfValueInst._animal]));
+    XCTAssertEqualObjects(((KSEnumOfValueInst *)_r).pet_4, ([@"dog" KSENUMWithDictionary:KSEnumOfValueInst._animal]));
 }
 @end

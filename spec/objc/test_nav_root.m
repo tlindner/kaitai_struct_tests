@@ -4,7 +4,7 @@
 #import "nav_root.h"
 
 @interface nav_root : XCTestCase
-@property (strong) nav_root_t *r;
+@property (strong) KSNavRoot *r;
 @end
 
 @implementation nav_root
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nav.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nav_root_t initWithStream:ks];
+    self.r = [KSNavRoot initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,10 +22,10 @@
 }
 
 - (void)test_nav_root {
-    XCTAssertEqual(((header_obj_nav_root_t *)((nav_root_t *)_r).header).qty_entries.unsignedIntValue, 2);
-    XCTAssertEqual(((header_obj_nav_root_t *)((nav_root_t *)_r).header).filename_len.unsignedIntValue, 8);
-    XCTAssertEqual(((index_obj_nav_root_t *)((nav_root_t *)_r).index).entries.count, 2);
-    XCTAssertEqualObjects(((entry_nav_root_t *)((index_obj_nav_root_t *)((nav_root_t *)_r).index).entries[0]).filename, (@"FIRST___"));
-    XCTAssertEqualObjects(((entry_nav_root_t *)((index_obj_nav_root_t *)((nav_root_t *)_r).index).entries[1]).filename, (@"SECOND__"));
+    XCTAssertEqual(((KSHeaderObj_NavRoot *)((KSNavRoot *)_r).header).qty_entries.unsignedIntValue, 2);
+    XCTAssertEqual(((KSHeaderObj_NavRoot *)((KSNavRoot *)_r).header).filename_len.unsignedIntValue, 8);
+    XCTAssertEqual(((KSIndexObj_NavRoot *)((KSNavRoot *)_r).index).entries.count, 2);
+    XCTAssertEqualObjects(((KSEntry_NavRoot *)((KSIndexObj_NavRoot *)((KSNavRoot *)_r).index).entries[0]).filename, (@"FIRST___"));
+    XCTAssertEqualObjects(((KSEntry_NavRoot *)((KSIndexObj_NavRoot *)((KSNavRoot *)_r).index).entries[1]).filename, (@"SECOND__"));
 }
 @end

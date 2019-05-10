@@ -4,7 +4,7 @@
 #import "cast_to_top.h"
 
 @interface cast_to_top : XCTestCase
-@property (strong) cast_to_top_t *r;
+@property (strong) KSCastToTop *r;
 @end
 
 @implementation cast_to_top
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [cast_to_top_t initWithStream:ks];
+    self.r = [KSCastToTop initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_cast_to_top {
-    XCTAssertEqual(((cast_to_top_t *)_r).code.unsignedCharValue, 80);
-    XCTAssertEqual(((cast_to_top_t *)((cast_to_top_t *)_r).header).code.unsignedCharValue, 65);
-    XCTAssertEqual(((cast_to_top_t *)((cast_to_top_t *)_r).header_casted).code.unsignedCharValue, 65);
+    XCTAssertEqual(((KSCastToTop *)_r).code.unsignedCharValue, 80);
+    XCTAssertEqual(((KSCastToTop *)((KSCastToTop *)_r).header).code.unsignedCharValue, 65);
+    XCTAssertEqual(((KSCastToTop *)((KSCastToTop *)_r).header_casted).code.unsignedCharValue, 65);
 }
 @end

@@ -4,7 +4,7 @@
 #import "params_call_short.h"
 
 @interface params_call_short : XCTestCase
-@property (strong) params_call_short_t *r;
+@property (strong) KSParamsCallShort *r;
 @end
 
 @implementation params_call_short
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [params_call_short_t initWithStream:ks];
+    self.r = [KSParamsCallShort initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_params_call_short {
-    XCTAssertEqualObjects(((my_str1_params_call_short_t *)((params_call_short_t *)_r).buf1).body, (@"foo|b"));
-    XCTAssertEqualObjects(((my_str2_params_call_short_t *)((params_call_short_t *)_r).buf2).body, (@"ar|ba"));
-    XCTAssertEqual(((my_str2_params_call_short_t *)((params_call_short_t *)_r).buf2).trailer.unsignedCharValue, 122);
+    XCTAssertEqualObjects(((KSMyStr1_ParamsCallShort *)((KSParamsCallShort *)_r).buf1).body, (@"foo|b"));
+    XCTAssertEqualObjects(((KSMyStr2_ParamsCallShort *)((KSParamsCallShort *)_r).buf2).body, (@"ar|ba"));
+    XCTAssertEqual(((KSMyStr2_ParamsCallShort *)((KSParamsCallShort *)_r).buf2).trailer.unsignedCharValue, 122);
 }
 @end

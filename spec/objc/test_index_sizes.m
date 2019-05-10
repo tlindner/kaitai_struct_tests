@@ -4,7 +4,7 @@
 #import "index_sizes.h"
 
 @interface index_sizes : XCTestCase
-@property (strong) index_sizes_t *r;
+@property (strong) KSIndexSizes *r;
 @end
 
 @implementation index_sizes
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/index_sizes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [index_sizes_t initWithStream:ks];
+    self.r = [KSIndexSizes initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,12 +22,12 @@
 }
 
 - (void)test_index_sizes {
-    XCTAssertEqual(((index_sizes_t *)_r).qty.unsignedIntValue, 3);
-    XCTAssertEqual(((index_sizes_t *)_r).sizes[0].unsignedIntValue, 1);
-    XCTAssertEqual(((index_sizes_t *)_r).sizes[1].unsignedIntValue, 8);
-    XCTAssertEqual(((index_sizes_t *)_r).sizes[2].unsignedIntValue, 4);
-    XCTAssertEqualObjects(((index_sizes_t *)_r).bufs[0], (@"A"));
-    XCTAssertEqualObjects(((index_sizes_t *)_r).bufs[1], (@"BBBBBBBB"));
-    XCTAssertEqualObjects(((index_sizes_t *)_r).bufs[2], (@"CCCC"));
+    XCTAssertEqual(((KSIndexSizes *)_r).qty.unsignedIntValue, 3);
+    XCTAssertEqual(((KSIndexSizes *)_r).sizes[0].unsignedIntValue, 1);
+    XCTAssertEqual(((KSIndexSizes *)_r).sizes[1].unsignedIntValue, 8);
+    XCTAssertEqual(((KSIndexSizes *)_r).sizes[2].unsignedIntValue, 4);
+    XCTAssertEqualObjects(((KSIndexSizes *)_r).bufs[0], (@"A"));
+    XCTAssertEqualObjects(((KSIndexSizes *)_r).bufs[1], (@"BBBBBBBB"));
+    XCTAssertEqualObjects(((KSIndexSizes *)_r).bufs[2], (@"CCCC"));
 }
 @end

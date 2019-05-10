@@ -4,7 +4,7 @@
 #import "nested_types2.h"
 
 @interface nested_types2 : XCTestCase
-@property (strong) nested_types2_t *r;
+@property (strong) KSNestedTypes2 *r;
 @end
 
 @implementation nested_types2
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nested_types2_t initWithStream:ks];
+    self.r = [KSNestedTypes2 initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,12 +22,12 @@
 }
 
 - (void)test_nested_types2 {
-    XCTAssertEqual(((subtype_b_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_at_root).value_b.charValue, 80);
-    XCTAssertEqual(((subtype_c_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here1).value_c.charValue, 65);
-    XCTAssertEqual(((subtype_d_subtype_c_subtype_a_nested_types2_t *)((subtype_c_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here1).typed_here).value_d.charValue, 67);
-    XCTAssertEqual(((subtype_cc_subtype_a_nested_types2_t *)((subtype_c_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here1).typed_parent).value_cc.charValue, 75);
-    XCTAssertEqual(((subtype_b_nested_types2_t *)((subtype_c_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here1).typed_root).value_b.charValue, 45);
-    XCTAssertEqual(((subtype_cc_subtype_a_nested_types2_t *)((subtype_a_nested_types2_t *)((nested_types2_t *)_r).one).typed_here2).value_cc.charValue, 49);
-    XCTAssertEqual(((subtype_b_nested_types2_t *)((nested_types2_t *)_r).two).value_b.charValue, -1);
+    XCTAssertEqual(((KSSubtypeB_NestedTypes2 *)((KSSubtypeA_NestedTypes2 *)((KSNestedTypes2 *)_r).one).typed_at_root).value_b.charValue, 80);
+    XCTAssertEqual(((KSSubtypeC_SubtypeA_NestedTypes2 *)((KSSubtypeA_NestedTypes2 *)((KSNestedTypes2 *)_r).one).typed_here1).value_c.charValue, 65);
+    XCTAssertEqual(((KSSubtypeD_SubtypeC_SubtypeA_NestedTypes2 *)((KSSubtypeC_SubtypeA_NestedTypes2 *)((KSSubtypeA_NestedTypes2 *)((KSNestedTypes2 *)_r).one).typed_here1).typed_here).value_d.charValue, 67);
+    XCTAssertEqual(((KSSubtypeCc_SubtypeA_NestedTypes2 *)((KSSubtypeC_SubtypeA_NestedTypes2 *)((KSSubtypeA_NestedTypes2 *)((KSNestedTypes2 *)_r).one).typed_here1).typed_parent).value_cc.charValue, 75);
+    XCTAssertEqual(((KSSubtypeB_NestedTypes2 *)((KSSubtypeC_SubtypeA_NestedTypes2 *)((KSSubtypeA_NestedTypes2 *)((KSNestedTypes2 *)_r).one).typed_here1).typed_root).value_b.charValue, 45);
+    XCTAssertEqual(((KSSubtypeCc_SubtypeA_NestedTypes2 *)((KSSubtypeA_NestedTypes2 *)((KSNestedTypes2 *)_r).one).typed_here2).value_cc.charValue, 49);
+    XCTAssertEqual(((KSSubtypeB_NestedTypes2 *)((KSNestedTypes2 *)_r).two).value_b.charValue, -1);
 }
 @end

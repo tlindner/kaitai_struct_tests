@@ -4,7 +4,7 @@
 #import "str_pad_term_empty.h"
 
 @interface str_pad_term_empty : XCTestCase
-@property (strong) str_pad_term_empty_t *r;
+@property (strong) KSStrPadTermEmpty *r;
 @end
 
 @implementation str_pad_term_empty
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_pad_term_empty.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [str_pad_term_empty_t initWithStream:ks];
+    self.r = [KSStrPadTermEmpty initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_str_pad_term_empty {
-    XCTAssertEqualObjects(((str_pad_term_empty_t *)_r).str_pad, (@""));
-    XCTAssertEqualObjects(((str_pad_term_empty_t *)_r).str_term, (@""));
-    XCTAssertEqualObjects(((str_pad_term_empty_t *)_r).str_term_and_pad, (@""));
-    XCTAssertEqualObjects(((str_pad_term_empty_t *)_r).str_term_include, (@"@"));
+    XCTAssertEqualObjects(((KSStrPadTermEmpty *)_r).str_pad, (@""));
+    XCTAssertEqualObjects(((KSStrPadTermEmpty *)_r).str_term, (@""));
+    XCTAssertEqualObjects(((KSStrPadTermEmpty *)_r).str_term_and_pad, (@""));
+    XCTAssertEqualObjects(((KSStrPadTermEmpty *)_r).str_term_include, (@"@"));
 }
 @end

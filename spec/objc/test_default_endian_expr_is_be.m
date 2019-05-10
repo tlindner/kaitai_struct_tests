@@ -4,7 +4,7 @@
 #import "default_endian_expr_is_be.h"
 
 @interface default_endian_expr_is_be : XCTestCase
-@property (strong) default_endian_expr_is_be_t *r;
+@property (strong) KSDefaultEndianExprIsBe *r;
 @end
 
 @implementation default_endian_expr_is_be
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/endian_expr.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [default_endian_expr_is_be_t initWithStream:ks];
+    self.r = [KSDefaultEndianExprIsBe initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,23 +22,23 @@
 }
 
 - (void)test_default_endian_expr_is_be {
-    XCTAssertEqualObjects(((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).indicator, ([NSData dataWithBytes:"\x49\x49" length:2]));
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).some_int.unsignedIntValue, 66);
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).some_int_be.unsignedShortValue, 66);
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).some_int_le.unsignedShortValue, 66);
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).inst_int.unsignedIntValue, 66);
-    XCTAssertEqual(((sub_main_obj_main_obj_doc_default_endian_expr_is_be_t *)((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[0]).main).inst_sub).foo.unsignedIntValue, 66);
-    XCTAssertEqualObjects(((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).indicator, ([NSData dataWithBytes:"\x4D\x4D" length:2]));
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).some_int.unsignedIntValue, 66);
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).some_int_be.unsignedShortValue, 66);
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).some_int_le.unsignedShortValue, 66);
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).inst_int.unsignedIntValue, 1107296256);
-    XCTAssertEqual(((sub_main_obj_main_obj_doc_default_endian_expr_is_be_t *)((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[1]).main).inst_sub).foo.unsignedIntValue, 1107296256);
-    XCTAssertEqualObjects(((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).indicator, ([NSData dataWithBytes:"\x58\x58" length:2]));
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).some_int.unsignedIntValue, 1107296256);
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).some_int_be.unsignedShortValue, 66);
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).some_int_le.unsignedShortValue, 66);
-    XCTAssertEqual(((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).inst_int.unsignedIntValue, 66);
-    XCTAssertEqual(((sub_main_obj_main_obj_doc_default_endian_expr_is_be_t *)((main_obj_doc_default_endian_expr_is_be_t *)((doc_default_endian_expr_is_be_t *)((default_endian_expr_is_be_t *)_r).docs[2]).main).inst_sub).foo.unsignedIntValue, 66);
+    XCTAssertEqualObjects(((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[0]).indicator, ([NSData dataWithBytes:"\x49\x49" length:2]));
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[0]).main).some_int.unsignedIntValue, 66);
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[0]).main).some_int_be.unsignedShortValue, 66);
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[0]).main).some_int_le.unsignedShortValue, 66);
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[0]).main).inst_int.unsignedIntValue, 66);
+    XCTAssertEqual(((KSSubMainObj_MainObj_Doc_DefaultEndianExprIsBe *)((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[0]).main).inst_sub).foo.unsignedIntValue, 66);
+    XCTAssertEqualObjects(((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[1]).indicator, ([NSData dataWithBytes:"\x4D\x4D" length:2]));
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[1]).main).some_int.unsignedIntValue, 66);
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[1]).main).some_int_be.unsignedShortValue, 66);
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[1]).main).some_int_le.unsignedShortValue, 66);
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[1]).main).inst_int.unsignedIntValue, 1107296256);
+    XCTAssertEqual(((KSSubMainObj_MainObj_Doc_DefaultEndianExprIsBe *)((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[1]).main).inst_sub).foo.unsignedIntValue, 1107296256);
+    XCTAssertEqualObjects(((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[2]).indicator, ([NSData dataWithBytes:"\x58\x58" length:2]));
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[2]).main).some_int.unsignedIntValue, 1107296256);
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[2]).main).some_int_be.unsignedShortValue, 66);
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[2]).main).some_int_le.unsignedShortValue, 66);
+    XCTAssertEqual(((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[2]).main).inst_int.unsignedIntValue, 66);
+    XCTAssertEqual(((KSSubMainObj_MainObj_Doc_DefaultEndianExprIsBe *)((KSMainObj_Doc_DefaultEndianExprIsBe *)((KSDoc_DefaultEndianExprIsBe *)((KSDefaultEndianExprIsBe *)_r).docs[2]).main).inst_sub).foo.unsignedIntValue, 66);
 }
 @end

@@ -4,7 +4,7 @@
 #import "float_to_i.h"
 
 @interface float_to_i : XCTestCase
-@property (strong) float_to_i_t *r;
+@property (strong) KSFloatToI *r;
 @end
 
 @implementation float_to_i
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/floating_points.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [float_to_i_t initWithStream:ks];
+    self.r = [KSFloatToI initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,13 +22,13 @@
 }
 
 - (void)test_float_to_i {
-    XCTAssertEqual(((float_to_i_t *)_r).single_value.floatValue, 0.5);
-    XCTAssertEqual(((float_to_i_t *)_r).double_value.doubleValue, 0.25);
-    XCTAssertEqual(((float_to_i_t *)_r).single_i.unsignedLongLongValue, 0);
-    XCTAssertEqual(((float_to_i_t *)_r).double_i.unsignedLongLongValue, 0);
-    XCTAssertEqual(((float_to_i_t *)_r).float1_i.unsignedLongLongValue, 1);
-    XCTAssertEqual(((float_to_i_t *)_r).float2_i.unsignedLongLongValue, 1);
-    XCTAssertEqual(((float_to_i_t *)_r).float3_i.unsignedLongLongValue, 1);
-    XCTAssertEqual(((float_to_i_t *)_r).float4_i.unsignedLongLongValue, -2);
+    XCTAssertEqual(((KSFloatToI *)_r).single_value.floatValue, 0.5);
+    XCTAssertEqual(((KSFloatToI *)_r).double_value.doubleValue, 0.25);
+    XCTAssertEqual(((KSFloatToI *)_r).single_i.unsignedLongLongValue, 0);
+    XCTAssertEqual(((KSFloatToI *)_r).double_i.unsignedLongLongValue, 0);
+    XCTAssertEqual(((KSFloatToI *)_r).float1_i.unsignedLongLongValue, 1);
+    XCTAssertEqual(((KSFloatToI *)_r).float2_i.unsignedLongLongValue, 1);
+    XCTAssertEqual(((KSFloatToI *)_r).float3_i.unsignedLongLongValue, 1);
+    XCTAssertEqual(((KSFloatToI *)_r).float4_i.unsignedLongLongValue, -2);
 }
 @end

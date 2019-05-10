@@ -4,7 +4,7 @@
 #import "nav_parent_vs_value_inst.h"
 
 @interface nav_parent_vs_value_inst : XCTestCase
-@property (strong) nav_parent_vs_value_inst_t *r;
+@property (strong) KSNavParentVsValueInst *r;
 @end
 
 @implementation nav_parent_vs_value_inst
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nav_parent_vs_value_inst_t initWithStream:ks];
+    self.r = [KSNavParentVsValueInst initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_nav_parent_vs_value_inst {
-    XCTAssertEqualObjects(((nav_parent_vs_value_inst_t *)_r).s1, (@"foo"));
+    XCTAssertEqualObjects(((KSNavParentVsValueInst *)_r).s1, (@"foo"));
 }
 @end

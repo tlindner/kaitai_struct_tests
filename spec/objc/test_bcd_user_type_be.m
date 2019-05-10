@@ -4,7 +4,7 @@
 #import "bcd_user_type_be.h"
 
 @interface bcd_user_type_be : XCTestCase
-@property (strong) bcd_user_type_be_t *r;
+@property (strong) KSBcdUserTypeBe *r;
 @end
 
 @implementation bcd_user_type_be
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/bcd_user_type_be.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [bcd_user_type_be_t initWithStream:ks];
+    self.r = [KSBcdUserTypeBe initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,11 +22,11 @@
 }
 
 - (void)test_bcd_user_type_be {
-    XCTAssertEqual(((ltr_obj_bcd_user_type_be_t *)((bcd_user_type_be_t *)_r).ltr).as_int.unsignedLongLongValue, 12345678);
-    XCTAssertEqualObjects(((ltr_obj_bcd_user_type_be_t *)((bcd_user_type_be_t *)_r).ltr).as_str, (@"12345678"));
-    XCTAssertEqual(((rtl_obj_bcd_user_type_be_t *)((bcd_user_type_be_t *)_r).rtl).as_int.unsignedLongLongValue, 87654321);
-    XCTAssertEqualObjects(((rtl_obj_bcd_user_type_be_t *)((bcd_user_type_be_t *)_r).rtl).as_str, (@"87654321"));
-    XCTAssertEqual(((leading_zero_ltr_obj_bcd_user_type_be_t *)((bcd_user_type_be_t *)_r).leading_zero_ltr).as_int.unsignedLongLongValue, 123456);
-    XCTAssertEqualObjects(((leading_zero_ltr_obj_bcd_user_type_be_t *)((bcd_user_type_be_t *)_r).leading_zero_ltr).as_str, (@"00123456"));
+    XCTAssertEqual(((KSLtrObj_BcdUserTypeBe *)((KSBcdUserTypeBe *)_r).ltr).as_int.unsignedLongLongValue, 12345678);
+    XCTAssertEqualObjects(((KSLtrObj_BcdUserTypeBe *)((KSBcdUserTypeBe *)_r).ltr).as_str, (@"12345678"));
+    XCTAssertEqual(((KSRtlObj_BcdUserTypeBe *)((KSBcdUserTypeBe *)_r).rtl).as_int.unsignedLongLongValue, 87654321);
+    XCTAssertEqualObjects(((KSRtlObj_BcdUserTypeBe *)((KSBcdUserTypeBe *)_r).rtl).as_str, (@"87654321"));
+    XCTAssertEqual(((KSLeadingZeroLtrObj_BcdUserTypeBe *)((KSBcdUserTypeBe *)_r).leading_zero_ltr).as_int.unsignedLongLongValue, 123456);
+    XCTAssertEqualObjects(((KSLeadingZeroLtrObj_BcdUserTypeBe *)((KSBcdUserTypeBe *)_r).leading_zero_ltr).as_str, (@"00123456"));
 }
 @end

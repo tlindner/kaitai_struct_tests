@@ -4,7 +4,7 @@
 #import "expr_bytes_cmp.h"
 
 @interface expr_bytes_cmp : XCTestCase
-@property (strong) expr_bytes_cmp_t *r;
+@property (strong) KSExprBytesCmp *r;
 @end
 
 @implementation expr_bytes_cmp
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [expr_bytes_cmp_t initWithStream:ks];
+    self.r = [KSExprBytesCmp initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,15 +22,15 @@
 }
 
 - (void)test_expr_bytes_cmp {
-    XCTAssertEqualObjects(((expr_bytes_cmp_t *)_r).one, ([NSData dataWithBytes:"\x50" length:1]));
-    XCTAssertEqualObjects(((expr_bytes_cmp_t *)_r).two, ([NSData dataWithBytes:"\x41\x43\x4B" length:3]));
-    XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_eq.boolValue, YES);
-    XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_ne.boolValue, NO);
-    XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_lt.boolValue, YES);
-    XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_gt.boolValue, NO);
-    XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_le.boolValue, YES);
-    XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_ge.boolValue, NO);
-    XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_lt2.boolValue, NO);
-    XCTAssertEqual(((expr_bytes_cmp_t *)_r).is_gt2.boolValue, YES);
+    XCTAssertEqualObjects(((KSExprBytesCmp *)_r).one, ([NSData dataWithBytes:"\x50" length:1]));
+    XCTAssertEqualObjects(((KSExprBytesCmp *)_r).two, ([NSData dataWithBytes:"\x41\x43\x4B" length:3]));
+    XCTAssertEqual(((KSExprBytesCmp *)_r).is_eq.boolValue, YES);
+    XCTAssertEqual(((KSExprBytesCmp *)_r).is_ne.boolValue, NO);
+    XCTAssertEqual(((KSExprBytesCmp *)_r).is_lt.boolValue, YES);
+    XCTAssertEqual(((KSExprBytesCmp *)_r).is_gt.boolValue, NO);
+    XCTAssertEqual(((KSExprBytesCmp *)_r).is_le.boolValue, YES);
+    XCTAssertEqual(((KSExprBytesCmp *)_r).is_ge.boolValue, NO);
+    XCTAssertEqual(((KSExprBytesCmp *)_r).is_lt2.boolValue, NO);
+    XCTAssertEqual(((KSExprBytesCmp *)_r).is_gt2.boolValue, YES);
 }
 @end

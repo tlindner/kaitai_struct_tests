@@ -4,7 +4,7 @@
 #import "default_endian_mod.h"
 
 @interface default_endian_mod : XCTestCase
-@property (strong) default_endian_mod_t *r;
+@property (strong) KSDefaultEndianMod *r;
 @end
 
 @implementation default_endian_mod
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [default_endian_mod_t initWithStream:ks];
+    self.r = [KSDefaultEndianMod initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_default_endian_mod {
-    XCTAssertEqual(((main_obj_default_endian_mod_t *)((default_endian_mod_t *)_r).main).one.intValue, 1262698832);
-    XCTAssertEqual(((subnest_main_obj_default_endian_mod_t *)((main_obj_default_endian_mod_t *)((default_endian_mod_t *)_r).main).nest).two.intValue, -52947);
-    XCTAssertEqual(((subnest_be_main_obj_default_endian_mod_t *)((main_obj_default_endian_mod_t *)((default_endian_mod_t *)_r).main).nest_be).two.intValue, 1346454347);
+    XCTAssertEqual(((KSMainObj_DefaultEndianMod *)((KSDefaultEndianMod *)_r).main).one.intValue, 1262698832);
+    XCTAssertEqual(((KSSubnest_MainObj_DefaultEndianMod *)((KSMainObj_DefaultEndianMod *)((KSDefaultEndianMod *)_r).main).nest).two.intValue, -52947);
+    XCTAssertEqual(((KSSubnestBe_MainObj_DefaultEndianMod *)((KSMainObj_DefaultEndianMod *)((KSDefaultEndianMod *)_r).main).nest_be).two.intValue, 1346454347);
 }
 @end

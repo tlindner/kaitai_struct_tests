@@ -4,7 +4,7 @@
 #import "instance_io_user.h"
 
 @interface instance_io_user : XCTestCase
-@property (strong) instance_io_user_t *r;
+@property (strong) KSInstanceIoUser *r;
 @end
 
 @implementation instance_io_user
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/instance_io.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [instance_io_user_t initWithStream:ks];
+    self.r = [KSInstanceIoUser initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,9 +22,9 @@
 }
 
 - (void)test_instance_io_user {
-    XCTAssertEqual(((instance_io_user_t *)_r).qty_entries.unsignedIntValue, 3);
-    XCTAssertEqualObjects(((entry_instance_io_user_t *)((instance_io_user_t *)_r).entries[0]).name, (@"the"));
-    XCTAssertEqualObjects(((entry_instance_io_user_t *)((instance_io_user_t *)_r).entries[1]).name, (@"rainy"));
-    XCTAssertEqualObjects(((entry_instance_io_user_t *)((instance_io_user_t *)_r).entries[2]).name, (@"day it is"));
+    XCTAssertEqual(((KSInstanceIoUser *)_r).qty_entries.unsignedIntValue, 3);
+    XCTAssertEqualObjects(((KSEntry_InstanceIoUser *)((KSInstanceIoUser *)_r).entries[0]).name, (@"the"));
+    XCTAssertEqualObjects(((KSEntry_InstanceIoUser *)((KSInstanceIoUser *)_r).entries[1]).name, (@"rainy"));
+    XCTAssertEqualObjects(((KSEntry_InstanceIoUser *)((KSInstanceIoUser *)_r).entries[2]).name, (@"day it is"));
 }
 @end

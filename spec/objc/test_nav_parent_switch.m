@@ -4,7 +4,7 @@
 #import "nav_parent_switch.h"
 
 @interface nav_parent_switch : XCTestCase
-@property (strong) nav_parent_switch_t *r;
+@property (strong) KSNavParentSwitch *r;
 @end
 
 @implementation nav_parent_switch
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nav_parent_switch.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [nav_parent_switch_t initWithStream:ks];
+    self.r = [KSNavParentSwitch initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,8 +22,8 @@
 }
 
 - (void)test_nav_parent_switch {
-    XCTAssertEqual(((nav_parent_switch_t *)_r).category.unsignedCharValue, 1);
-    XCTAssertEqual(((element_1_nav_parent_switch_t *)((nav_parent_switch_t *)_r).content).foo.unsignedCharValue, 66);
-    XCTAssertEqual(((subelement_1_nav_parent_switch_t *)((element_1_nav_parent_switch_t *)((nav_parent_switch_t *)_r).content).subelement).bar.unsignedCharValue, 255);
+    XCTAssertEqual(((KSNavParentSwitch *)_r).category.unsignedCharValue, 1);
+    XCTAssertEqual(((KSElement1_NavParentSwitch *)((KSNavParentSwitch *)_r).content).foo.unsignedCharValue, 66);
+    XCTAssertEqual(((KSSubelement1_NavParentSwitch *)((KSElement1_NavParentSwitch *)((KSNavParentSwitch *)_r).content).subelement).bar.unsignedCharValue, 255);
 }
 @end

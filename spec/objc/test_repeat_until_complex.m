@@ -4,7 +4,7 @@
 #import "repeat_until_complex.h"
 
 @interface repeat_until_complex : XCTestCase
-@property (strong) repeat_until_complex_t *r;
+@property (strong) KSRepeatUntilComplex *r;
 @end
 
 @implementation repeat_until_complex
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_until_complex.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [repeat_until_complex_t initWithStream:ks];
+    self.r = [KSRepeatUntilComplex initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,20 +22,20 @@
 }
 
 - (void)test_repeat_until_complex {
-    XCTAssertEqual(((repeat_until_complex_t *)_r).first.count, 3);
-    XCTAssertEqual(((type_u1_repeat_until_complex_t *)((repeat_until_complex_t *)_r).first[0]).count.unsignedCharValue, 4);
-    XCTAssertEqualObjects(((type_u1_repeat_until_complex_t *)((repeat_until_complex_t *)_r).first[0]).values, (@[@((0 + 1)), @(2), @(3), @(4)]));
-    XCTAssertEqual(((type_u1_repeat_until_complex_t *)((repeat_until_complex_t *)_r).first[1]).count.unsignedCharValue, 2);
-    XCTAssertEqualObjects(((type_u1_repeat_until_complex_t *)((repeat_until_complex_t *)_r).first[1]).values, (@[@((0 + 1)), @(2)]));
-    XCTAssertEqual(((type_u1_repeat_until_complex_t *)((repeat_until_complex_t *)_r).first[2]).count.unsignedCharValue, 0);
-    XCTAssertEqual(((repeat_until_complex_t *)_r).second.count, 4);
-    XCTAssertEqual(((type_u2_repeat_until_complex_t *)((repeat_until_complex_t *)_r).second[0]).count.unsignedShortValue, 6);
-    XCTAssertEqualObjects(((type_u2_repeat_until_complex_t *)((repeat_until_complex_t *)_r).second[0]).values, (@[@((0 + 1)), @(2), @(3), @(4), @(5), @(6)]));
-    XCTAssertEqual(((type_u2_repeat_until_complex_t *)((repeat_until_complex_t *)_r).second[1]).count.unsignedShortValue, 3);
-    XCTAssertEqualObjects(((type_u2_repeat_until_complex_t *)((repeat_until_complex_t *)_r).second[1]).values, (@[@((0 + 1)), @(2), @(3)]));
-    XCTAssertEqual(((type_u2_repeat_until_complex_t *)((repeat_until_complex_t *)_r).second[2]).count.unsignedShortValue, 4);
-    XCTAssertEqualObjects(((type_u2_repeat_until_complex_t *)((repeat_until_complex_t *)_r).second[2]).values, (@[@((0 + 1)), @(2), @(3), @(4)]));
-    XCTAssertEqual(((type_u2_repeat_until_complex_t *)((repeat_until_complex_t *)_r).second[3]).count.unsignedShortValue, 0);
-    XCTAssertEqualObjects(((repeat_until_complex_t *)_r).third, (@[@((0 + 102)), @(111), @(111), @(98), @(97), @(114), @(0)]));
+    XCTAssertEqual(((KSRepeatUntilComplex *)_r).first.count, 3);
+    XCTAssertEqual(((KSTypeU1_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).first[0]).count.unsignedCharValue, 4);
+    XCTAssertEqualObjects(((KSTypeU1_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).first[0]).values, (@[@((0 + 1)), @(2), @(3), @(4)]));
+    XCTAssertEqual(((KSTypeU1_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).first[1]).count.unsignedCharValue, 2);
+    XCTAssertEqualObjects(((KSTypeU1_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).first[1]).values, (@[@((0 + 1)), @(2)]));
+    XCTAssertEqual(((KSTypeU1_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).first[2]).count.unsignedCharValue, 0);
+    XCTAssertEqual(((KSRepeatUntilComplex *)_r).second.count, 4);
+    XCTAssertEqual(((KSTypeU2_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).second[0]).count.unsignedShortValue, 6);
+    XCTAssertEqualObjects(((KSTypeU2_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).second[0]).values, (@[@((0 + 1)), @(2), @(3), @(4), @(5), @(6)]));
+    XCTAssertEqual(((KSTypeU2_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).second[1]).count.unsignedShortValue, 3);
+    XCTAssertEqualObjects(((KSTypeU2_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).second[1]).values, (@[@((0 + 1)), @(2), @(3)]));
+    XCTAssertEqual(((KSTypeU2_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).second[2]).count.unsignedShortValue, 4);
+    XCTAssertEqualObjects(((KSTypeU2_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).second[2]).values, (@[@((0 + 1)), @(2), @(3), @(4)]));
+    XCTAssertEqual(((KSTypeU2_RepeatUntilComplex *)((KSRepeatUntilComplex *)_r).second[3]).count.unsignedShortValue, 0);
+    XCTAssertEqualObjects(((KSRepeatUntilComplex *)_r).third, (@[@((0 + 102)), @(111), @(111), @(98), @(97), @(114), @(0)]));
 }
 @end

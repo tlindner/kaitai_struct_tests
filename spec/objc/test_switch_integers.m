@@ -2,7 +2,7 @@
 #import "switch_integers.h"
 
 @interface switch_integers : XCTestCase
-@property (strong) switch_integers_t *r;
+@property (strong) KSSwitchIntegers *r;
 @end
 
 @implementation switch_integers
@@ -11,7 +11,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_integers.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [switch_integers_t initWithStream:ks];
+    self.r = [KSSwitchIntegers initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -20,22 +20,22 @@
 }
 
 - (void)test_switch_integers {
-    XCTAssertEqual(((switch_integers_t *)_r).opcodes.count, 4);
-    XCTAssertEqual(((opcode_switch_integers_t *)((switch_integers_t *)_r).opcodes[0]).code.unsignedCharValue, 1);
+    XCTAssertEqual(((KSSwitchIntegers *)_r).opcodes.count, 4);
+    XCTAssertEqual(((KSOpcode_SwitchIntegers *)((KSSwitchIntegers *)_r).opcodes[0]).code.unsignedCharValue, 1);
 
     /* Manually changed to objected version */
-    XCTAssertEqualObjects(((opcode_switch_integers_t *)((switch_integers_t *)_r).opcodes[0]).body, @(7));
-    XCTAssertEqual(((opcode_switch_integers_t *)((switch_integers_t *)_r).opcodes[1]).code.unsignedCharValue, 2);
+    XCTAssertEqualObjects(((KSOpcode_SwitchIntegers *)((KSSwitchIntegers *)_r).opcodes[0]).body, @(7));
+    XCTAssertEqual(((KSOpcode_SwitchIntegers *)((KSSwitchIntegers *)_r).opcodes[1]).code.unsignedCharValue, 2);
 
     /* Manually changed to objected version */
-    XCTAssertEqualObjects(((opcode_switch_integers_t *)((switch_integers_t *)_r).opcodes[1]).body, @(16448));
-    XCTAssertEqual(((opcode_switch_integers_t *)((switch_integers_t *)_r).opcodes[2]).code.unsignedCharValue, 4);
+    XCTAssertEqualObjects(((KSOpcode_SwitchIntegers *)((KSSwitchIntegers *)_r).opcodes[1]).body, @(16448));
+    XCTAssertEqual(((KSOpcode_SwitchIntegers *)((KSSwitchIntegers *)_r).opcodes[2]).code.unsignedCharValue, 4);
 
     /* Manually changed to objected version */
-    XCTAssertEqualObjects(((opcode_switch_integers_t *)((switch_integers_t *)_r).opcodes[2]).body, @(4919));
-    XCTAssertEqual(((opcode_switch_integers_t *)((switch_integers_t *)_r).opcodes[3]).code.unsignedCharValue, 8);
+    XCTAssertEqualObjects(((KSOpcode_SwitchIntegers *)((KSSwitchIntegers *)_r).opcodes[2]).body, @(4919));
+    XCTAssertEqual(((KSOpcode_SwitchIntegers *)((KSSwitchIntegers *)_r).opcodes[3]).code.unsignedCharValue, 8);
 
     /* Manually changed to objected version */
-    XCTAssertEqualObjects(((opcode_switch_integers_t *)((switch_integers_t *)_r).opcodes[3]).body, @(4919));
+    XCTAssertEqualObjects(((KSOpcode_SwitchIntegers *)((KSSwitchIntegers *)_r).opcodes[3]).body, @(4919));
 }
 @end

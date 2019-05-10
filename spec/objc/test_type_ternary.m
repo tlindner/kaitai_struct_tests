@@ -4,7 +4,7 @@
 #import "type_ternary.h"
 
 @interface type_ternary : XCTestCase
-@property (strong) type_ternary_t *r;
+@property (strong) KSTypeTernary *r;
 @end
 
 @implementation type_ternary
@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [type_ternary_t initWithStream:ks];
+    self.r = [KSTypeTernary initWithStream:ks];
 }
 
 - (void)tearDown {
@@ -22,6 +22,6 @@
 }
 
 - (void)test_type_ternary {
-    XCTAssertEqual(((dummy_type_ternary_t *)((type_ternary_t *)_r).dif).value.unsignedCharValue, 101);
+    XCTAssertEqual(((KSDummy_TypeTernary *)((KSTypeTernary *)_r).dif).value.unsignedCharValue, 101);
 }
 @end
