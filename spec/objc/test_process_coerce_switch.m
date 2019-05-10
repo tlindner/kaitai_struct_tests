@@ -11,7 +11,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_coerce_switch.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSProcessCoerceSwitch initWithStream:ks];
+    self.r = [KSProcessCoerceSwitch structWithStream:ks];
 }
 
 - (void)tearDown {

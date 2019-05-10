@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/expr_array.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSExprArray initWithStream:ks];
+    self.r = [KSExprArray structWithStream:ks];
 }
 
 - (void)tearDown {

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_pad_term_empty.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSStrPadTermEmpty initWithStream:ks];
+    self.r = [KSStrPadTermEmpty structWithStream:ks];
 }
 
 - (void)tearDown {

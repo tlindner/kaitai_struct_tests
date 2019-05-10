@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_encodings.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSStrEncodingsDefault initWithStream:ks];
+    self.r = [KSStrEncodingsDefault structWithStream:ks];
 }
 
 - (void)tearDown {

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_rotate.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSProcessCustom initWithStream:ks];
+    self.r = [KSProcessCustom structWithStream:ks];
 }
 
 - (void)tearDown {

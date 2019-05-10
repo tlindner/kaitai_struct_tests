@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/expr_io_pos.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSExprIoPos initWithStream:ks];
+    self.r = [KSExprIoPos structWithStream:ks];
 }
 
 - (void)tearDown {

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_coerce_bytes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSProcessCoerceBytes initWithStream:ks];
+    self.r = [KSProcessCoerceBytes structWithStream:ks];
 }
 
 - (void)tearDown {

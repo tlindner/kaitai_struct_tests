@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/floating_points.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSFloatToI initWithStream:ks];
+    self.r = [KSFloatToI structWithStream:ks];
 }
 
 - (void)tearDown {

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_until_s4.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSRepeatUntilS4 initWithStream:ks];
+    self.r = [KSRepeatUntilS4 structWithStream:ks];
 }
 
 - (void)tearDown {

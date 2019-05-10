@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_eos_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSRepeatEosStruct initWithStream:ks];
+    self.r = [KSRepeatEosStruct structWithStream:ks];
 }
 
 - (void)tearDown {

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_n_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSNestedSameName initWithStream:ks];
+    self.r = [KSNestedSameName structWithStream:ks];
 }
 
 - (void)tearDown {

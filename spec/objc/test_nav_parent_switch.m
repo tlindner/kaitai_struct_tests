@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nav_parent_switch.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSNavParentSwitch initWithStream:ks];
+    self.r = [KSNavParentSwitch structWithStream:ks];
 }
 
 - (void)tearDown {

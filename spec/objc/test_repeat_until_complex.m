@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_until_complex.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSRepeatUntilComplex initWithStream:ks];
+    self.r = [KSRepeatUntilComplex structWithStream:ks];
 }
 
 - (void)tearDown {

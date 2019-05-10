@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/instance_std_array.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSInstanceUserArray initWithStream:ks];
+    self.r = [KSInstanceUserArray structWithStream:ks];
 }
 
 - (void)tearDown {

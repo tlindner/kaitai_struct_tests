@@ -31,7 +31,7 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
     out.puts("[super setUp];")
     out.puts("NSURL *dataURL = [NSURL fileURLWithPath:@\"src/" + spec.data + "\"];")
     out.puts("KSStream *ks = [KSStream streamWithURL:dataURL];")
-    out.puts(s"self.r = [$className initWithStream:ks];")
+    out.puts(s"self.r = [$className structWithStream:ks];")
     out.dec
     out.puts("}")
     out.puts

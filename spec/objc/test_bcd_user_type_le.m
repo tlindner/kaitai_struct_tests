@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/bcd_user_type_le.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSBcdUserTypeLe initWithStream:ks];
+    self.r = [KSBcdUserTypeLe structWithStream:ks];
 }
 
 - (void)tearDown {

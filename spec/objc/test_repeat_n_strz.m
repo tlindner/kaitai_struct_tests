@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_n_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSRepeatNStrz initWithStream:ks];
+    self.r = [KSRepeatNStrz structWithStream:ks];
 }
 
 - (void)tearDown {

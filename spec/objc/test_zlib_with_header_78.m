@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/zlib_with_header_78.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSZlibWithHeader78 initWithStream:ks];
+    self.r = [KSZlibWithHeader78 structWithStream:ks];
 }
 
 - (void)tearDown {

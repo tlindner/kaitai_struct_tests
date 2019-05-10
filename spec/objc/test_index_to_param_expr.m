@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/index_sizes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSIndexToParamExpr initWithStream:ks];
+    self.r = [KSIndexToParamExpr structWithStream:ks];
 }
 
 - (void)tearDown {

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/full256.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSIoLocalVar initWithStream:ks];
+    self.r = [KSIoLocalVar structWithStream:ks];
 }
 
 - (void)tearDown {

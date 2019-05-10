@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/if_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSEnumIf initWithStream:ks];
+    self.r = [KSEnumIf structWithStream:ks];
 }
 
 - (void)tearDown {

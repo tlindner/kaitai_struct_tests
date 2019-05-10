@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSRepeatEosBit initWithStream:ks];
+    self.r = [KSRepeatEosBit structWithStream:ks];
 }
 
 - (void)tearDown {

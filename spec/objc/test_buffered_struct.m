@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/buffered_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSBufferedStruct initWithStream:ks];
+    self.r = [KSBufferedStruct structWithStream:ks];
 }
 
 - (void)tearDown {

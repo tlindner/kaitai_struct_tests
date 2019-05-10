@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/position_abs.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSPositionAbs initWithStream:ks];
+    self.r = [KSPositionAbs structWithStream:ks];
 }
 
 - (void)tearDown {

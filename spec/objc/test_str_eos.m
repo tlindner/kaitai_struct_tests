@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSStrEos initWithStream:ks];
+    self.r = [KSStrEos structWithStream:ks];
 }
 
 - (void)tearDown {

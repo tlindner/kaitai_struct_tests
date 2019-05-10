@@ -11,7 +11,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_integers.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSSwitchIntegers2 initWithStream:ks];
+    self.r = [KSSwitchIntegers2 structWithStream:ks];
 }
 
 - (void)tearDown {

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/position_in_seq.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSPositionInSeq initWithStream:ks];
+    self.r = [KSPositionInSeq structWithStream:ks];
 }
 
 - (void)tearDown {

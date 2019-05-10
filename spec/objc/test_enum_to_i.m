@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSEnumToI initWithStream:ks];
+    self.r = [KSEnumToI structWithStream:ks];
 }
 
 - (void)tearDown {

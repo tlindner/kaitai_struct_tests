@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSNavParentVsValueInst initWithStream:ks];
+    self.r = [KSNavParentVsValueInst structWithStream:ks];
 }
 
 - (void)tearDown {

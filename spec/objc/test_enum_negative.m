@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_negative.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSEnumNegative initWithStream:ks];
+    self.r = [KSEnumNegative structWithStream:ks];
 }
 
 - (void)tearDown {

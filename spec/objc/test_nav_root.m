@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nav.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSNavRoot initWithStream:ks];
+    self.r = [KSNavRoot structWithStream:ks];
 }
 
 - (void)tearDown {

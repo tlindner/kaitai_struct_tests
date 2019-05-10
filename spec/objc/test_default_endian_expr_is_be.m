@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/endian_expr.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSDefaultEndianExprIsBe initWithStream:ks];
+    self.r = [KSDefaultEndianExprIsBe structWithStream:ks];
 }
 
 - (void)tearDown {

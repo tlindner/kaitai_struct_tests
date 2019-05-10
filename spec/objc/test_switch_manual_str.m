@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_opcodes.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSSwitchManualStr initWithStream:ks];
+    self.r = [KSSwitchManualStr structWithStream:ks];
 }
 
 - (void)tearDown {

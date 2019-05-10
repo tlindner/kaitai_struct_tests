@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_xor_4.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSProcessXor4Const initWithStream:ks];
+    self.r = [KSProcessXor4Const structWithStream:ks];
 }
 
 - (void)tearDown {

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSExprSizeofValue0 initWithStream:ks];
+    self.r = [KSExprSizeofValue0 structWithStream:ks];
 }
 
 - (void)tearDown {

@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_tlv.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSSwitchManualIntSizeElse initWithStream:ks];
+    self.r = [KSSwitchManualIntSizeElse structWithStream:ks];
 }
 
 - (void)tearDown {

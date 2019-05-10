@@ -13,7 +13,7 @@
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nested_same_name2.bin"];
     KSStream *ks = [KSStream streamWithURL:dataURL];
-    self.r = [KSNestedSameName2 initWithStream:ks];
+    self.r = [KSNestedSameName2 structWithStream:ks];
 }
 
 - (void)tearDown {
