@@ -10,8 +10,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_integers.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [switch_integers_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [switch_integers_t initWithStream:ks];
 }
 
 - (void)tearDown {

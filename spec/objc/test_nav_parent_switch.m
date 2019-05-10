@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nav_parent_switch.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [nav_parent_switch_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [nav_parent_switch_t initWithStream:ks];
 }
 
 - (void)tearDown {

@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_xor_1.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [process_xor_const_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [process_xor_const_t initWithStream:ks];
 }
 
 - (void)tearDown {

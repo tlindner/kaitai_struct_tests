@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/switch_opcodes.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [cast_nested_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [cast_nested_t initWithStream:ks];
 }
 
 - (void)tearDown {

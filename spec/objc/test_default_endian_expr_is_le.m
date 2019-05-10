@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/endian_expr.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [default_endian_expr_is_le_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [default_endian_expr_is_le_t initWithStream:ks];
 }
 
 - (void)tearDown {

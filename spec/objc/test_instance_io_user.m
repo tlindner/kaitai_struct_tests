@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/instance_io.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [instance_io_user_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [instance_io_user_t initWithStream:ks];
 }
 
 - (void)tearDown {

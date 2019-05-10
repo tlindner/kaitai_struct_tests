@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/expr_io_pos.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [expr_io_pos_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [expr_io_pos_t initWithStream:ks];
 }
 
 - (void)tearDown {

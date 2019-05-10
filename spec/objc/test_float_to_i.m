@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/floating_points.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [float_to_i_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [float_to_i_t initWithStream:ks];
 }
 
 - (void)tearDown {

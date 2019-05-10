@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/nav.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [nav_root_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [nav_root_t initWithStream:ks];
 }
 
 - (void)tearDown {

@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_rotate.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [process_rotate_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [process_rotate_t initWithStream:ks];
 }
 
 - (void)tearDown {

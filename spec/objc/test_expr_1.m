@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_encodings.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [expr_1_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [expr_1_t initWithStream:ks];
 }
 
 - (void)tearDown {

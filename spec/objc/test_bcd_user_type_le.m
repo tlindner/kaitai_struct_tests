@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/bcd_user_type_le.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [bcd_user_type_le_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [bcd_user_type_le_t initWithStream:ks];
 }
 
 - (void)tearDown {

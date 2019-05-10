@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/term_strz.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [expr_enum_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [expr_enum_t initWithStream:ks];
 }
 
 - (void)tearDown {

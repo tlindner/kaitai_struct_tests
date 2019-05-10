@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/str_pad_term.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [bytes_pad_term_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [bytes_pad_term_t initWithStream:ks];
 }
 
 - (void)tearDown {

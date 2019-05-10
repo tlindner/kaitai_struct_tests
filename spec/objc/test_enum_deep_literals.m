@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/enum_0.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [enum_deep_literals_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [enum_deep_literals_t initWithStream:ks];
 }
 
 - (void)tearDown {

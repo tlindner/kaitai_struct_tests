@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/position_abs.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [multiple_use_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [multiple_use_t initWithStream:ks];
 }
 
 - (void)tearDown {

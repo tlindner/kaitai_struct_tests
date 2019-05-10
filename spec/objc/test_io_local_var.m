@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/full256.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [io_local_var_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [io_local_var_t initWithStream:ks];
 }
 
 - (void)tearDown {

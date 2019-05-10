@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/repeat_until_s4.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [repeat_until_s4_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [repeat_until_s4_t initWithStream:ks];
 }
 
 - (void)tearDown {

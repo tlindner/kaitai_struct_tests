@@ -10,8 +10,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/process_coerce_switch.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [process_coerce_switch_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [process_coerce_switch_t initWithStream:ks];
 }
 
 - (void)tearDown {

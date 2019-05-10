@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/instance_std_array.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [instance_std_array_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [instance_std_array_t initWithStream:ks];
 }
 
 - (void)tearDown {

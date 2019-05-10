@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/fixed_struct.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [docstrings_docref_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [docstrings_docref_t initWithStream:ks];
 }
 
 - (void)tearDown {

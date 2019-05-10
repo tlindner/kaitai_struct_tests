@@ -12,8 +12,8 @@
 - (void)setUp {
     [super setUp];
     NSURL *dataURL = [NSURL fileURLWithPath:@"src/position_to_end.bin"];
-    kstream *ks = [kstream streamWithURL:dataURL];
-    self.r = [position_to_end_t initialize:ks];
+    KSStream *ks = [KSStream streamWithURL:dataURL];
+    self.r = [position_to_end_t initWithStream:ks];
 }
 
 - (void)tearDown {
