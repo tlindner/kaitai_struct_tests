@@ -73,7 +73,7 @@ class ObjcSG(spec: TestSpec, provider: ClassTypeProvider) extends BaseGenerator(
   }
 
   def trueArrayAssert(check: TestAssert, elType: DataType, elts: Seq[Ast.expr]): Unit = {
-  	simpleAssert(check)
+    simpleAssert(check)
   }
 
   override def indentStr: String = "    "
